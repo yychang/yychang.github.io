@@ -1,0 +1,221 @@
+Kalman Filter
+===
+
+## Context
+
+Given a system that contains $N$ unknown states, whose values at time $k$ are denoted as
+
+$$
+\mathbf{x}_k \in \mathbb{R}^N
+$$
+
+We want to know the values of $\mathbf{x}_k$, but we were unable to directly observe $\mathbf{x}_k$. What we have is a noisy observation $\mathbf{z}_k \in \mathbb{R}^N$ for any time $k$. 
+
+Assume that we can model the transition of the unknown states $\mathbf{x}_k$ over time based on the following equation (known as the **process equation**):
+
+$$
+\mathbf{x}_k = \mathbf{F}_k\mathbf{x}_{k-1} + \mathbf{B}_k\mathbf{u}_k + \mathbf{w}_k
+$$
+
+where
+
+* $\mathbf{F}_k \in \mathbb{R}^{N \times N}$ is the state transition model which is applied to the previous state $\mathbf{x}_{k-1}$
+* $\mathbf{B}_k \in \mathbb{R}^{N \times L}$ is the control-input model which is applied to the control vector $\mathbf{u}_k$
+* $\mathbf{u}_k \in \mathbb{R}^L$ is the control input to the system
+* $\mathbf{w}_k \in \mathbb{R}^N$ is the process noise which is assumed to be drawn from a zero mean multivariate normal distribution with covariance $\mathbf{Q}_k$: $\mathbf{w}_k \sim \mathcal {N} \left(0,\mathbf{Q}_{k}\right)$
+
+Also, assume that we can model the observation $\mathbf{z}_k$ of the true state $\mathbf{x}_k$ based on following equation (known as the **measurement equation** or **observation equation**):
+
+$$
+\mathbf{z}_k = \mathbf{H}_k \mathbf{x}_k + \mathbf{v}_k
+$$
+
+where
+
+* $\mathbf{H}_k \in \mathbb{R}^{N \times N}$ is the observation model which maps the true state space into the observed space
+* $\mathbf{v}_k \in \mathbb{R}^N$ is the observation noise which is assumed to be drawn from a zero mean multivariate normal distribution with covariance $\mathbf{R}_k$: $\mathbf{v}_k \sim \mathcal {N} \left(0,\mathbf{R}_{k}\right)$
+
+We want to have a good estimate of $\mathbf{x}_k$ based on the history of the observations $\mathbf{z}_0, \mathbf{z}_1, \cdots, \mathbf{z}_k$
+
+## Problem
+
+Given that we know all of $\mathbf{F}_k$, $\mathbf{B}_k$, $\mathbf{u}_k$, $\mathbf{Q}_k$, $\mathbf{H}_k$, and $\mathbf{R}_k$, how to make a good estimate of $\mathbf{x}_k$ based on the history of the observations $\mathbf{z}_0, \mathbf{z}_1, \cdots, \mathbf{z}_k$?
+
+## Solution
+
+Define the following variables:
+
+* $\hat{\mathbf{x}}_{k|k} \in \mathbb{R}^N$, the a posteriori state estimate at time $k$ given observations up to and including at time $k$
+* $\mathbf{P}_{k|k} \in \mathbb{R}^{N \times N}$, the a posteriori error covariance matrix
+ * This can be considered a measure of the estimated accuracy of the state estimate.
+
+The objective is to compute $\hat{\mathbf{x}}_{k|k}$ that minimize the residual error ($\mathbf{x}_k - \hat{\mathbf{x}}_{k|k}$) by going through the following steps:
+
+1. Empirically specify the initial state $\hat{\mathbf{x}}_{0|0}$ and $\mathbf{P}_{0|0}$
+2. Repeat the following two steps for k = 1, 2, 3, ...
+   1. Do the "predict" step (computing $\hat{\mathbf{x}}_{k|k-1}$ and $\mathbf{P}_{k|k-1}$)
+   2. Do the "update" step (computing $\tilde{\mathbf{y}}_k$, $\mathbf{S}_k$, $\mathbf{K}_k$, $\mathbf{S}_k$, $\hat{\mathbf{x}}_{k|k}$, $\mathbf{P}_{k|k}$, $\tilde{\mathbf{y}}_{k|k}$)
+
+### Initialization
+
+The initial state is typically chosen as follows:
+
+$$
+\begin{align}
+\hat{\mathbf{x}}_{0|0} &= \operatorname{E} \left( \mathbf{x}_0 \right) \\
+\mathbf{P}_{0|0} &= \operatorname{E} \left[ (\mathbf{x}_0 - \hat{\mathbf{x}}_{0|0})(\mathbf{x}_0 - \hat{\mathbf{x}}_{0|0})^T \right]
+\end{align}
+$$
+
+### The "Predict" Phase
+
+The predict phase computes the followings:
+
+$$
+\begin{align}
+\hat{\mathbf{x}}_{k|k-1} &= \mathbf{F}_k\hat{\mathbf{x}}_{k-1|k-1}+\mathbf{B}_k\mathbf{u}_k \\
+\mathbf{P}_{k|k-1} &= \mathbf{F}_k \mathbf{P}_{k-1|k-1} \mathbf{F}_k^T+\mathbf{Q}_k
+\end{align}
+$$
+
+### The "Update" Phase
+
+The update phase computes the followings:
+
+$$
+\begin{align}
+\tilde{\mathbf{y}}_k &= \mathbf{z}_k - \mathbf{H}_k \hat{\mathbf{x}}_{k|k-1} \\
+\mathbf{S}_k &= \mathbf{H}_k \mathbf{P}_{k|k-1} \mathbf{H}_k^T + \mathbf{R}_k \\
+\mathbf{K}_k &= \mathbf{P}_{k|k-1}  \mathbf{H}_k^T  \mathbf{S}_k^{-1} \\
+\hat{\mathbf{x}}_{k|k} &= \hat{\mathbf{x}}_{k|k-1} + \mathbf{K}_k \tilde{\mathbf{y}}_k \\
+\mathbf{P}_{k|k} &= \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k  \right) \mathbf{P}_{k|k-1} \\
+\tilde{\mathbf{y}}_{k|k} &= \mathbf{z}_k - \mathbf{H}_k  \hat{\mathbf{x}}_{k|k}
+\end{align}
+$$
+
+where
+
+* $\tilde{\mathbf{y}}_k$ is the measurement pre-fit residual
+* $\mathbf{S}_k$ is the pre-fit residual covariance
+* $\mathbf{K}_k$ is the optimal Kalman gain
+* $\hat{\mathbf{x}}_{k|k}$ is the a posteriori state estimate
+* $\mathbf{P}_{k|k}$ is the a posteriori estimate covariance
+* $\tilde{\mathbf{y}}_{k|k}$ is the measurement post-fit residual
+
+## Notes
+
+### Estimation of the noise covariances
+
+If the noise covariances $\mathbf{Q}_k$ and $\mathbf{R}_k$ is not known, one practical approach is to use autocovariance least-squares (ALS) technique to estimate them.
+
+### Kalman filer is a MMSE estimator
+
+The Kalman filter is a MMSE estimator that minimizes the error $\mathbf{x}_k - \hat{\mathbf{x}}_{k|k}$ under the following assumptions:
+
+1. The models ($\mathbf{x}_k$ and $\mathbf{z}_k$) are accurate
+2. The values for $\hat{ \mathbf{x} }_{0|0}$ and $\mathbf{P}_{0|0}$ accurately reflect the distribution of the initial state values
+3. The measurement error $\mathbf{v}_k$, the process noise $\mathbf{w}_k$, and the initial state $\mathbf{x}_{0|0}$ are mutually independent,
+
+To prove it, we first derive the error covariance $\mathbf{P}_{k|k}$ from its definition:
+
+$$
+\mathbf{P}_{k|k} = \operatorname{cov} \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k} \right)
+$$
+
+substitue in the definition of $\hat{\mathbf{x}}_{k|k}$, $\tilde{\mathbf{y}}_k$, and $\mathbf{z}_k$, we get
+
+$$
+\begin{align}
+\mathbf{P}_{k|k} &= \operatorname{cov} 
+\left( 
+    \mathbf{x}_k - 
+    \left[ 
+        \hat{\mathbf{x}}_{k|k-1} + \mathbf{K}_k 
+        \left( 
+            \mathbf{H}_k \mathbf{x}_k + 
+            \mathbf{v}_k  - 
+            \mathbf{H}_k \hat{\mathbf{x}}_{k|k-1}
+        \right)
+    \right]
+\right)\\
+&= \operatorname{cov} 
+\left[
+    \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) 
+    \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k-1} \right) - 
+    \mathbf{K}_k \mathbf{v}_k
+\right]
+\end{align}
+$$
+
+With the assumption of the mutually independent $\mathbf{v}_k$, $\mathbf{w}_k$, and $\mathbf{x}_{0|0}$, we get
+
+$$
+\begin{align}
+\mathbf{P}_{k|k} &= \operatorname{cov} 
+\left[ 
+    \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) 
+    \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k-1} \right)
+\right] + 
+\operatorname{cov} \left[  \mathbf{K}_k \mathbf{v}_k \right] \\
+&= \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \operatorname{cov} \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k-1} \right) 
+\left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)^T + 
+\mathbf{K}_k \operatorname{cov} \left( \mathbf{v}_k \right) \mathbf{K}_k^T
+\end{align}
+$$
+
+By definition,
+
+$$
+\begin{align}
+\mathbf{P}_{k|k-1} &= \operatorname{cov} \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k-1} \right) \\
+\mathbf{R}_k & = \operatorname{cov} \left( \mathbf{v}_k \right)
+\end{align}
+$$
+
+therefore we get
+
+$$
+\begin{align}
+\mathbf{P}_{k|k} &= 
+\left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)
+\mathbf{P}_{k|k-1}
+\left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)^T + 
+\mathbf{K}_k \mathbf{R}_k \mathbf{K}_k^T \\
+&=
+\mathbf{P}_{k|k-1} - 
+\mathbf{K}_k \mathbf{H}_k \mathbf{P}_{k|k-1} - 
+\mathbf{P}_{k|k-1}\mathbf{H}^T_k \mathbf{K}^T_k + 
+\mathbf{K}_k \left( \mathbf{H}_k \mathbf{P}_{k|k-1} \mathbf{H}^T_k + \mathbf{R}_k \right) \mathbf{K}^T_k \\
+&=
+\mathbf{P}_{k|k-1} - 
+\mathbf{K}_k \mathbf{H}_k \mathbf{P}_{k|k-1} - 
+\mathbf{P}_{k|k-1}\mathbf{H}^T_k \mathbf{K}^T_k + 
+\mathbf{K}_k \mathbf{S}_k \mathbf{K}^T_k
+\end{align}
+$$
+
+Also, by definition:
+
+$$
+\operatorname{tr} \left( \mathbf{P}_{k|k} \right) = E \left[ || \mathbf{x}_k - \hat{\mathbf{x}}_{k|k} ||^2  \right]
+$$
+
+Therefore, to miminze $E \left[ || \mathbf{x}_k - \hat{\mathbf{x}}_{k|k} ||^2 \right]$, we want to solve the following equation:
+
+$$
+\frac{ \partial \; \operatorname{tr} (\mathbf{P} _{k|k})}{\partial \;\mathbf{K}_k} = -2 \left( \mathbf{H}_k \mathbf{P}_{k|k-1} \right)^T +  2 \mathbf{K}_k \mathbf{S}_k = 0
+$$
+
+which yields
+
+$$
+\mathbf{K}_k = \mathbf{P}_{k|k-1} \mathbf{H}^T_k \mathbf{S}^{-1}_k
+$$
+
+## Reference
+
+* [Wikipedia: Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)
+* [D. Simon, Kalman filtering with state constraints: a survey of linear and nonlinear algorithms](https://academic.csuohio.edu/simond/pubs/IETKalman.pdf)
+
+---
+**Tags**: #dsp 
