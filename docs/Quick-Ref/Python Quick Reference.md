@@ -1,3 +1,8 @@
+---
+tags:
+  - quick-ref
+---
+
 Python Quick Reference
 ===
 
@@ -54,13 +59,13 @@ x.print_hello_world()
 | Indexed Assignment  | obj[k] = v  | setitem(obj, k, v) | |
 | Indexed Deletion  | del obj[k]  | delitem(obj, k) | |
 | Indexing  | obj[k]  | getitem(obj, k) | |
-| Left Shift  | @@a << b@@  | lshift(a, b) | |
+| Left Shift  | a << b  | lshift(a, b) | |
 | Modulo  | a % b  | mod(a, b) | |
 | Multiplication  | a * b  | mul(a, b) | |
 | Negation (Arithmetic)  | - a  | neg(a) | |
 | Negation (Logical)  | not a  | not_(a) | |
 | Positive  | + a  | pos(a) | |
-| Right Shift  | @@a >> b@@  | rshift(a, b) | |
+| Right Shift  | a >> b  | rshift(a, b) | |
 | Slice Assignment  | seq[i:j] = values  | setitem(seq, slice(i, j), values) | |
 | Slice Deletion  | del seq[i:j]  | delitem(seq, slice(i, j)) | |
 | Slicing  | seq[i:j]  | getitem(seq, slice(i, j)) | |
@@ -749,6 +754,3 @@ for (x1, x2, x3) in prod:
 from datetime import datetime
 time_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 ```
-
-
-**tags** : `quick-ref`

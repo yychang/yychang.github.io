@@ -1,3 +1,8 @@
+---
+tags:
+  - dsp
+---
+
 Kalman Filter
 ===
 
@@ -216,6 +221,3 @@ $$
 
 * [Wikipedia: Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)
 * [D. Simon, Kalman filtering with state constraints: a survey of linear and nonlinear algorithms](https://academic.csuohio.edu/simond/pubs/IETKalman.pdf)
-
----
-**Tags**: #dsp 
