@@ -32,7 +32,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   # - pymdownx.details
-  # - pymdownx.magiclink
+  - pymdownx.magiclink
   # - pymdownx.tasklist:
   #     custom_checkbox: true
 #  - pymdownx.emoji:
