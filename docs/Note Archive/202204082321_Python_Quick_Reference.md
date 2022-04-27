@@ -3,8 +3,7 @@ tags:
   - quick-ref
 ---
 
-Python Quick Reference
-===
+# Python Quick Reference
 
 ## Terminologies
 
