@@ -25,6 +25,7 @@ theme:
 # Extensions
 markdown_extensions:
   - footnotes
+  - meta
   # - attr_list
   - pymdownx.arithmatex:
       generic: true
@@ -48,3 +49,5 @@ extra_javascript:
 plugins:
   - search
   - roamlinks 
+  - tags:
+      tags_file: Tags.md
