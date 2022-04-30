@@ -142,19 +142,20 @@ program_cmd = ("MyProg.exe" +
 
 ```python
 # Multiplication and concatenation
-s1 = 3 * 'un' + 'ium' # s1 will be 'unununium'
+s1 = 3 * 'un' + 'ium' # s1 = 'unununium'
 
 # Slicing
-s2 = s1[0:2]  # s2 is 'un', which is s1 from position 0 (included) to 2 (excluded)
-s3 = s1[:2]   # s3 is 'un', which is s1 from the beginning to position 2 (excluded)
-s4 = s1[4:]   # s4 is 'unium', which is s1 from position 4 (included) to the end
-s5 = s1[-2:]  # s5 is 'um', which is s1 from the second-last (included) to the end
+s1 = 'abcdefg'
+s2 = s1[0:2]  # s2 = 'ab'
+s3 = s1[:2]   # s3 = 'ab'
+s4 = s1[4:]   # s4 = 'efg'
+s5 = s1[-2:]  # s5 = 'fg'
 
 # Remove trailing whitespaces and/or leading whitespaces, including newlines
 s6 = '  \r\n  \r  abc def  \n\n  \r\n '
 s6.rstrip()   # remove trailing whitespaces (returns '  \r\n  \r  abc def')
 s6.lstrip()   # remove leading whitespaces (returns 'abc def  \n\n  \r\n ')
-s6.strip()    # remove both leading whitespaces and trailing whitespaces (returns 'abc def')
+s6.strip()    # remove both leading and trailing whitespaces (returns 'abc def')
 
 # Return the string after the last slash
 s7 = 'https://en.wikipedia.org/wiki/Least_mean_squares_filter'
@@ -167,7 +168,8 @@ s9 = s7.split('/', 1)[0]
 ### Raw String Literals
 
 ```python
-# With prefix 'r', backslash will be treated as literal with only one exception: to escape the quote
+# With prefix 'r', backslash will be treated as literal with only one exception:
+# to escape the quote
 s1 = r"My \"Hello World!\" program is at C:\Project\HelloWorld"
 
 # Raw string is handy when defining the regular expression patterns
@@ -181,8 +183,8 @@ Pattern = r"int function\((.+)\)"
 ```python
 List1 = [1, 2, 3, 4, 5]
 List2 = ["%d" % (x) for x in List1]
-List3 = range(1,6)       # Works only in Python 2.x, where range() returns a list
-List4 = list(range(1,6)) # Works only in Python 3.x, where range() returns an iterator
+List3 = range(1,6)       # Works only in Python 2.x (range() returns a list)
+List4 = list(range(1,6)) # Works only in Python 3.x (range() returns an iterator)
 ```
 
 ### Useful List Operations
@@ -216,7 +218,9 @@ for x1,x2 in zip(List1, List2):
 
 # Create a duplicated "view"
 x = [1 2 3]
-y = [x]*5    # y will be a list of 5 references to x. Note that each element in y references to the same x, so changing x will affect every entry in y
+y = [x]*5    # y will be a list of 5 references to x.
+             # Note that each element in y references to the same x,
+             # so changing x will affect every entry in y
 
 # Loop through a list in batch
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -262,10 +266,12 @@ not_a_tuple = (1)  # This won't create a tuple
 ```python
 x[0]    # Access the first element
 x[-1]   # Access the last element
-x[1::2] # Access the all the elements from the 2nd to the end of the tuple, with a step size of 2.
+x[1::2] # Access the all the elements from the 2nd to the end of the tuple,
+        # with a step size of 2.
 
 # Tuple unpacking: assign the elements in the tuple to individual variables.
-# The number of variables on the left hand side has to be equal to the number of values in the tuple
+# The number of variables on the left hand side has to be equal to the number
+# of values in the tuple
 a, b, c = x
 (a, b, c) = x
 ```
@@ -357,12 +363,13 @@ To modify the list while iterating through its elements, it's highly recommended
 words = ['cat', 'window', 'defenestrate']
 
 # Loop over a slice copy "words[:]" of the original list "words"
-for w in words[:]:  
+for w in words[:]:
     if len(w) > 6:
         words.insert(0, w)
 
-# Loop over the original list, resulting in an infinite loop keeping inserting 'defenestrate'
-for w in words:  
+# Loop over the original list, resulting in an infinite loop keeping inserting
+# 'defenestrate'
+for w in words:
     if len(w) > 6:
         words.insert(0, w)
 ```
@@ -429,8 +436,13 @@ Move to next element
 
 ```python
 x = range(5)
-next(x)     # Pop an element (and print the popped element to STDOUT)
-_ = next(x) # Pop an element and assign it to _, so that the popped element will not be printed to STDOUT
+
+# Pop an element (and print the popped element to STDOUT)
+next(x)
+
+# Pop an element and assign it to _, so that the popped element will not be
+# printed to STDOUT
+_ = next(x)
 ```
 
 ## File/Directory Operations
@@ -714,7 +726,8 @@ with subprocess.Popen(some_command, stderr=subprocess.STDOUT, stdout=subprocess.
                         tqdm(total=num_files) as pbar:
     file_processed = 0
     for line in p.stdout:
-        # Assuming that some_command will print the string "Processing file <Num>" to stdout
+        # Assuming that some_command will print the string
+        # "Processing file <Num>" to stdout
         m = re.match(r'^Processing file (\d+)', line)
         if(m):
             latest_processed = int(m.group(1))
@@ -745,7 +758,7 @@ List3 = [4, 5, 6]
 prod = itertools.product(List1, List2, List3)
 for (x1, x2, x3) in prod:
     myfunc(x1, x2, x3)
-``` 
+```
 
 ### Get the current time as a string of custom format
 
