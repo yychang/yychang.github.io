@@ -1,7 +1,7 @@
 ---
 aliases: []
 tags:
-  - FN
+  - quick-ref
 ---
 
 # Windows Command Line Quick Reference 

@@ -1,7 +1,7 @@
 ---
 aliases: []
 tags:
-  - FN
+  - quick-ref
 ---
 
 # Vim Quick Reference
