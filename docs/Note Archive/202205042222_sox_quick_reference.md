@@ -18,17 +18,57 @@ Highlights:
 * The _global options_ can be specified anywhere before the first effect
 * The _effects_ should be specified after the `outfile` and will be applied to the `outfile` after the inputs are combined.
 
+## Input File Combining
+SoX supports the following methods to combine multiple input files:
+
+* _concatenate_: 
+    * Default method for SoX. Or explicitly specified by global option `--combine concatenate`
+    * Input files must have the same sampling rate and the same number of channels.
+    * $N$ input files of duration $T_1, T_2, \cdots, T_N$ will be concatenated to one output of duration $(T_1+T_2+\cdots+T_N)$
+* _mix_:
+    * Specified by global option `--combine mix` or `-m`
+    * Input files must have the same sampling rate.
+    * The $k$-th channel at output is the sum of the $k$-th channel of all $N$ input files
+    * If infile option `--volume` is not specified for individual input files, a normalization factor of $\frac{1}{N}$ will be applied by default.
+* _mix-power_:
+    * Specifiled by global option `--combine mix-power`
+    * Similar to _mix_, but the default normalization factor is $\frac{1}{\sqrt{N}}$
+* _merge_:
+    * Specified by global option `--combine merge` or `-M`
+    * Input files must have the same sampling rate
+    * $N$ input files of  $K_1, K_2, \cdots, K_N$ channels will be merged to one output of  $(K_1 + K_2 + \cdots + K_N)$ channels
+* _multiply_: 
+    * Specified by global option `--combine multiply` or `-T`
+    * Input files must hoave the same sampling rate
+    * The $k$-th channel at output is the product of the $k$-th channel of all $N$ input files. If the number of channels in the input files is not the same, the missing channels are considered to contain all zero.
+
 ## Scaling Audio File
+
+### Scaling Input by infile option `-v`
 
 ```bash
 # scale in1 by 2x and scale in2 by 0.5x and then combine them
 sox -v 2 in1.wav -v 0.5 in2.wav out.wav
+```
 
+### Scaling Output by effect `vol`
+
+```bash
 # scale out.wav by 2x
 sox in.wav out.wav vol 2
 
 # scale out.wav by 3dB
 sox in.wav out.wav vol 3dB
+```
+
+### Normalizing Audio with global option  `--norm`
+
+```bash
+# Normalize audio to magnitude +/-1.0
+sox --norm in.wav out.wav
+
+# Normalize audio to magnitude +/-0.5, or -6dBFS
+sox --norm=-6 in.wav out.wav
 ```
 
 ## Trimming Audio File
@@ -45,14 +85,6 @@ To trim an audio file to discard the audio before timestamp N1 (unit: seconds) a
 
 ```bash
 sox in.wav out.wav trim N1 L1
-```
-
-## Appending Multiple Audio Files into One Audio File
-
-To append (merge) multiple audio files into one, just put all the files to be appended into the `sox` argument, and provide the output file name as the last argument :
-
-```bash
-sox in1.wav in2.wav in3.wav in4.wav in5.wav in6.wav out.wav
 ```
 
 ## Remixing the channels
