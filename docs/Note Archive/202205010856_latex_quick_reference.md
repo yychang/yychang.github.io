@@ -4,7 +4,7 @@ tags:
   - quick-ref
 ---
 
-# Latext Quick Reference
+# LaTex Quick Reference
 
 ## Greek and Hebrew letters
 
