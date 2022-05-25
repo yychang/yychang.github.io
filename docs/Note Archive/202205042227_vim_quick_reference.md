@@ -540,6 +540,12 @@ Make sure the browser executable can be found in PATH.
 z=                                 : Show the possible correction
 zg                                 : Add word under the cursor as a good word to the first spellfile
 zw                                 : Add word under the cursor as a bad word to the first spellfile
+2zg                                : Add word under the cursor as a good word to the second spellfile
+```
+
+Specify the path of `spellfile` (multiple files can be specified, separated by comma ',')
+```
+:set spellfile=~/.vim/spell/user1.utf-8.add,~/.vim/spell/user2.utf-8.add
 ```
 
 ## Paste to Vim Command Line
