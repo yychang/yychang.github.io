@@ -121,3 +121,10 @@ m = re.search(pattern, sentence)
 if (m):
     some_word = m.group('SomeWord')
 ```
+
+## Non-capturing groups
+`(?:...)`: Define a non-capturing group.
+
+## Reference
+
+* https://docs.python.org/3/library/re.html
