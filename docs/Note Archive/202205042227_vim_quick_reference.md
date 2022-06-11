@@ -8,13 +8,15 @@ tags:
 
 ## Terminology
 
+### buffer, window, tab
+
 A _buffer_ is the in-memory text of a file.
 
 A _window_ is a viewport on a buffer.
 
 A _tab_ page is a collection of windows.
 
-### "word" v.s. "WORD"
+### word v.s. WORD
 
 A _word_ consists of a "sequence of letters, digits and underscores", or a "sequence of other non-blank characters", separated with white space (spaces, tabs, \<EOL\>). An empty line is also considered to be a word.
 
@@ -35,6 +37,14 @@ There are 3 fundamental modes in Vim:
 * normal (command) mode
 * insert mode
 * visual mode
+
+### yank, delete, change
+
+| Term | Behavior |
+| ---- | ---- |
+| _yank_ | copy the text into some register |
+| _delete_ | delete the text and keep it in some register |
+| _change_ |delete the text and keep it in some register, then enter the insert mode. |
 
 ## Environment Setup
 
@@ -93,7 +103,7 @@ h j k l     : move cursor
 <C-u>       : half page forward
 <C-d>       : half page backward
 $           : Move cursor to the end of current line
-^ 0 (zero)  : Move cursor to the beginning of current line
+^ 0         : Move cursor to the beginning of current line
 w e         : Forward one word (to the beginning or the end of the word)
 b           : Backward one word (to the beginning of the word)
 ge          : Backward one word (to the end of the word)
@@ -106,11 +116,11 @@ gi          : switches to insertion mode placing the cursor at the same location
 %           : match brackets {}[]()
 ```
 
-### Copy(Yank)/Paste/Delete
+### Yank/Paste/Delete
 
 ```
 v           : visual mode -- use to select text with cursor movement or mouse
-y           : use to yank (copy) what was selected
+y           : use to yank what was selected
 <Esc>       : Switchb back to normal mode
 
 x           : delete character under cursor
@@ -171,18 +181,6 @@ ce       : change to end of word (a complete change command)
 ```
 <C-v><C-m>     : Enter carriage return (^M)
 <C-v><C-j>     : Enter <Nul> (^@)
-```
-
-## Make it easy to update/reload `vimrc`
-
-```
-" source $MYVIMRC reloads the saved $MYVIMRC
-:nmap <Leader>s :source $MYVIMRC
-
-" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-:nmap <Leader>v :e $MYVIMRC
-
-" <Leader> is \ by default, so those commands can be invoked by doing \v and \s
 ```
 
 ## Visual mode mappings
@@ -269,7 +267,7 @@ mA mB    : Mark current location as Mark 'A' or Mark 'B' (global)
 <Bar>    : | pipe
 ```
 
-## Copy(Yank)/Paste with registers
+## Yank/Paste with registers
 
 ```
 :reg          : display contents of all registers
@@ -286,12 +284,43 @@ mA mB    : Mark current location as Mark 'A' or Mark 'B' (global)
 :let @+ = expand("%:p")    : yank the current buffer path to register + (the system clipboard on Linux)
 ```
 
+## Registers
+
+| Register Type | Register Name | Comment |
+| ---- | ---- | ---- |
+| Unnamed register | " | Default register to store the most recent copy/delete/change |
+| Numberd register 0 | 0 | Default register to store the most recent copy |
+| Numbered register 1 | 1 | Default register to store the most recent delete/change that are more than 1 line. |
+| Numbered register 2...9 | |
+| Named register a | a | |
+| Named register A | A |
+| Named register b...z |  |
+| Named register B...Z |  |
+| Small delete register | - | Default register to store the most delete/change that are shorter than 1 line. |
+
+To specify the register to store the yanked/deleted text, add a leading `"` before the register name:
+
+```vim
+"ayy        : Yank the current line and store it in register a
+```
+
+To execute the commands stored in a register, add a leading `@` before the register name:
+
+```
+@a          : execute the commands in reg a
+```
+
 ## Execute command from buffer contents
 
 ```
 "ayy@a   : execute the Vim command in the current line
 yy@"     : same
 ```
+
+What `"ayy@a` does is "yank the current line to register `a`, then execute the commands in register `a`". 
+
+Similarly, what `yy@"` does is "yank the current line to the unnamed register  (which is `"`), then execute the commands in register `"`"
+
 
 ## Get output from shell commands
 
@@ -397,10 +426,8 @@ Editing a register/recording
 ## Conventional shifting
 
 ```
-:'a,'b>>
-# visual shifting (builtin-repeat)
-:vnoremap < <gv
-:vnoremap > >gv
+:'a,'b>>      : Shift all the lines between marker a and marker b to right
+:10,15>>      : Shift line 10 to line 15 to right
 ```
 
 ## Searching
@@ -435,7 +462,7 @@ Basic
 
 ```
 :%s/fred/joe/igc           : general substitute command
-:%s/\r_g                  : delete DOS Carriage Returns (^M)
+:%s/\r_g                   : delete DOS Carriage Returns (^M)
 :'a,'bg/fred/s/dick/joe/gc : VERY USEFUL
 :s/\(.*\):\(.*\)/\2 : \1/  : reverse fields separated by :
 ```
@@ -470,6 +497,7 @@ Note that some patterns have different meaning in search and in replacement (ref
 | \r    | \r            | Carriage return 0xD     | "Break the line here"   |
 | ^M    | \<C-v\>\<C-m\>    | Carriage return 0xD     | "Break the line here"   |
 | \^M   | \<C-v\>\<C-m\>  | \ + carriage return 0xD | Carriage return 0xD     |
+
 
 ## Global command
 

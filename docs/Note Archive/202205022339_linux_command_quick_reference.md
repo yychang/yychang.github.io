@@ -47,6 +47,11 @@ echo $PATH | tr ':' '\n'
 find . -name '*.cpp' -o -name '*.h' | xargs wc -l
 ```
 
+##  Find all .cpp and .h files whose permission is rw for user
+```bash
+find . -type f -iregex ".\*\\.\\(cpp\\|h\\)" -perm -u=rw
+```
+
 ## Use of `xargs`
 
 Delete all the `.c` files

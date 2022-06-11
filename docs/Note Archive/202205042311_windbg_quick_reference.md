@@ -15,6 +15,8 @@ tags:
 | `g` | go |
 | ``g `:123` `` | Run to source line 123 of the current source file |
 | ``g `MyModule!path/to/myfile.c:123` `` | Run to source line 123 of `path/to/myfile.c` |
+| `g MyModule!MyClass::Func` | Run to the beginning of `MyClass::Func` |
+| ``g 00007ff6`74ba5f84 `` | Run to address ``00007ff6`74ba5f84`` | 
 | `gu` | Go up = execute until the current function is complete  |
 | `p` | step over |
 | `t` | step into |
@@ -55,6 +57,7 @@ Example:
 | ``bp `MyModule!file.c:12` `` | set breakpoint at the specific line in the source code |
 | `bp MyModule!MyClass::MyFunc` | set breakpoint at the specified function. (May hit ambiguity issue if MyFunc is overloaded) |
 | `bp @@( MyClass::MyFunc )` | set breakpoint at the specified functions. (Good for overloaded functions) |
+| `bp /w "MyVar > 20" [address]` | Conditional breakpoint, triggerred when `MyVar > 20` |
 | `bu [address]` | set unresolved breakpoint |
 | `bu MyModule!MyClass::MyFunc` | set breakpoint at the specified function before MyModule is loaded |
 | <code>ba [r\|w\|e][Size] [address]</code> | set breakpoint upon access to specified address |
