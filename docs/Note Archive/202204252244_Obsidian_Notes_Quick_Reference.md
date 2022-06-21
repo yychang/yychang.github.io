@@ -26,6 +26,13 @@ Steps:
 2. Click the "folder" icon ![[Obsidian_folder_icon.jpg]] to open the folder that hosts all the CSS snippet files. Add the new CSS file to the folder.
 3. Click the "refresh" icon ![[Obsidian_refresh_icon.jpg]] to show the newly added CSS file in the "CSS snippets" section. Enable the newly added CSS styles.
 
+## Supported Front Matter Keys
+Obsidian [front matter (YAML)](https://help.obsidian.md/Advanced+topics/YAML+front+matter) natively supports the following keys:
+
+*  `tags` 
+-  `aliases` 
+-  `cssclass`
+-  `publish`
 
 ## Notice blocks
 The notice blocks are not supported by Obsidian as of v0.13.23. However, [mklepaczewski](https://forum.obsidian.md/t/notice-blocks-warning-info-success-danger-blocks/4216) used some [custom CSS](https://gist.github.com/mklepaczewski/54e451f09994b9d450de81c8baaf8aa4) to make notice blocks out of the code blocks by defining the following custom "languages"
@@ -52,7 +59,7 @@ Because this is essentially a code block, many markdown features such as math su
 ```
 
 ## Color Highlighting
-The ==color highlighting== is not supported by Obsidian as of v0.13.23. However, [deathau](https://github.com/deathau/obsidian-snippets) used some [custom CSS](https://github.com/deathau/obsidian-snippets/blob/main/realistic-highlight.css) to implment the highlighting:
+The ==color highlighting== is not supported by Obsidian as of v0.13.23. However, [deathau](https://github.com/deathau/obsidian-snippets) used some [custom CSS](https://github.com/deathau/obsidian-snippets/blob/main/realistic-highlight.css) to implement the highlighting:
 
 * `==Default highlighting==`: ==Default highlighting==
 * `<mark class="pink">pink</mask>`: <mark class="pink">pink</mask>
