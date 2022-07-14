@@ -294,24 +294,23 @@ If $E \left( \mathbf{z}(\ell) \right) = 0$, then $\operatorname{cov}(-y(\ell),\m
 To understand how the parameters ($\sigma^2_y$, $\sigma^2_{c,n}$, and $\epsilon_{\ell}$) affect the adaptation, consider the case of $N = 1$ and $g_1(\ell) = 1$, and $\mathbf{F}_\ell \mathbf{F}^H_\ell + \frac{1}{\epsilon_\ell} \mathbf{R}_\ell \in \mathbb{C}^{2 \times 2}$ can be expanded to:
 
 $$
-\begin{align*}
-\mathbf{F}_\ell \mathbf{F}^H_\ell + \frac{1}{\epsilon_\ell} \mathbf{R}_\ell &=  
-\left[ \begin{array}{c}  
-    \mathbf{z}^T(\ell) \\  
-    \mathbf{H}^T(\ell)  
-\end{array}\right]  
-\left[ \begin{array}{cc} \mathbf{z}^*(\ell) & \mathbf{H}^*(\ell) \end{array}\right]  
-+ \frac{1}{\epsilon_\ell}  
-\left[ \begin{array}{cc}  
-    \sigma^2_y(\ell) & 0 \\  
-    0 & \sigma^2_{c,1}(\ell)  
-\end{array}\right] \\  
-  
-&= \left[ \begin{array}{cc}  
-    ||\mathbf{z}||^2 + \frac{ \sigma^2_y(\ell) }{ \epsilon_\ell } & \mathbf{z}^T(\ell) \mathbf{H}^*(\ell) \\  
-    \mathbf{H}^T(\ell) \mathbf{z}^*(\ell) &  ||\mathbf{H}||^2 + \frac{ \sigma^2_{c,1}(\ell) }{ \epsilon_\ell }  
+\begin{align}
+\mathbf{F}_\ell \mathbf{F}^H_\ell + \frac{1}{\epsilon_\ell} \mathbf{R}_\ell &=
+\left[ \begin{array}{c}
+    \mathbf{z}^T(\ell) \\
+    \mathbf{H}^T(\ell)
 \end{array}\right]
-\end{align*}
+\left[ \begin{array}{cc} \mathbf{z}^*(\ell) & \mathbf{H}^*(\ell) \end{array}\right]
++ \frac{1}{\epsilon_\ell}
+\left[ \begin{array}{cc}
+    \sigma^2_y(\ell) & 0 \\
+    0 & \sigma^2_{c,1}(\ell)
+\end{array}\right] \\
+&= \left[ \begin{array}{cc}
+    ||\mathbf{z}||^2 + \frac{ \sigma^2_y(\ell) }{ \epsilon_\ell } & \mathbf{z}^T(\ell) \mathbf{H}^*(\ell) \\
+    \mathbf{H}^T(\ell) \mathbf{z}^*(\ell) &  ||\mathbf{H}||^2 + \frac{ \sigma^2_{c,1}(\ell) }{ \epsilon_\ell }
+\end{array}\right]
+\end{align}
 $$
 
 And its inverse matrix is
@@ -319,9 +318,7 @@ And its inverse matrix is
 $$
 \begin{align*}
 \left( \mathbf{F}_\ell \mathbf{F}^H_\ell + \frac{1}{\epsilon_\ell} \mathbf{R}_\ell \right)^{-1} &=
-
 \frac{1}{ \Delta }
-
 \left[ \begin{array}{cc}
     ||\mathbf{H}||^2 + \frac{ \sigma^2_{c,1}(\ell) }{ \epsilon_\ell } & - \mathbf{z}^T(\ell) \mathbf{H}^*(\ell) \\
     - \mathbf{H}^T(\ell) \mathbf{z}^*(\ell) &  ||\mathbf{z}||^2 + \frac{ \sigma^2_y(\ell) }{ \epsilon_\ell }
@@ -345,7 +342,6 @@ $$
 \mathbf{F}^H_\ell
 \left( \mathbf{F}_\ell \mathbf{F}^H_\ell + \frac{1}{\epsilon_\ell} \mathbf{R}_\ell \right)^{-1}
 \left( \mathbf{x}_\ell - \mathbf{F}_\ell \hat{ \mathbf{w} }_{\ell|\ell-1} \right)
-
 &=
 \left[\begin{array}{cc}
     \mathbf{z}^*(\ell) & \mathbf{H}^*(\ell)
@@ -359,19 +355,15 @@ $$
     0 - \mathbf{z}^T(\ell) \hat{ \mathbf{w} }_{\ell|\ell-1} \\
     g_1(\ell) - \mathbf{H}^T(\ell) \hat{ \mathbf{w} }_{\ell|\ell-1}
 \end{array}\right] \\
-
 &=
 \frac{1}{ \Delta }
-
 \left[ \begin{array}{c}
     \left(
         \left( ||\mathbf{H}(\ell)||^2 + \frac{ \sigma^2_{c,1}(\ell) }{ \epsilon_\ell } \right) \mathbf{I}
         - \mathbf{H}^*(\ell) \mathbf{H}^T(\ell)
     \right)
     \mathbf{z}^*(\ell)
-
     &
-    
     \left(
         \left( ||\mathbf{z}(\ell)||^2 + \frac{ \sigma^2_y(\ell) }{ \epsilon_\ell } \right) \mathbf{I}
         - \mathbf{z}^*(\ell) \mathbf{z}^T(\ell)
@@ -382,7 +374,6 @@ $$
     0 - \mathbf{z}^T(\ell) \hat{ \mathbf{w} }_{\ell|\ell-1} \\
     g_1(\ell) - \mathbf{H}^T(\ell) \hat{ \mathbf{w} }_{\ell|\ell-1}
 \end{array}\right] \\
-
 &=  
 \frac{1}{ \Delta }
 \left(
