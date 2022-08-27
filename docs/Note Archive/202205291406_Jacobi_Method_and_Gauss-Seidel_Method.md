@@ -15,13 +15,11 @@ $$
   
 be a square system of $n$ linear equations, where  
   
-$$  
+$$
 A={\begin{bmatrix}a_{11}&a_{12}&\cdots &a_{1n}\\a_{21}&a_{22}&\cdots &a_{2n}\\\vdots &\vdots &\ddots &\vdots \\a_{n1}&a_{n2}&\cdots &a_{nn}\end{bmatrix}} \in \mathbb{C}^{n \times n} ,\qquad  
-  
 \mathbf {x} ={\begin{bmatrix}x_{1}\\x_{2}\\\vdots \\x_{n}\end{bmatrix}} \in \mathbb{C}^n,\qquad  
-  
 \mathbf {b} ={\begin{bmatrix}b_{1}\\b_{2}\\\vdots \\b_{n}\end{bmatrix}} \in \mathbb{C}^n.  
-$$  
+$$
   
 We want to find an approximate solution of $\mathbf{x}$.  
   
@@ -84,7 +82,6 @@ And the solution of $\mathbf{x}$ is iteratively approximated by
 $$  
 \mathbf{x}^{(k+1)} = D^{-1} \left( \mathbf{b} - R \mathbf{x}^{(k)} \right)  
 $$  
-  
   
 ### Gauss-Seidel Method  
   

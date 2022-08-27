@@ -10,6 +10,7 @@ tags:
 Given the continuous time signal $x(t)$ and discrete time signal $x[n]$.
 
 The **instantaneous signal power** is defined as
+
 $$
 \begin{align*}
 P(t) &= |x(t)|^2 \\
@@ -18,6 +19,7 @@ P[n] &= |x[n]|^2
 $$
 
 The **signal energy** is defined as
+
 $$
 \begin{align*}
 E(t_0, t_1) &= \int_{t_0}^{t_1} |x(t)|^2 \,\mathrm{d}t \\
@@ -26,6 +28,7 @@ E(n_0, n_1) &= \sum_{n=n_0}^{n1} |x[n]|^2
 $$
 
 The **average signal power** is defined as
+
 $$
 \begin{align*}
 P(t_0, t_1) &= \frac{1}{t_1-t_0} \int_{t_0}^{t_1} |x(t)|^2 \,\mathrm{d}t \\
@@ -34,6 +37,7 @@ P(n_0, n_1) &= \frac{1}{n_1-n_0+1} \sum_{n=n_0}^{n1} |x[n]|^2
 $$
 
 Usually, the limits are taken over an infinite time interval:
+
 $$
 \begin{align*}
 E_\infty &= \int_{-\infty}^{\infty} |x(t)|^2 \,\mathrm{d}t \\

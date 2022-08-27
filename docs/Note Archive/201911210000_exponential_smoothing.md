@@ -2,6 +2,8 @@
 aliases: ["exponential smoothing"]
 ---
 
+# Exponential Smoothing
+
 ## Context
 
 Given a time series data $x_t$ beginning at time $t = 0$, we want to use a window function to smooth $x_t$ where the recent samples are assigned with a larger weighting and the older samples are assigned with a smaller weighting.
@@ -62,6 +64,7 @@ So the time for $s_t$ to converge to $s_t = qA$ for some $0 < q < 1$ is
 $$
 t = \frac{ \log(1-q) }{ \log(1-\alpha) }
 $$
+
 And by choosing $q = 1 - \frac{1}{e}$, we can obtain the time constant $\tau$ for the basic exponential smoothing:
 
 $$
