@@ -78,6 +78,7 @@ U           : Restore line
 :w filename : write a copy of the file you are editing as filename
 :q!         : quit without saving even if changes were made!
 :help       : display help
+:help a     : display help message about the command 'a'
 <Tab>       : use tab completion to scroll through commands that start with what you typed
 ```
 
@@ -145,22 +146,14 @@ dj          : Delete the current line and the next line
 y^          : Yank from the beginning of the line to cursor
 ```
 
-## Still basic
-
-Enter a number before a command to repeat it, examples:
+Many commands support `[count][command]` syntax. For example:
 
 ```
-10w      : skip forward 10 words
-10dd     : delete 10 lines
+5yy         : yank 5 lines
+10w         : forward 10 words
 ```
 
-Commands are case sensitive:
-
-```
-c        : starts a change command
-C        : change to end of line (same as c$)
-ce       : change to end of word (a complete change command)
-```
+Note that commands are case sensitive.
 
 ## Really useful
 
@@ -181,24 +174,6 @@ ce       : change to end of word (a complete change command)
 ```
 <C-v><C-m>     : Enter carriage return (^M)
 <C-v><C-j>     : Enter <Nul> (^@)
-```
-
-## Visual mode mappings
-
-```
-:vmap sb "zdi<b><C-R>z</b><Esc> : wrap <b></b> around visually selected text
-:vmap st "zdi<?= <C-R>z ?><Esc> : wrap <?= ?> around visually selected text
-```
-
-## Exploring
-
-```
-:Ex        : file explorer note capital Ex
-\be        : show buffer explorer (requires plugin)
-:ls        : list of buffers(eg following)
-:cd ..     : change working dir to parent directory
-:cd %:p:h  : change working dir to the currently open file for all windows
-:lcd %:p:h : change working dir to the currently open file for the local window
 ```
 
 ## Great
@@ -245,26 +220,6 @@ mA mB    : Mark current location as Mark 'A' or Mark 'B' (global)
 :mark    : List all the marks
 ]'       : Go to next mark
 ['       : Go to previous mark
-```
-
-## Abbreviations and maps
-
-```
-:map <F7>  :'a,'bw file            " Write the lines from mark a to mark b to 'file'
-:map <F8>  :.w file<CR>            " Write the current line to 'file'
-:map <F9>  :r file                 " Read text from 'file' and insert it below the current line
-:map <F10> :w<CR>:!php %<CR>       " Write the file and run it through php
-:ab php                            " list abbreviations beginning with php
-:map \                             " list maps beginning with \
-```
-
-## For use in maps
-
-```
-<CR>     : carriage Return for maps
-<Esc>    : Escape
-<Leader> : normally \  change with :let mapleader = ","
-<Bar>    : | pipe
 ```
 
 ## Yank/Paste with registers
@@ -321,42 +276,6 @@ What `"ayy@a` does is "yank the current line to register `a`, then execute the c
 
 Similarly, what `yy@"` does is "yank the current line to the unnamed register  (which is `"`), then execute the commands in register `"`"
 
-
-## Get output from shell commands
-
-These use external programs – `ls, grep, date, sort, &hellip;` (see `help|:sort` to learn how to use Vim's built-in sort).
-```
-:r!ls                : reads in output of ls (use dir on Windows)
-:r !grep "^ebay" file.txt  : read output of grep
-:20,25 !rot13        : rot13 lines 20 to 25
-:r!date              : insert date (use  date /T on Windows)
-:.!sh                : execute contents of current line in buffer and capture the output
-```
-
-Sorting with external sort
-
-```
-:%!sort -u           : contents of the current file is sorted and only unique lines are kept
-:'v,'w!sort          : sort from line marked v thru lines marked w
-:g/^$/;,/^$/-1!sort  : sort each block (note the crucial ;)
-
-!1} sort             : sorts paragraph; this is issued from normal mode!)
-```
-
-Entering `!!` in normal mode is translated to  `:.!`. Appending a command sends the current line to the command replacing it with command's result
-
-```
-!!date              : Replace current line with date
-!!which command     : Replace current line with the absolute path to command
-!!tr -d AEIO        : translate current line deleting As, Es, Is, and Os from the current line
-```
-
-You can also use `!` on a visual selection. Select an area with one of the visualmode commands, and then type !command to pipe the whole selection through command. This is equivalent to `:'<,'>!command`. For example, after selecting multiple lines with visualmode:
-```
-!sort              : sort selected lines
-!grep word         : keep only lines containing 'word' in the selected range.
-```
-
 ## Multiple files
 
 ```
@@ -393,7 +312,7 @@ gT            : go to the previous tab
 ```
 
 ## Recording
-Record the command sequence `d10dj` (delete 10 lines, the move down) to register `a`
+Record the command sequence `d10dj` (delete 10 lines, then move down) to register `a`
 
 ```
 qa
@@ -453,8 +372,8 @@ g#                 : (backwards) find word under cursor (without word boundary)
 
 Note:
 
-* Searching "vi" with word bounadry will match "running vi" but not "Navigator"
-* Searching "vi" without word bounadry will match both "running vi" and "Navigator"
+* Searching "vi" with word boundary will match "running vi" but not "Navigator"
+* Searching "vi" without word boundary will match both "running vi" and "Navigator"
 
 ## Substitution
 
@@ -498,30 +417,6 @@ Note that some patterns have different meaning in search and in replacement (ref
 | ^M    | \<C-v\>\<C-m\>    | Carriage return 0xD     | "Break the line here"   |
 | \^M   | \<C-v\>\<C-m\>  | \ + carriage return 0xD | Carriage return 0xD     |
 
-
-## Global command
-
-```
-:g/one\|two/     : list lines containing "one" or "two"
-:g/^\s*$/d       : delete all blank lines
-:g/green/d       : delete all lines containing "green"
-:v/green/d       : delete all lines not containing "green"
-:g/one/,/two/d   : not line based
-:v/./.,/./-1join : compress empty lines
-```
-
-Between lines with marks `a` and `b` (inclusive), append each line starting with "Error" to a file:
-
-```
-:'a,'b g/^Error/ .w >> errors.txt
-```
-
-Delete all lines containing "green" but not "red" or "pink". Command `:g/^/` matches every line; the current line is copied into variable `x`; if any part of `x` matches (case sensitive) "green" and not "red" and not "pink", the line is deleted. Replace `#` with `?` for case insensitive.
-
-```
-:g/^/let x=getline('.') | if x=~#'green' && x!~#'red' && x!~#'pink' | d | endif
-```
-
 ## Formatting text
 
 ```
@@ -548,15 +443,6 @@ ls | gvim -   : edit a PIPE!
 # vi all files in directory containing keyword $1 and jump to $1
 gvim.exe -c "/$1" $(grep -isl "$1" *) &
 ```
-
-## Preview in web browser
-
-add the following to `.vimrc`:
-```
-command Preview :!firefox %<CR>
-```
-
-Make sure the browser executable can be found in PATH. 
 
 ## Spellchecking
 
@@ -695,7 +581,7 @@ set fileencoding=
 vim -u "NONE" hugefile.log
 ```
 
-The option [http:_vimdoc.sourceforge.net/htmldoc/starting.html#-u -u "NONE"] is to skip all the initialization from files and environment variables.
+The option [-u "NONE"](http://vimdoc.sourceforge.net/htmldoc/starting.html#-u) is to skip all the initialization from files and environment variables.
 
 ## Plugin
 

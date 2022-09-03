@@ -5,7 +5,10 @@ tags:
 ---
 
 # Linux Command Quick Reference
-## Search Specific Types of Files that Contains a Keyword
+
+## Find Files
+
+Search Specific Types of Files that Contains a Keyword
 
 ```bash
 # Case sensitive
@@ -20,6 +23,23 @@ Note: The following syntax does not work
 
 ```bash
 grep -r -e <RegExpPattern> --include="*.{cpp,h}"
+```
+
+Find all the files under `path/to/dir` that are modified within N days 
+
+```
+find path/to/dir -mtime -N -ls
+```
+
+Find all the files under `path/to/dir` that are modified older than (N+1) days 
+
+```
+find path/to/dir -mtime +N -ls
+```
+
+Find all .cpp and .h files whose permission is rw for user
+```bash
+find . -type f -iregex ".\*\\.\\(cpp\\|h\\)" -perm -u=rw
 ```
 
 ## Search a Binary File or UTF-16 File
@@ -45,11 +65,6 @@ echo $PATH | tr ':' '\n'
 
 ```bash
 find . -name '*.cpp' -o -name '*.h' | xargs wc -l
-```
-
-##  Find all .cpp and .h files whose permission is rw for user
-```bash
-find . -type f -iregex ".\*\\.\\(cpp\\|h\\)" -perm -u=rw
 ```
 
 ## Use of `xargs`

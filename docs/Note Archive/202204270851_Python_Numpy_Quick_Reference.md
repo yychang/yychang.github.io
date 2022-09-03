@@ -110,3 +110,15 @@ y = np.squeeze(x) # shape (), which is an 0d-array
 x = np.random.rand(1,3,1,1)  # shape (1,3,1,1)
 y = np.squeeze(x, axis=(2,3)) # shape(1,3). 
 ```
+
+## Read/Write TXT File
+
+```python
+import numpy as np
+
+x = np.array([[1, 2, 3], [4, 5, 6]])
+file_path = 'path/to/my/dump.txt'
+np.savetxt(file_path, x, fmt='%.3e')
+
+y = np.loadtxt(file_path, dtype=float)
+``` 
