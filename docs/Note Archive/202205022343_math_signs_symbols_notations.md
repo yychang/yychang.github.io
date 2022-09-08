@@ -17,6 +17,8 @@ tags:
 | $\mathbb{R}_{> 0}$ | \mathbb{R}\_{> 0} | The set of positive real numbers |
 | $\mathbb{Z}$ | \mathbb{Z} | The set of integers |
 | $\mathbb{Z}_p$ | \mathbb{Z}\_p | The set of integers modulo $p$ (0,1,2,...,p-1) |
+| $\mathbb{Z}^+$ | \mathbb{Z}^+ | The set of positive integers |
+| $\mathbb{Z}^*$ | \mathbb{Z}^* | The set of nonzero integers |
 
 ## Notations
 
