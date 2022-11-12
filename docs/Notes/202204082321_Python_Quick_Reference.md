@@ -199,6 +199,15 @@ List2.append( 10 )
 # Find the list size
 len(List2)
 
+# Remove the first item whose value is x
+List2.remove(x) # raise ValueError if there is no such item
+
+# Remove the item of index n
+List2.pop(n)
+
+# Remove the last item
+List2.pop()
+
 # Clear the list
 List2[:] = []
 
@@ -296,12 +305,15 @@ MyMap = dict([(1, "January"), (2, "February"), ("Key", "Value")])
 MySquareMap = { x : x**2 for x in (2, 4, 6) }
 ```
 
-### Accessing the Dictionary
+### Useful Dict Operations 
 
 ```python
-# Adding/Removing elements
+# Add an element
 MyMap[3] = "March"
-del MyMap[1]
+
+# Remove an element
+del MyMap[1]      # This method raises KeyError if the key does not exist
+MyMap.pop(1, None)# This method returns None if the key does not exist
 
 # Find the number of key-value pairs
 NumElement = len(MyMap)
