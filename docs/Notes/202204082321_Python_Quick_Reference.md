@@ -333,6 +333,9 @@ for k,v in MyMap.items()
 
 # Get all the keys
 MyKeys = MyMap.keys()
+
+# Filter dict items
+MyMap2 = {k:v for k,v in MyMap.items() if v < 1000}
 ```
 
 ## Control Flow

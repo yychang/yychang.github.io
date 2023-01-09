@@ -142,6 +142,25 @@ git bisect run my_script my_script_arguments
 git bisect reset
 ```
 
+## Submodule
+
+Ref: https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+```bash
+# Clone a repo with submodules
+git clone --recurse-submodules <repo> <dir>
+
+# Initialize the (nested) submodules in an already cloned repo:
+git submodule update --init --recursive
+
+# Check out a commit and sync all the submodules to the state associated 
+# to that commit
+git checkout --recurse-submodules <commit>
+
+# Configure git to automatically check out with the --recurse-submodules flag
+git config submodule.recurse true
+```
+
 ## Commit Only Part of a File (Interactive Staging)
 
 Use `git add -p file` (`-p` or `--patch`) to determine whether to stage each hunk of the changes.

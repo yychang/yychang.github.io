@@ -34,29 +34,55 @@ Obsidian [front matter (YAML)](https://help.obsidian.md/Advanced+topics/YAML+fro
 -  `cssclass`
 -  `publish`
 
-## Notice blocks
-The notice blocks are not supported by Obsidian as of v0.13.23. However, [mklepaczewski](https://forum.obsidian.md/t/notice-blocks-warning-info-success-danger-blocks/4216) used some [custom CSS](https://gist.github.com/mklepaczewski/54e451f09994b9d450de81c8baaf8aa4) to make notice blocks out of the code blocks by defining the following custom "languages"
+## Callouts
+Starting from v0.14.0, Obsidian supports the [callout blocks](https://help.obsidian.md/How+to/Use+callouts) . The basic syntax is
 
-* `note-info`
-* `note-success`
-* `note-warn`
-* `note-danger`
-* `note-notice`
-
-````
-```note-info
-A note-info block
 ```
-````
-
-```note-info
-A note-info block
+> [!CALLOUT_TYPE] TITLE
+> CONTENT
 ```
 
-```note-info
-Problem with CSS-implemented notice blocks
-Because this is essentially a code block, many markdown features such as math support ($x = 1$) will not be parsed.
+The supported `CALLOUT_TYPE` includes
+
+* `info`
+* `note`
+* `abstract`
+    * Alias: `summary`, `tldr`
+* `todo`
+* `tip`
+    * Alias: `hint`, `important`
+* `success`
+    * Alias: `check`, `done`
+* `question`
+    * Alias: `help`, `faq`
+* `warning`
+    * Alias: `caution`, `attention`
+* `failure`
+    * Alias: `fail`, `missing`
+* `danger`
+    * Alias: `error`
+* `bug`
+* `example`
+* `quote`
+    * Alias: `cite`
+
+The `CALLOUT_TYPE` is case-insensitive.
+
 ```
+> [!INFO] 
+> This is an info callout block without title. Markdown **styles** _can_ ==be== parsed here.
+```
+
+> [!INFO] 
+> This is an info callout block without title. Markdown **styles** _can_ ==be== parsed here.
+
+```
+> [!INFO] My Info Block
+> This is an info callout block with custom title. 
+```
+
+> [!INFO] My Info Block
+> This is an info callout block with custom title. 
 
 ## Color Highlighting
 The ==color highlighting== is not supported by Obsidian as of v0.13.23. However, [deathau](https://github.com/deathau/obsidian-snippets) used some [custom CSS](https://github.com/deathau/obsidian-snippets/blob/main/realistic-highlight.css) to implement the highlighting:
@@ -92,6 +118,48 @@ The ==color highlighting== is not supported by Obsidian as of v0.13.23. However,
 
 ## Creating new notes with default templates
 As of v0.14.5, it is not possible to specify a default template for new notes 
+
+## Embedding Another Note
+
+Use the following syntax to embed another note:
+
+```
+![[note_name]]
+```
+
+## Hiding Some Contents
+
+### Option 1: Use HTML's `<details>` tag:
+
+```
+<details>
+    <summary>Some Quick Summary</summary>
+    <p>The content here seems to be treated as raw HTML. ==Markdown== *does not* work here.
+</details>
+```
+
+<details>
+    <summary>Some Quick Summary</summary>
+    <p>The content here seems to be treated as raw HTML. ==Markdown== *does not* work here.
+</details>
+
+### Option 2: Use Obsidian's [[#Callouts]] feature
+
+```
+> [!Note]- Some content folded by default
+> ==Markdown== *works* here. 
+> 
+> $$
+> f(x) = y
+> $$
+```
+
+> [!Note]- Some content folded by default
+> ==Markdown== *works* here. 
+> 
+> $$
+> f(x) = y
+> $$
 
 ## Reference
 * [Obsidian Help: Format your notes](https://help.obsidian.md/How+to/Format+your+notes)
