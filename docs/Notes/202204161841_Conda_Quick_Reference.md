@@ -3,7 +3,7 @@ tags:
   - quick-ref
 ---
 
-# Conda Quick Rererence
+# Conda Quick Reference
 
 ## Environment
 
