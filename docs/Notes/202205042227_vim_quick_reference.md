@@ -159,9 +159,9 @@ Note that commands are case sensitive.
 
 ```
 * # g* g#     : find word under cursor (forwards/backwards)
-<C-N> <C-P>   : word completion in insert mode
-<C-X><C-L>    : Line complete SUPER USEFUL
-/<C-R><C-W>   : Pull <cword> onto search/command line
+<C-n> <C-p>   : word completion in insert mode
+<C-x><C-l>    : Line complete SUPER USEFUL
+/<C-r><C-w>   : Pull <cword> onto search/command line
 :set ignorecase : you nearly always want this
 :set smartcase  : case-sensitive if search contains an uppercase character
 :syntax on    : colour syntax in Perl,HTML,PHP etc
@@ -189,8 +189,8 @@ g8         : display hex value of utf-8 character under cursor
 :%!xxd '%' : display the current file in hex mode
 ggg?G      : rot13 whole file
 xp         : swap next two characters around
-CTRL-A,CTRL-X : increment, decrement next number on same line as the cursor
-CTRL-R=5*5    : insert 25 into text
+<C-a>,<C-x>: increment, decrement next number on same line as the cursor
+<C-r>=5*5    : insert 25 into text
 =             : (re)indent the text on the current line or on the area selected (SUPER)
 =%            : (re)indent the current braces { ... }
 G=gg          : auto (re)indent entire document
@@ -264,6 +264,16 @@ To execute the commands stored in a register, add a leading `@` before the regis
 ```
 @a          : execute the commands in reg a
 ```
+
+## Advanced Yank/Paste
+
+```
+ci{       : Cut the contents inside the current {} block and enter the insert mode
+di(       : Cut the contents inside the current () block
+yit       : Yank the contents inside the current <tag></tag> block
+```
+
+The command like `i{` is called "Text object selection"
 
 ## Execute command from buffer contents
 
