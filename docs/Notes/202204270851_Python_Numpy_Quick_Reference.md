@@ -16,7 +16,7 @@ import numpy as np
 x = np.array([1, 2, 3])
  
 # 2x3 2-D array 
-x = np.array( [[1, 2, 3], [4, 5, 6]] )
+x = np.array( [ [1, 2, 3], [4, 5, 6] ] )
  
 # Specify the data type
 x = np.array([1, 2, 3], dtype=complex)
@@ -46,8 +46,8 @@ c = np.matmul(a, b)
 c = a @ b # Python 3.5+
 
 # Matrix concatenation
-a = np.array([[1, 2], [3, 4]])       # 2x2
-b = np.array([[5, 6]])               # 1x2
+a = np.array([ [1, 2], [3, 4] ])       # 2x2
+b = np.array([ [5, 6] ])               # 1x2
 c = np.concatenate((a, b), axis=0)   # Concatenate 2x2 and 1x2 arrays to 3x2
 c = np.concatenate((a, b.T), axis=1) # Concatenate 2x2 and 2x1 arrays to 2x3
 
@@ -58,7 +58,7 @@ z = np.isin(x, y)  # z[i] = True if x[i] is found in y
 ### Useful Array Operations
 
 ```python
-x = np.array([[1, 2, 3], [4, 5, 6]], np.int32)
+x = np.array([ [1, 2, 3], [4, 5, 6] ], np.int32)
 
 # Show the type of x. This command returns 'numpy.ndarray'
 type(x)     
@@ -93,7 +93,7 @@ largest_ind = np.argpartition(x, -N)[-N:]
 # Inner product (without complex conjugation) over the 
 # last axes of x and y. Inner product of (X1xX2xX3xM) 
 # array and (Y1xY2xM) array yields a (X1xX2xX3xY1xY2) array
-y = np.array([[7, 8, 9], [0, 1, 2]], np.int32)
+y = np.array([ [7, 8, 9], [0, 1, 2] ], np.int32)
 z = np.inner(x, y)
  
 # Rearrange the dimensions of an array
@@ -103,7 +103,7 @@ z = x.transpose(1,0)
 # Remove the dimensions whose size is 1
 x = np.random.rand(3,1,2)  # shape (3,1,2)
 y = np.squeeze(x) # shape (3,2)
-x = np.array( [[123]] ) # shape (1,1)
+x = np.array( [ [123] ] ) # shape (1,1)
 y = np.squeeze(x) # shape (), which is an 0d-array
 
 # Remove the specified dimensions if their sizes are 1
@@ -116,7 +116,7 @@ y = np.squeeze(x, axis=(2,3)) # shape(1,3).
 ```python
 import numpy as np
 
-x = np.array([[1, 2, 3], [4, 5, 6]])
+x = np.array([ [1, 2, 3], [4, 5, 6] ])
 file_path = 'path/to/my/dump.txt'
 np.savetxt(file_path, x, fmt='%.3e')
 

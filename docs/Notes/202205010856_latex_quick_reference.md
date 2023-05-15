@@ -21,8 +21,8 @@ tags:
 
 |    |    |    |    |    |
 | -- | -- | -- | -- | -- |
-| $\frac{x}{y}$ \frac{x}{y} | $\overline{x}$ \overline{x} | $\underline{x}$ \underline{x} | $\sqrt{x}$ \sqrt{x} | $\sqrt[n]{x}$ \sqrt[n]{x} |
-
+| $\frac{x}{y}$ `\frac{x}{y}` | $\overline{x}$ `\overline{x}` | $\underline{x}$ `\underline{x}` | $\sqrt{x}$ `\sqrt{x}` | $\sqrt[n]{x}$ `\sqrt[n]{x}` |
+| ${n \choose k}$ `{n \choose k}`   |    |    |    |    |
 ## Delimiters
 |    |    |    |    |    |
 | -- | -- | -- | -- | -- |
@@ -103,7 +103,7 @@ $$
 | $\bar{\bar{A}}$ \\bar{\\bar{A}} | $\check{\check{A}}$ \\check{\\check{A}} | $\dot{\dot{A}}$ \\dot{\\dot{A}} | $\hat{\hat{A}}$ \\hat{\\hat{A}} | $\vec{\vec{A}}$ \\vec{\\vec{A}} |
 
 ## Styles
-| |
+|     |
 | -- |
 | $\mathcal{ABC}$ \\mathcal{ABC} |
 | $\mathbb{ABC}$ \\mathbb{ABC} |
