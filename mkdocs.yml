@@ -26,7 +26,7 @@ theme:
 markdown_extensions:
   - footnotes
   - meta
-  # - attr_list
+  - attr_list
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight
@@ -41,7 +41,7 @@ markdown_extensions:
   #     custom_checkbox: true
 #  - pymdownx.emoji:
 #      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  # - admonition
+  - admonition
   - toc:
       permalink: true
 
