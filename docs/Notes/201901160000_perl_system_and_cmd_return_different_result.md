@@ -1,17 +1,17 @@
-# Running `system("<SomeCommands>")` in Perl does not return the same result as running `<SomeCommands>` in Windows CMD
+# Running Windows Command  in Perl and in Windows CMD yield different results
 
 ## Context
 
 When running a "build" command from a CMD window using the following two different approaches, the first one succeeds while the second one fails:
 
-```
+```bat
 > build
 > perl -e "system(\"build\");"
 ```
 
 There are multiple "build" executable found when running "where build" in the CMD window:
 
-```
+```bat
 path1\build.cmd
 path2\build.exe
 path3\build.exe
