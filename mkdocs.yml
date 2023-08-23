@@ -27,6 +27,7 @@ markdown_extensions:
   - footnotes
   - meta
   - attr_list
+  - abbr
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.highlight
