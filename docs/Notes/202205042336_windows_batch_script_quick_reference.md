@@ -6,6 +6,67 @@ tags:
 
 # Windows Batch Script Quick Reference
 
+## Comments
+
+```bat
+REM A line beginning with REM is treated as comment
+
+:: A line beginning with double colon is also treated as comment
+```
+
+Double colons (`::`) do not seem to work well in the `( )` scope. 
+
+## String
+
+### Substring
+
+```bat
+set MYSTRING=This is an apple
+
+:: Print 6 characters starting from position 0, which will be "This i"
+echo %MYSTRING:~0,6%
+
+:: Print starting from position 1 till 2 characters from the end of the string, which will be "his is an app"
+echo %MYSTRING:~1,-2%
+```
+
+### Comparison
+
+```bat
+set MYSTRING=This is an apple
+
+:: Equality
+IF "%MYSTRING%" == "This is an apple" (
+  echo matched
+) ELSE (
+  echo not matched
+)
+
+:: Checking if the string contains a substring by trying to remove the substring
+IF NOT "%MYSTRING%" == "%MYSTRING:apple=" (
+  echo contain "apple"
+) ELSE (
+  echo not contain "apple"
+)
+```
+
+### Replace
+
+```bat
+set MYSTRING=This Is an apple
+
+:: Replace every "is " with "x", which will be "Thxxan apple" (note that the search is case insensitive)
+echo %MYSTRING:is =x"
+
+:: Replace ":(" with ":=)". It's okay to have equal sign '=' in the replace pattern
+set MYSTRING=:(
+echo %MYSTRING::(=:=)%
+
+:: Trying to replace :=) with :( does not work. The search pattern cannot contain equal sign '='. 
+set MYSTRING=:=)
+echo %MYSTRING::=)=:(%
+```
+
 ## Start a program in a new, separate session
 
 ```batch
@@ -166,3 +227,11 @@ SET mydir=%~dp0
 REM Use substring syntax to remove the trailing backslash in %mydir%
 echo %mydir:~0,-1%
 ``` 
+
+## Logical Operators
+
+Windows batch script does not support logical operators like `AND` and `OR`. Use multiple `IF` statement to implement the desired conitions.
+
+## Reference
+
+* https://www.tutorialspoint.com/batch_script/index.htm

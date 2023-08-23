@@ -118,6 +118,17 @@ Stop-Process -name <ProcessName>
 killd <PID>
 ```
 
+## sc
+
+Show the services that are dependent on a given `<TargetService>`
+
+```
+sc enumdepend <TargetService>
+```
+
+!!! note
+    It seems that `sc enumdepend` will show the nested dependencies.  If service A depends on service B, which depends on service C, which depends on service D, then `sc enumdepend D` will show service A, B, and C in order.  
+
 ## Setting for Computer and User
 
 (elevated Powershell) Set the computer to join a domain

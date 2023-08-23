@@ -462,6 +462,7 @@ gvim.exe -c "/$1" $(grep -isl "$1" *) &
 ]s                                 : Jump to the next spell checking error
 [s                                 : Jump to the previous spell checking error
 z=                                 : Show the possible correction
+1z=                                : Correct the spelling error with the first suggestion
 zg                                 : Add word under the cursor as a good word to the first spellfile
 zw                                 : Add word under the cursor as a bad word to the first spellfile
 2zg                                : Add word under the cursor as a good word to the second spellfile
