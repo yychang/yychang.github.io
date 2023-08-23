@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - math
----
-
 # Jacobi Method and Gauss-Seidel Method
 ## Context  
   

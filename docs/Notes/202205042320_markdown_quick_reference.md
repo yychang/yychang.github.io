@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Markdown Quick Reference
 
 ## Basic

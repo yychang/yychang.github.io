@@ -1,8 +1,3 @@
----
-tags:
- - dsp 
----
-
 # Circular Convolution
 
 ## Definition

@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Overlap-save method
 
 ## Context

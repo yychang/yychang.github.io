@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Noncircularity of Complex Random Variable
 ## Context
 

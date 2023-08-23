@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Python scipy Quick Reference
 
 ## Load WAV File

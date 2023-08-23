@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Eigenvalues and eigenvectors
 ## Definition  
   

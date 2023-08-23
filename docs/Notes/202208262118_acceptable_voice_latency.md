@@ -1,8 +1,3 @@
----
-tags:
-  - audio-engineering
----
-
 # Acceptable Voice Latency
 
 

@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # WinDbg Quick Reference
 
 ## Basics

@@ -1,9 +1,3 @@
----
-tags:
-  - vtune
-  - quick-ref
----
-
 # VTune Quick notes
 
 ## Profiling the CPU usage

@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Git Quick Reference
 
 ## Common diff options

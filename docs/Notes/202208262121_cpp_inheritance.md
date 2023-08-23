@@ -1,8 +1,3 @@
----
-tags:
-  - cpp
----
-
 # C++ Inheritance
 
 Given 

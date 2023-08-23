@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - troubleshooting
----
-
 # Python on Windows Not Finding the Installed Package
 
 ## Context

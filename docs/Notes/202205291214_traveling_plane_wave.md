@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - audio-engineering
----
-
 # Traveling Plane Wave
 
 ## Overview  

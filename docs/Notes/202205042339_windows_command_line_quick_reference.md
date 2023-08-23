@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Windows Command Line Quick Reference 
 
 ## Alias

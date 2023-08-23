@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Windows Batch Script Quick Reference
 
 ## Comments

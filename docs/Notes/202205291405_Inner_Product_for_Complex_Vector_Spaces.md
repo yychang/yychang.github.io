@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Inner Product for Complex Vector Spaces
 ## Definition  
   

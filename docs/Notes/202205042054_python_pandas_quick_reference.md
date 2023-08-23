@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Python pandas Quick Reference
 
 ## DataFrame

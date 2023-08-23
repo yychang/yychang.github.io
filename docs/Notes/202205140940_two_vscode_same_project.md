@@ -1,7 +1,3 @@
----
-tags:
-  - vscode
----
 # Open the same project in two VSCode instances
 
 ## Context

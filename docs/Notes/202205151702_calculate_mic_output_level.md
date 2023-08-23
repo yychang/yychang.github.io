@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - audio-engineering
----
-
 # Calculating the Expected Microphone Output Level for Human Voice
 
 ## Context

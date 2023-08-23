@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Sox Quick Reference
 
 ## Basic Synopsis

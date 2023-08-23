@@ -1,10 +1,6 @@
----
-tags:
-  - quick-ref
----
-
 # Regular Expression
-There are two sets of regular expresion rules:
+
+There are two sets of regular expression rules:
 
 * Basic Regular Expression (BRE)
 * Extended Regular Expression (ERE)

@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Signal Energy and Power
 ## Basic Definition
 

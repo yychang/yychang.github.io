@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Windows Programming Quick Reference
 
 ## Audio  

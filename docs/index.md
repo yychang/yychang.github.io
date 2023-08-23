@@ -4,4 +4,3 @@ This is the place I keep my notes, in the hope that they will save time for the 
 
 [[202206041201_moc_root|Map of Contents]]
 
-[[Tags]]

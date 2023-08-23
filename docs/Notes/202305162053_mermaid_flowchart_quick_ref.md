@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - FN
----
-
 # Mermaid Flowchart Quick Reference
 
 ## Basics

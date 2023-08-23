@@ -1,8 +1,3 @@
----
-tags:
- - dsp 
----
-
 # Cross-correlation
 
 There are more than 1 type of cross-correlation:

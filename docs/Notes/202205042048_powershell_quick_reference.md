@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # PowerShell Quick Reference 
 
 ## Dictionary/Map

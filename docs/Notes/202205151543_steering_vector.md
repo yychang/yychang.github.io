@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - audio-engineering
----
-
 # Steering Vector
 
 ## Overview

@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - FN
----
-
 # CMake Quick Reference
 
 ## Include out-of-tree source directory

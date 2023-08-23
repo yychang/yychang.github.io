@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Maximum Likelihood Estimation
 
 ## Context

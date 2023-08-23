@@ -1,8 +1,3 @@
----
-tag:
-  - dsp/adaptive
----
-
 # Frequency-domain Adaptive Filtering 
 
 ## Context

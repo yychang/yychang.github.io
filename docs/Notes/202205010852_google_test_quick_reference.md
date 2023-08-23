@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Google C++ Test Quick Reference
 
 ## Terminology Definition

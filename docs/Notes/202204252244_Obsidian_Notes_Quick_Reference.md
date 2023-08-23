@@ -1,8 +1,3 @@
----
-tags:
-  - quick-ref
----
-
 # Obsidian Notes Quick Reference
 
 ## Code blocks

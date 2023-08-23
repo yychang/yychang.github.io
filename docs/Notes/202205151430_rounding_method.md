@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - math
----
-
 # List of rounding methods
 
 | y    | round down | round up | round towards zero | round away from zero | round to nearest |

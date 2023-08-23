@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Linux Command Quick Reference
 
 ## Find Files

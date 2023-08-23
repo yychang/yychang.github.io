@@ -1,10 +1,3 @@
----
-aliases: []
-tags:
-  - github
-  - git
----
-
 # Interact with GitHub using git command-line and personal access token
 
 ## Context

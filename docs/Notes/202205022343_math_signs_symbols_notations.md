@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - math
----
-
 # Mathematical Signs, Symbols, and Notations
 ## Sets
 

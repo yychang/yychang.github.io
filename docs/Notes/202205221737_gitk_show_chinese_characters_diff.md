@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - git
----
-
 # Make Gitk Show Chinese Characters in Diff
 
 ## Context

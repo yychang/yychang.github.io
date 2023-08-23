@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - cpp
----
-
 # Handle to Object Operator (^)
 
 ## Overview

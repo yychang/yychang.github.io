@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # LaTex Quick Reference
 
 ## Greek and Hebrew letters

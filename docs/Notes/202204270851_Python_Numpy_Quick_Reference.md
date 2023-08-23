@@ -1,8 +1,3 @@
----
-tags:
-  - quick-ref
----
-
 # Python Numpy Quick Reference
 
 ## Array

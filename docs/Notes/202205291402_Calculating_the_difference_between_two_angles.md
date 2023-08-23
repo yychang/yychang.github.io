@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Calculating the difference between two angles
 ## Context  
   

@@ -1,8 +1,3 @@
----
-tags:
-  - git
----
-
 # git sparse checkout issue on git 1.7.1
 
 There seems an bug in git 1.7.1 that sparse-checkout does not work for the rule

@@ -1,7 +1,5 @@
 ---
 aliases: [mouth reference point, mrp]
-tags:
-  - audio-engineering
 ---
 
 # Mouth Reference Point (MRP)

@@ -58,5 +58,4 @@ extra_css:
 plugins:
   - search
   - roamlinks 
-  - tags:
-      tags_file: Tags.md
+  - tags

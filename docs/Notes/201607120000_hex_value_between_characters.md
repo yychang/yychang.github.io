@@ -1,8 +1,3 @@
----
-tags:
-  - vim
----
-
 # Hex 0x00 (^@) value between characters
 
 ## Context

@@ -1,8 +1,3 @@
----
-tags:
-  - vscode
----
-
 # VSCode Font Alignment for Chinese
 
 ## Context

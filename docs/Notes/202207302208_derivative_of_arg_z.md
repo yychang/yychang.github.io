@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Derivative of $arg(z(t))$ with respect to $t$
 
 ## Context

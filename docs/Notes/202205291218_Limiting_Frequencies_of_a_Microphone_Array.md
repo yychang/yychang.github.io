@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - audio-engineering
----
-
 # Limiting Frequencies of a Microphone Array
 
 ## Overview  

@@ -1,8 +1,3 @@
----
-tags:
-  - quick-ref
----
-
 # Python Regular Expression
 
 ## Basics

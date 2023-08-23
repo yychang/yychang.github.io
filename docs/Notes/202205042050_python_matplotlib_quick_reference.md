@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Python matplotlib Quick Reference
 
 ## Basic Plot

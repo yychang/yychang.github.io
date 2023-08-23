@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - git
----
-
 # Make Git Status Show Chinese File Path
 
 ## Context

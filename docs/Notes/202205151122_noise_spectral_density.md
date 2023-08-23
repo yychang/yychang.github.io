@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - dsp
----
-
 # Noise Spectral Denity
 From [Wikipedia: Noise spectral density](http://en.wikipedia.org/wiki/Noise_spectral_density):  
   

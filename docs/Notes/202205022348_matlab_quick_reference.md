@@ -1,9 +1,3 @@
----
-aliases: []
-tags:
-  - quick-ref
----
-
 # Matlab Quick Reference
 ## Using `waitbar`
 

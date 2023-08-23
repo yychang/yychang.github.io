@@ -1,10 +1,3 @@
----
-aliases: []
-tags:
-  - vscode
-  - git
----
-
 # VS Code Not Recognizing Git Repo
 
 ## Context
