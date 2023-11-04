@@ -29,6 +29,22 @@ plt.tight_layout() # Use tight_layout() to prevent overlaping of
 plt.show()
 ```
 
+### Additional Setup
+
+```python
+import matplotlib.pyplot as plt
+
+x = list(range(100))
+y = [n*n for n in x]
+
+plt.figure()
+plt.plot(x,y)
+
+# Change x scale and y scale
+plt.xscale('log', base=10)
+plt.yscale('log', base=2)
+
+```
 ### Heat Map
 
 
