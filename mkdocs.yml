@@ -59,3 +59,15 @@ plugins:
   - search
   - roamlinks 
   - tags
+
+nav:
+  - index.md
+  - Map of Content:
+    - Quick References: "MOC/202207311054_moc_quick_ref.md"
+    - Digital Signal Processing: "MOC/202207182111_moc_dsp.md"
+    - Audio Engineering: "MOC/202207182345_moc_audio_eng.md"
+    - Troubleshooting: "MOC/202207222056_moc_troubleshooting.md"
+    - Math: "MOC/202305210816_moc_math.md"
+    - Programming Languages: "MOC/202305210835_moc_programming_language.md"
+    - Uncategorized: "MOC/202305210846_moc_uncategorized.md"
+
