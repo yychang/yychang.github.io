@@ -1,0 +1,1501 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Vim Quick Reference - YYC's Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vim-quick-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-header__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YYC's Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vim Quick Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-nav__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YYC's Workbench
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Map of Content
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Map of Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207311054_moc_quick_ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182111_moc_dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Digital Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182345_moc_audio_eng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207222056_moc_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210816_moc_math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210835_moc_programming_language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210846_moc_uncategorized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uncategorized
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminology
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Terminology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buffer-window-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      buffer, window, tab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#word-vs-word" class="md-nav__link">
+    <span class="md-ellipsis">
+      word v.s. WORD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yank-delete-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      yank, delete, change
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Use
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Use">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#switching-from-command-mode-to-insert-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Switching from Command Mode to Insert Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursor-movement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cursor Movement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yankpastedelete" class="md-nav__link">
+    <span class="md-ellipsis">
+      Yank/Paste/Delete
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#really-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      Really useful
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enter-special-characters-such-as-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enter special characters such as ^M
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#great" class="md-nav__link">
+    <span class="md-ellipsis">
+      Great
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markers-and-moving-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      Markers and moving about
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yankpaste-with-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Yank/Paste with registers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-yankpaste" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Yank/Paste
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execute-command-from-buffer-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execute command from buffer contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recording" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recording
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vimrc-essentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      vimrc essentials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conventional-shifting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conventional shifting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substitution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Substitution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operate-command-over-multiple-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operate command over multiple files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-tricks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command line tricks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spellchecking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spellchecking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paste-to-vim-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paste to Vim Command Line
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browsing-files-with-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Browsing Files with Tag
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-external-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executing External Command
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sorting-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sorting Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regular-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regular Expression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-file-format-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change File Format Option
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-file-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change File Encoding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opening-large-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opening Large File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plugin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csvvim" class="md-nav__link">
+    <span class="md-ellipsis">
+      csv.vim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vim-quick-reference">Vim Quick Reference<a class="headerlink" href="#vim-quick-reference" title="Permanent link">&para;</a></h1>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">&para;</a></h2>
+<h3 id="buffer-window-tab">buffer, window, tab<a class="headerlink" href="#buffer-window-tab" title="Permanent link">&para;</a></h3>
+<p>A <em>buffer</em> is the in-memory text of a file.</p>
+<p>A <em>window</em> is a viewport on a buffer.</p>
+<p>A <em>tab</em> page is a collection of windows.</p>
+<h3 id="word-vs-word">word v.s. WORD<a class="headerlink" href="#word-vs-word" title="Permanent link">&para;</a></h3>
+<p>A <em>word</em> consists of a "sequence of letters, digits and underscores", or a "sequence of other non-blank characters", separated with white space (spaces, tabs, \&lt;EOL&gt;). An empty line is also considered to be a word.</p>
+<p>A <em>WORD</em> consists of a "sequence of non-blank characters", separated with white space.  An empty line is also considered to be a WORD.</p>
+<p>Example:</p>
+<ul>
+<li><code>%abc,def%</code> is considered as 5 words or 1 WORD.<ul>
+<li>5 words: "<code>%</code>", "<code>abc</code>", "<code>,</code>", "<code>def</code>", "<code>%</code>"<ul>
+<li>"<code>abc</code>" and "<code>def</code>" are the "words" that are a "sequence of letters, digits and underscores"</li>
+<li>"<code>%</code>" and "<code>,</code>" are the "words" that are a "sequence of other non-blank characters"</li>
+</ul>
+</li>
+<li>1 WORD: <code>%abc,def%</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="modes">Modes<a class="headerlink" href="#modes" title="Permanent link">&para;</a></h3>
+<p>There are 3 fundamental modes in Vim:</p>
+<ul>
+<li>normal (command) mode</li>
+<li>insert mode</li>
+<li>visual mode</li>
+</ul>
+<h3 id="yank-delete-change">yank, delete, change<a class="headerlink" href="#yank-delete-change" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>yank</em></td>
+<td>copy the text into some register</td>
+</tr>
+<tr>
+<td><em>delete</em></td>
+<td>delete the text and keep it in some register</td>
+</tr>
+<tr>
+<td><em>change</em></td>
+<td>delete the text and keep it in some register, then enter the insert mode.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="environment-setup">Environment Setup<a class="headerlink" href="#environment-setup" title="Permanent link">&para;</a></h2>
+<p><code>~/.vimrc</code>: User config for vim.</p>
+<p><code>~/vimfile/</code>, <code>~/.vim/</code>: Directory for user-provided vim files such as <code>color</code> and <code>syntax</code></p>
+<ul>
+<li>Users of <code>git for windows</code> may want to copy some color scheme and syntax definition to <code>~/vimfile/color/</code> and <code>~/vimfile/syntax/</code> because the vim in <code>git for windows</code> does not provide much support in colors and syntax. Those files can be found under the folder of a fully installed <code>vim</code>.<ul>
+<li>e.g. copy <code>/path/to/fully/installed/vim/color/elflord.vim</code> to <code>~/vimfile/color/</code></li>
+</ul>
+</li>
+<li>
+<p>User of <code>vim74</code> can add the following script to <code>.vimrc</code> so that <code>vim</code> in Windows searches for <code>~/.vim</code> as well.</p>
+<div class="highlight"><pre><span></span><code>if has(&#39;win32&#39;) || has(&#39;win64&#39;)
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+</code></pre></div>
+</li>
+</ul>
+<h2 id="basic-use">Basic Use<a class="headerlink" href="#basic-use" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>&lt;Esc&gt;       : Escape from insert mode 
+&lt;C-c&gt;       : Escape from insert mode
+u           : undo last command, again and again
+U           : Restore line
+&lt;C-r&gt;       : redo last undo
+
+/myname     : search forward for myname
+
+:wq         : write and quit
+:x          : write and quit
+:w filename : write a copy of the file you are editing as filename
+:q!         : quit without saving even if changes were made!
+:help       : display help
+:help a     : display help message about the command &#39;a&#39;
+&lt;Tab&gt;       : use tab completion to scroll through commands that start with what you typed
+</code></pre></div>
+<h3 id="switching-from-command-mode-to-insert-mode">Switching from Command Mode to Insert Mode<a class="headerlink" href="#switching-from-command-mode-to-insert-mode" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>a           : Append text following current cursor position
+A           : Append text to the end of current line
+i           : Insert text before the current cursor position
+I           : Insert text at the beginning of the cursor line
+o           : Start a new line following the current line 
+O           : Start a new line in front of the current line 
+</code></pre></div>
+<h3 id="cursor-movement">Cursor Movement<a class="headerlink" href="#cursor-movement" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>h j k l     : move cursor
+10G         : Cursor goes to the 10th line
+:10         : Cursor goes to the 10th line
+&lt;C-f&gt;       : One page forward
+&lt;C-b&gt;       : One page backward
+&lt;C-u&gt;       : half page forward
+&lt;C-d&gt;       : half page backward
+$           : Move cursor to the end of current line
+^ 0         : Move cursor to the beginning of current line
+w e         : Forward one word (to the beginning or the end of the word)
+b           : Backward one word (to the beginning of the word)
+ge          : Backward one word (to the end of the word)
+fa ta       : Forward onto/till the next char &#39;a&#39; in the line
+Fa Ta       : Backward onto/till the previuos char &#39;a&#39; in the line
+zz          : position cursor at middle of the screen
+zt          : position cursor at top of the screen
+zb          : position cursor at bottom of the screen
+gi          : switches to insertion mode placing the cursor at the same location it was previously
+%           : match brackets {}[]()
+</code></pre></div>
+<h3 id="yankpastedelete">Yank/Paste/Delete<a class="headerlink" href="#yankpastedelete" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>v           : visual mode -- use to select text with cursor movement or mouse
+y           : use to yank what was selected
+&lt;Esc&gt;       : Switchb back to normal mode
+
+x           : delete character under cursor
+dw          : delete everything right from the cursor to the start of next word (and put it into the default register)
+dd          : delete line (and put it into the default register)
+p           : paste the default register
+
+yy          : yank current line
+y$          : yank to end of current line from cursor
+yw          : yank from cursor to end of current word
+5yy         : yank 5 lines
+
+p           : paste below cursor
+P           : paste above cursor
+&quot;2p         : paste from register 2
+</code></pre></div>
+<p>Command <code>y</code> and <code>d</code> followed by a cursor movement command will yank / delete a range specified by the movement command. For example</p>
+<div class="highlight"><pre><span></span><code>dj          : Delete the current line and the next line
+y^          : Yank from the beginning of the line to cursor
+</code></pre></div>
+<p>Many commands support <code>[count][command]</code> syntax. For example:</p>
+<div class="highlight"><pre><span></span><code>5yy         : yank 5 lines
+10w         : forward 10 words
+</code></pre></div>
+<p>Note that commands are case sensitive.</p>
+<h2 id="really-useful">Really useful<a class="headerlink" href="#really-useful" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>* # g* g#     : find word under cursor (forwards/backwards)
+&lt;C-n&gt; &lt;C-p&gt;   : word completion in insert mode
+&lt;C-x&gt;&lt;C-l&gt;    : Line complete SUPER USEFUL
+/&lt;C-r&gt;&lt;C-w&gt;   : Pull &lt;cword&gt; onto search/command line
+:set ignorecase : you nearly always want this
+:set smartcase  : case-sensitive if search contains an uppercase character
+:syntax on    : colour syntax in Perl,HTML,PHP etc
+:h slash&lt;C-D&gt; : type control-D and get a list all help topics containing slash
+    (plus use TAB for Help completion)
+</code></pre></div>
+<h2 id="enter-special-characters-such-as-m">Enter special characters such as ^M<a class="headerlink" href="#enter-special-characters-such-as-m" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>&lt;C-v&gt;&lt;C-m&gt;     : Enter carriage return (^M)
+&lt;C-v&gt;&lt;C-j&gt;     : Enter &lt;Nul&gt; (^@)
+</code></pre></div>
+<h2 id="great">Great<a class="headerlink" href="#great" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>guu        : lowercase line
+gUU        : uppercase line
+~          : invert case (upper-&gt;lower; lower-&gt;upper) of current character
+gf         : open file name under cursor (SUPER)
+ga         : display hex, ascii value of character under cursor
+g8         : display hex value of utf-8 character under cursor
+:%!xxd     : display the buffer in hex mode
+:%!xxd &#39;%&#39; : display the current file in hex mode
+ggg?G      : rot13 whole file
+xp         : swap next two characters around
+&lt;C-a&gt;,&lt;C-x&gt;: increment, decrement next number on same line as the cursor
+&lt;C-r&gt;=5*5    : insert 25 into text
+=             : (re)indent the text on the current line or on the area selected (SUPER)
+=%            : (re)indent the current braces { ... }
+G=gg          : auto (re)indent entire document
+</code></pre></div>
+<p>If you use Ctrl-V for paste, you will probably need to <a href="http:_vim.wikia.com/wiki/VimTip30">unmap CTRL-A</a> first.</p>
+<p>Difference between <code>:%!xxd</code> and <code>:%!xxd '%'</code>:</p>
+<ul>
+<li>When Vim loads a binary file as text, it may alter the file content in order to display the content on the screen. As a result, <code>:%!xxd</code> shows the "buffer" in hex mode with the modified content. For example, A byte of <code>0x80</code> will be shown as '?' on the screen, and running <code>:%!xxd</code> will show that byte as 0x3F, which is the hex value of '?'. To display the original file content in hex mode, use <code>:%!xxd '%'</code> to instruct the 'xxd' command to process the "current file" rather than the "current Vim buffer".<ul>
+<li>The first <code>%</code> in the command is to specify the range (where the output of  <code>!xxd</code> will replace); the 2nd <code>%</code> is the "register %", containing the name of the current file. The 2nd <code>%</code> needs to be quoted so that Vim can handle the path in both Linux and Windows format.</li>
+<li>If Vim loads the binary file as binary file, <code>:%!xxd</code> would work just fine. To change the buffer to the binary mode, execute <code>:e ++bin</code> or <code>:set binary</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="markers-and-moving-about">Markers and moving about<a class="headerlink" href="#markers-and-moving-about" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>ma mb    : Mark current location as Mark &#39;a&#39; or Mark &#39;b&#39; (local buffer). Available marks are [a-z]
+mA mB    : Mark current location as Mark &#39;A&#39; or Mark &#39;B&#39; (global)
+&#39;a &#39;b    : Go to the line of Mark &#39;a&#39; or Mark &#39;b&#39;
+`a `b    : Go to the exact spot of Mark &#39;a&#39; or Mark &#39;b&#39;
+&#39;.       : jump to last modification line (SUPER)
+`.       : jump to exact spot in last modification line
+&lt;C-O&gt;    : retrace your movements in file (backward)
+&lt;C-I&gt;    : retrace your movements in file (forward)
+:ju(mps) : list of your movements `help|jump-motions`
+:history : list of all your commands
+:mark    : List all the marks
+]&#39;       : Go to next mark
+[&#39;       : Go to previous mark
+</code></pre></div>
+<h2 id="yankpaste-with-registers">Yank/Paste with registers<a class="headerlink" href="#yankpaste-with-registers" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:reg          : display contents of all registers
+&quot;1p           : paste from register 1
+&quot;a5yy         : yank 5 lines to register a
+&quot;A5yy         : append 5 lines to register a
+:redir @*     : redirect commands to register * (the system clipboard on Windows)
+:redir END
+&quot;*yy          : yank to register * (the system clipboard on Windows)
+&quot;*p           : paste from register * (the system clipboard on Windows)
+&quot;+yy          : yank to register + (the system clipboard on Linux)
+:2,5y a       : yank line 2-5 to register a
+:7pu a        : paste from register a to under line 7
+:let @+ = expand(&quot;%:p&quot;)    : yank the current buffer path to register + (the system clipboard on Linux)
+</code></pre></div>
+<h2 id="registers">Registers<a class="headerlink" href="#registers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Register Type</th>
+<th>Register Name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unnamed register</td>
+<td>"</td>
+<td>Default register to store the most recent copy/delete/change</td>
+</tr>
+<tr>
+<td>Numberd register 0</td>
+<td>0</td>
+<td>Default register to store the most recent copy</td>
+</tr>
+<tr>
+<td>Numbered register 1</td>
+<td>1</td>
+<td>Default register to store the most recent delete/change that are more than 1 line.</td>
+</tr>
+<tr>
+<td>Numbered register 2...9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Named register a</td>
+<td>a</td>
+<td></td>
+</tr>
+<tr>
+<td>Named register A</td>
+<td>A</td>
+<td></td>
+</tr>
+<tr>
+<td>Named register b...z</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Named register B...Z</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Small delete register</td>
+<td>-</td>
+<td>Default register to store the most delete/change that are shorter than 1 line.</td>
+</tr>
+</tbody>
+</table>
+<p>To specify the register to store the yanked/deleted text, add a leading <code>"</code> before the register name:</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot;ayy        : Yank the current line and store it in register a</span>
+</code></pre></div>
+<p>To execute the commands stored in a register, add a leading <code>@</code> before the register name:</p>
+<div class="highlight"><pre><span></span><code>@a          : execute the commands in reg a
+</code></pre></div>
+<h2 id="advanced-yankpaste">Advanced Yank/Paste<a class="headerlink" href="#advanced-yankpaste" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>ci{       : Cut the contents inside the current {} block and enter the insert mode
+di(       : Cut the contents inside the current () block
+yit       : Yank the contents inside the current &lt;tag&gt;&lt;/tag&gt; block
+</code></pre></div>
+<p>The command like <code>i{</code> is called "Text object selection"</p>
+<h2 id="execute-command-from-buffer-contents">Execute command from buffer contents<a class="headerlink" href="#execute-command-from-buffer-contents" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>&quot;ayy@a   : execute the Vim command in the current line
+yy@&quot;     : same
+</code></pre></div>
+<p>What <code>"ayy@a</code> does is "yank the current line to register <code>a</code>, then execute the commands in register <code>a</code>". </p>
+<p>Similarly, what <code>yy@"</code> does is "yank the current line to the unnamed register  (which is <code>"</code>), then execute the commands in register <code>"</code>"</p>
+<h2 id="multiple-files">Multiple files<a class="headerlink" href="#multiple-files" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:wn           : write file and move to next (SUPER)
+:bd           : remove file from buffer list (SUPER)
+:sav php.html : Save current file as php.html and &quot;move&quot; to php.html
+:sp fred.txt  : open fred.txt into a split
+:e!           : return to unmodified file
+:w /some/path/%:r   : save file in another directory, but with the same name
+:e #          : edit alternative file
+:args         : display argument list
+:n            : next file in argument list
+:prev         : previous file in argument list
+:rew          : rewind to first file in argument list
+:ls           : display buffer list
+:bn           : next buffer
+:bp           : previous buffer
+:brew         : rewind to first buffer in buffer list
+:tabe         : open new tab page (Ctrl-PgUp, Ctrl-PgDown for next/previous tab)
+gt            : go to the next tab
+gT            : go to the previous tab
+:tabm n       : move tab to position n (0=leftmost position)
+:tab 9sbu     : Open buffer 9 in a new tab
+&lt;C-W&gt; s       : Create a horizontal split window
+&lt;C-W&gt; v       : Create a vertical split window
+&lt;C-W&gt; q       : Close the split window
+&lt;C-W&gt; &lt;arrow key&gt; : Move to another split
+&lt;C-W&gt;&lt;C-H&gt;    : Move to the left split
+&lt;C-W&gt;&lt;C-L&gt;    : Move to the right split
+&lt;C-W&gt; T       : Move the split window to a new tab
+:set scrollbind    : Enable scroll-binding for the current window.
+:set scrollopt=ver : Bind vertical scrolling for &#39;scrollbind&#39; windows
+:set scrollopt=hor : Bind horizontal scrolling for &#39;scrollbind&#39; windows
+</code></pre></div>
+<h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">&para;</a></h2>
+<p>Record the command sequence <code>d10dj</code> (delete 10 lines, then move down) to register <code>a</code></p>
+<div class="highlight"><pre><span></span><code>qa
+d10dj
+q
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>@a            : execute commands recorded in register a
+@@            : repeat
+:%normal @a   : execute commands recorded in register a on all lines
+:normal @a    : execute commands recorded in register a on visually selected lines
+</code></pre></div>
+<p>Editing a register/recording</p>
+<div class="highlight"><pre><span></span><code>&quot;ap           : paste the content in register a to buffer
+&quot;add          : Cut the current line and store it in register a
+</code></pre></div>
+<h2 id="vimrc-essentials">vimrc essentials<a class="headerlink" href="#vimrc-essentials" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:set incsearch : jumps to search word as you type (annoying but excellent)
+:set wildignore=*.o,*.obj,*.bak,*.exe
+:syntax on : display syntactical elements by color based on filetype ( extension )
+</code></pre></div>
+<h2 id="conventional-shifting">Conventional shifting<a class="headerlink" href="#conventional-shifting" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:&#39;a,&#39;b&gt;&gt;      : Shift all the lines between marker a and marker b to right
+:10,15&gt;&gt;      : Shift line 10 to line 15 to right
+</code></pre></div>
+<h2 id="searching">Searching<a class="headerlink" href="#searching" title="Permanent link">&para;</a></h2>
+<p>Search using <a href="../202203022055_Regular_Expression/">basic regular expression</a> 
+<div class="highlight"><pre><span></span><code>/^fred.*joe.*bill  : line beginning with fred, followed by joe then bill
+/^[A-J]            : line beginning A-J
+/fred\_.\{-}joe    : fred then anything then joe (over multiple lines)
+/fred\_s\{-}joe    : fred then any whitespace (including newlines) then joe
+/fred\|joe         : fred OR joe
+</code></pre></div></p>
+<p>Other search commands:</p>
+<div class="highlight"><pre><span></span><code>[I                 : show lines matching word under cursor &lt;cword&gt;
+*                  : (forwards) find word under cursor (with word boundary)
+#                  : (backwards) find word under cursor (with word boundary)
+g*                 : (forwards) find word under cursor (without word boundary)
+g#                 : (backwards) find word under cursor (without word boundary)
+</code></pre></div>
+<p>Note:</p>
+<ul>
+<li>Searching "vi" with word boundary will match "running vi" but not "Navigator"</li>
+<li>Searching "vi" without word boundary will match both "running vi" and "Navigator"</li>
+</ul>
+<h2 id="substitution">Substitution<a class="headerlink" href="#substitution" title="Permanent link">&para;</a></h2>
+<p>Basic</p>
+<div class="highlight"><pre><span></span><code>:%s/fred/joe/igc           : general substitute command
+:%s/\r_g                   : delete DOS Carriage Returns (^M)
+:&#39;a,&#39;bg/fred/s/dick/joe/gc : VERY USEFUL
+:s/\(.*\):\(.*\)/\2 : \1/  : reverse fields separated by :
+</code></pre></div>
+<p>Non-greedy matching with <code>\{-}</code>
+<div class="highlight"><pre><span></span><code>:%s/^.\{-}pdf/new.pdf/     : to first pdf)
+:s/fred/&lt;c-r&gt;a/g           : substitute &quot;fred&quot; with contents of register &quot;a&quot;
+:%s/^\(.*\)\n\1/\1$/       : delete duplicate lines
+:help /\{-}
+</code></pre></div></p>
+<p>Some sample commands
+<div class="highlight"><pre><span></span><code>:%s/\f\+\.gif\&gt;/\r&amp;\r/g | v/\.gif$/d | %s/gif/jpg/
+:%s/suck\|buck/loopy/gc       : ORing
+:s/__date__/\=strftime(&quot;%c&quot;)/ : insert datestring
+</code></pre></div></p>
+<p>Remove the newline if the next line starts with a non-whitespace
+<div class="highlight"><pre><span></span><code>:%s#\(\S\)\n\(\S\)#\1\2#
+</code></pre></div></p>
+<p>Note that some patterns have different meaning in search and in replacement (ref: <a href="https://stackoverflow.com/a/3834303">StackOverflow</a>)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>How to type</th>
+<th>In search, means:</th>
+<th>In replacement, means:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\n</td>
+<td>\n</td>
+<td>End-of-line</td>
+<td>\&lt;Nul&gt; 0x0</td>
+</tr>
+<tr>
+<td>^@</td>
+<td>\&lt;C-v&gt;\&lt;C-j&gt;</td>
+<td>\&lt;Nul&gt; 0x0</td>
+<td>\&lt;Nul&gt; 0x0</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>\r</td>
+<td>Carriage return 0xD</td>
+<td>"Break the line here"</td>
+</tr>
+<tr>
+<td>^M</td>
+<td>\&lt;C-v&gt;\&lt;C-m&gt;</td>
+<td>Carriage return 0xD</td>
+<td>"Break the line here"</td>
+</tr>
+<tr>
+<td>\^M</td>
+<td>\&lt;C-v&gt;\&lt;C-m&gt;</td>
+<td>\ + carriage return 0xD</td>
+<td>Carriage return 0xD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="formatting-text">Formatting text<a class="headerlink" href="#formatting-text" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>J         : Join next line to the end of current line
+gq&lt;CR&gt;    : Format the text to 80 columns per line
+gqap      : (a is motion p paragraph (visual mode))
+</code></pre></div>
+<h2 id="operate-command-over-multiple-files">Operate command over multiple files<a class="headerlink" href="#operate-command-over-multiple-files" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:argdo %s/foo/bar/
+:bufdo %s/foo/bar/
+:windo %s/foo/bar/
+:tabdo %s/foo/bar/
+</code></pre></div>
+<h2 id="command-line-tricks">Command line tricks<a class="headerlink" href="#command-line-tricks" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>gvim -h
+ls | gvim -   : edit a PIPE!
+# vg.ksh (shell script)
+# vi all files in directory containing keyword $1 and jump to $1
+gvim.exe -c &quot;/$1&quot; $(grep -isl &quot;$1&quot; *) &amp;
+</code></pre></div>
+<h2 id="spellchecking">Spellchecking<a class="headerlink" href="#spellchecking" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:setlocal spell spelllang=en_us    : Set spellchecking to en_us
+:setlocal spell!                   : Toggle spellchecking
+]s                                 : Jump to the next spell checking error
+[s                                 : Jump to the previous spell checking error
+z=                                 : Show the possible correction
+1z=                                : Correct the spelling error with the first suggestion
+zg                                 : Add word under the cursor as a good word to the first spellfile
+zw                                 : Add word under the cursor as a bad word to the first spellfile
+2zg                                : Add word under the cursor as a good word to the second spellfile
+</code></pre></div>
+<p>Specify the path of <code>spellfile</code> (multiple files can be specified, separated by comma ',')
+<div class="highlight"><pre><span></span><code>:set spellfile=~/.vim/spell/user1.utf-8.add,~/.vim/spell/user2.utf-8.add
+</code></pre></div></p>
+<h2 id="paste-to-vim-command-line">Paste to Vim Command Line<a class="headerlink" href="#paste-to-vim-command-line" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:&lt;C-R&gt;&quot;       : Paste from default register (yanked content)
+:&lt;C-R&gt;*       : Paste from register * (the system clipboard on Windows)
+:&lt;C-R&gt;+       : Paste from register + (the system clipboard on Linux)
+:&lt;C-R&gt;a       : Paste from register a
+:&lt;C-R&gt;&lt;C-W&gt;   : Pull &lt;cword&gt; onto search/command line
+</code></pre></div>
+<h2 id="browsing-files-with-tag">Browsing Files with Tag<a class="headerlink" href="#browsing-files-with-tag" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:set tags=/path/to/tag/file    : Specify the tag file location
+&lt;C-]&gt;                          : Jump to the first definition of the current word/selected word
+&lt;C-T&gt;                          : Jump back
+g]                             : Select from the match list of the current word/selected word
+g&lt;C-]&gt;                         : Jump to the definition if there is only one matching; open selection list if there are multiple.
+</code></pre></div>
+<h2 id="executing-external-command">Executing External Command<a class="headerlink" href="#executing-external-command" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:!command                     : Execute command
+:!%                           : Execute the current file (useful when editing perl script etc)
+:! wc %                       : Find the word count of the current file (running wc against the current file)
+</code></pre></div>
+<h2 id="sorting-text">Sorting Text<a class="headerlink" href="#sorting-text" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>:sort u        : Sort, removing duplicate lines
+:sort !        : Sort in reverse
+:sort n        : Numeric sort
+</code></pre></div>
+<h2 id="regular-expression">Regular Expression<a class="headerlink" href="#regular-expression" title="Permanent link">&para;</a></h2>
+<p>The set of special character is determined by the <code>magic</code> option (see <code>:help magic</code>). The default value is "\m" ('magic'), and the corresponding set of special character is as follows:</p>
+<div class="highlight"><pre><span></span><code>.              match all character
+*              any number of the previous atom
+[]             define a class of character. Everything within [] is treated as plain text, including things like \s or \d (except &#39;^&#39; when placed at the beginning of [])
+^              the &quot;not&quot; operator when placed at the beginning of the class of character &#39;[]&#39;
+               or the &quot;beginning of the line&quot; anchor when placed at the beginning of a regular expression
+$              the &quot;end of the line&quot; anchor when placed at the end of a regular expression
+\              escape the next character
+\&lt;             word boundary start
+\&gt;             word boundary end
+</code></pre></div>
+<p>Example of using the "word boundary" special symbol:</p>
+<div class="highlight"><pre><span></span><code>/vi            # Match &quot;vi&quot; in both &quot;running vi&quot; and &quot;Navigator&quot;
+/\&lt;vi\&gt;        # Match &quot;vi&quot; in &quot;running vi&quot; but not in &quot;Navigator&quot;
+</code></pre></div>
+<p>All the other characters will be considered as plain character to be searched. For example</p>
+<ul>
+<li><code>\d+</code> will match <code>1+</code> and <code>2+</code>, but not <code>12</code>. This is because <code>+</code> is treated as plain text.</li>
+<li><code>\d\+</code> will match <code>12</code></li>
+<li><code>(abc)</code> will match <code>(abc)</code> but not <code>abc</code>. This is because <code>(</code> is treated as plain text</li>
+<li><code>\(abc\)</code> will match <code>abc</code>, and it can be backreferenced by <code>\1</code></li>
+<li><code>[\d]+</code> will NOT match <code>123</code>. This is because <code>\d</code> within <code>[]</code> is treated as plain text.</li>
+<li><code>[0-9]+</code> will match <code>123</code></li>
+</ul>
+<h2 id="change-file-format-option">Change File Format Option<a class="headerlink" href="#change-file-format-option" title="Permanent link">&para;</a></h2>
+<p>When a DOS file is opened in UNIX format, <code>^M</code> appears at the end of every line. To hide that <code>^M</code>, switch the file format back to DOS by the following command:</p>
+<div class="highlight"><pre><span></span><code>:e ++ff=dos
+</code></pre></div>
+<p>The <code>++ff</code> is one of the <code>++opt</code>. <code>++ff</code> instructs Vim to set <code>fileformat</code> to user specified value while editing the file.</p>
+<p>Note that <code>:e ++ff</code> only changes how Vim represents the file in the terminal. To convert the line ending in the file, use</p>
+<div class="highlight"><pre><span></span><code>:w ++ff=dos
+</code></pre></div>
+<p>Available fileformat values and the corresponding line ending:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dos</td>
+<td>\&lt;CR&gt;\&lt;NL&gt;</td>
+</tr>
+<tr>
+<td>unix</td>
+<td>\&lt;NL&gt;</td>
+</tr>
+<tr>
+<td>mac</td>
+<td>\<CR></td>
+</tr>
+</tbody>
+</table>
+<h2 id="change-file-encoding">Change File Encoding<a class="headerlink" href="#change-file-encoding" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code># Change the output encoding that is shown in the terminal
+set encoding=utf-8
+
+# Change the output encoding (local to buffer) of the file that is written
+set fileencoding=utf-8
+
+# Change the output encoding of the file that is written to &quot;default&quot;
+# which will be the same as encoding.
+set fileencoding=
+
+# Force writing the file using the specified fileencoding
+# (++enc refers to &quot;fileencoding&quot;, not &quot;encoding&quot;)
+:w ++enc=utf-8
+
+# Edit the file with &#39;fileencoding&#39; set to &quot;utf-16&quot;
+:e ++enc=utf-16
+</code></pre></div>
+<h2 id="opening-large-file">Opening Large File<a class="headerlink" href="#opening-large-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>vim -u &quot;NONE&quot; hugefile.log
+</code></pre></div>
+<p>The option <a href="http://vimdoc.sourceforge.net/htmldoc/starting.html#-u">-u "NONE"</a> is to skip all the initialization from files and environment variables.</p>
+<h2 id="plugin">Plugin<a class="headerlink" href="#plugin" title="Permanent link">&para;</a></h2>
+<h3 id="csvvim"><code>csv.vim</code><a class="headerlink" href="#csvvim" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code># Open the file in text mode
+:edit +setf\ text myfile.csv
+
+# Switch a buffer in csv view to text view
+:setf text
+
+# Switch a buffer in text view to csv view
+:setf csv
+</code></pre></div>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://stackoverflow.com/questions/1276403/simple-vim-commands-you-wish-youd-known-earlier">Simple VIM commands you wish you'd known earlier (Stack Overflow)</a></li>
+<li><a href="http://vim.wikia.com/wiki/Best_Vim_Tips">Best Vim Tips (vim.wikia)</a></li>
+<li><a href="http://www.radford.edu/~mhtay/CPSC120/VIM_Editor_Commands.htm">http://www.radford.edu/~mhtay/CPSC120/VIM_Editor_Commands.htm</a> </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

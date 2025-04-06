@@ -1,0 +1,689 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Wiener Filter - YYC's Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wiener-filter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-header__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YYC's Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Wiener Filter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-nav__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YYC's Workbench
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Map of Content
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Map of Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207311054_moc_quick_ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182111_moc_dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Digital Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182345_moc_audio_eng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207222056_moc_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210816_moc_math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210835_moc_programming_language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210846_moc_uncategorized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uncategorized
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="wiener-filter">Wiener Filter<a class="headerlink" href="#wiener-filter" title="Permanent link">&para;</a></h1>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>Given the following system:</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="400" height="172" style="
+        width:400px;
+        height:172px;
+        background: white;
+        fill: none;
+">
+        <svg xmlns="http://www.w3.org/2000/svg" class="role-diagram-draw-area"><g class="shapes-region" style="stroke: black; fill: none;"><g class="composite-shape"><path class="real" d=" M42.68,40 L121.79,40 L121.79,80 L42.68,80 Z" style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none;"/></g><g class="arrow-line"><path class="connection real" stroke-dasharray="" d="  M32.8,10 L80,10 L80,38" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"/><g stroke="none" fill="#000" transform="matrix(-1.8369701987210297e-16,-1,1,-1.8369701987210297e-16,80,40)" style="stroke: none; fill: rgb(0, 0, 0); stroke-width: 1;"><path d=" M8.93,-4.29 L0,0 L8.93,4.29 Z"/></g></g><g class="composite-shape"><path class="real" d=" M70,150 C70,144.48 74.43,140 79.89,140 C85.35,140 89.78,144.48 89.78,150 C89.78,155.52 85.35,160 79.89,160 C74.43,160 70,155.52 70,150 Z" style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none;"/><path class="real" d=" M70,150 L89.78,150" style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none;"/><path class="real" d=" M79.89,140 L79.89,160" style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none;"/></g><g class="arrow-line"><path class="connection real" stroke-dasharray="" d="  M80,80 L79.89,138" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"/><g stroke="none" fill="#000" transform="matrix(0.0019198609977996936,-0.9999981570651764,0.9999981570651764,0.0019198609977996936,79.88817093237449,140)" style="stroke: none; fill: rgb(0, 0, 0); stroke-width: 1;"><path d=" M8.93,-4.29 L0,0 L8.93,4.29 Z"/></g></g><g class="arrow-line"><path class="connection real" stroke-dasharray="" d="  M190,110 L190,138" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"/><g stroke="none" fill="#000" transform="matrix(-1.8369701987210297e-16,-1,1,-1.8369701987210297e-16,190,139.99999999999997)" style="stroke: none; fill: rgb(0, 0, 0); stroke-width: 1;"><path d=" M8.93,-4.29 L0,0 L8.93,4.29 Z"/></g></g><g class="composite-shape"><path class="real" d=" M180.11,150 C180.11,144.48 184.54,140 190,140 C195.46,140 199.89,144.48 199.89,150 C199.89,155.52 195.46,160 190,160 C184.54,160 180.11,155.52 180.11,150 Z" style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none;"/><path class="real" d=" M180.11,150 L199.89,150" style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none;"/><path class="real" d=" M190,140 L190,160" style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none;"/></g><g class="arrow-line"><path class="connection real" stroke-dasharray="" d="  M239.44,150 L201.89,150" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"/><g stroke="none" fill="#000" transform="matrix(1,-2.4492935982947064e-16,2.4492935982947064e-16,1,199.88817093237446,150)" style="stroke: none; fill: rgb(0, 0, 0); stroke-width: 1;"><path d=" M8.93,-4.29 L0,0 L8.93,4.29 Z"/></g></g><g class="arrow-line"><path class="connection real" stroke-dasharray="" d="  M180.11,150 L91.78,150" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"/><g stroke="none" fill="#000" transform="matrix(1,-2.4492935982947064e-16,2.4492935982947064e-16,1,89.77634186474899,150)" style="stroke: none; fill: rgb(0, 0, 0); stroke-width: 1;"><path d=" M8.93,-4.29 L0,0 L8.93,4.29 Z"/></g></g><g class="arrow-line"><path class="connection real" stroke-dasharray="" d="  M70,150 L32.45,150" style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"/><g stroke="none" fill="#000" transform="matrix(1,-2.4492935982947064e-16,2.4492935982947064e-16,1,30.447316270502114,150)" style="stroke: none; fill: rgb(0, 0, 0); stroke-width: 1;"><path d=" M8.93,-4.29 L0,0 L8.93,4.29 Z"/></g></g><g class="intersections-group"><g style="stroke: rgb(0, 0, 0); stroke-width: 1; fill: none;"><g/></g></g></g><g/><g/><!-- react-empty: 3655 --></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="400" height="171" style="width:400px;height:171px;font-family:Asana-Math, Asana;background:transparent;"><g style="transform:matrix(1,0,-0.00785414312898359,1,0.08246850285432927,0);"><g><g style="transform:matrix(1,0,0,1,1.98333740234375,16.75);"><path d="M9 1C24 -7 40 -11 52 -11C85 -11 124 18 155 65L231 182L242 113C255 28 278 -11 314 -11C336 -11 368 6 400 35L449 79L440 98C404 68 379 53 363 53C348 53 335 63 325 83C316 102 305 139 300 168L282 269L317 318C364 383 391 406 422 406C438 406 450 398 455 383L469 387L484 472C472 479 463 482 454 482C414 482 374 446 312 354L275 299L269 347C257 446 230 482 171 482C145 482 123 474 114 461L56 378L73 368C103 402 123 416 142 416C175 416 197 375 214 277L225 215L185 153C142 86 108 54 80 54C65 54 54 58 52 63L41 91L21 88C21 53 13 27 9 1Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,10.4666748046875,16.75);"><path d="M146 266C146 526 243 632 301 700L282 726C225 675 60 542 60 266C60 159 85 58 133 -32C168 -99 200 -138 282 -215L301 -194C255 -137 146 -15 146 266Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,16.116668701171875,16.75);"><path d="M24 388L31 368L63 389C100 412 103 414 110 414C121 414 128 404 128 389C128 338 87 145 46 2L53 -9C78 -2 101 4 123 8C142 134 163 199 209 268C263 352 338 414 383 414C394 414 400 405 400 390C400 372 397 351 389 319L337 107C328 70 324 47 324 31C324 6 335 -9 354 -9C380 -9 416 12 514 85L504 103L478 86C449 67 427 56 417 56C410 56 404 65 404 76C404 81 405 92 406 96L472 372C479 401 483 429 483 446C483 469 472 482 452 482C410 482 341 444 282 389C244 354 216 320 164 247L202 408C206 426 208 438 208 449C208 470 200 482 185 482C164 482 125 460 52 408Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,25.54998779296875,16.75);"><path d="M51 726L32 700C87 636 187 526 187 266C187 -10 83 -131 32 -194L51 -215C104 -165 273 -23 273 265C273 542 108 675 51 726Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><g><g><g><g><g><g style="transform:matrix(1,0,0,1,67.63333129882812,69.25);"><path d="M236 722L224 733C179 711 138 697 64 691L60 670L108 670C126 670 142 667 142 647C142 641 142 632 140 622L98 388C78 272 36 80 10 2L17 -9L86 7C94 64 108 164 148 236C193 317 296 414 338 414C349 414 360 407 360 393C360 375 355 342 345 303L294 107C288 85 281 55 281 31C281 6 291 -9 312 -9C344 -9 412 41 471 85L461 103L435 86C412 71 386 56 374 56C367 56 361 65 361 76C361 88 364 101 368 116L432 372C438 398 443 423 443 447C443 464 437 482 411 482C376 482 299 437 231 374C198 343 172 308 144 273L140 275Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><svg x="66.95001220703125" style="overflow:visible;" y="46.25" height="9" width="6.8000030517578125"><polyline points="0.00,8.06 3.40,5.79 6.80,8.06" style="fill:none;stroke-width:1;stroke:rgb(0, 0, 0);"></polyline></svg></g><g style="transform:matrix(1,0,0,1,76.11666870117188,69.25);"><path d="M146 266C146 526 243 632 301 700L282 726C225 675 60 542 60 266C60 159 85 58 133 -32C168 -99 200 -138 282 -215L301 -194C255 -137 146 -15 146 266Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,81.76666259765625,69.25);"><path d="M24 388L31 368L63 389C100 412 103 414 110 414C121 414 128 404 128 389C128 338 87 145 46 2L53 -9C78 -2 101 4 123 8C142 134 163 199 209 268C263 352 338 414 383 414C394 414 400 405 400 390C400 372 397 351 389 319L337 107C328 70 324 47 324 31C324 6 335 -9 354 -9C380 -9 416 12 514 85L504 103L478 86C449 67 427 56 417 56C410 56 404 65 404 76C404 81 405 92 406 96L472 372C479 401 483 429 483 446C483 469 472 482 452 482C410 482 341 444 282 389C244 354 216 320 164 247L202 408C206 426 208 438 208 449C208 470 200 482 185 482C164 482 125 460 52 408Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,91.20001220703125,69.25);"><path d="M51 726L32 700C87 636 187 526 187 266C187 -10 83 -131 32 -194L51 -215C104 -165 273 -23 273 265C273 542 108 675 51 726Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><g style="transform:matrix(1,0,-0.00785414312898359,1,0.7814872413338776,0);"><g><g style="transform:matrix(1,0,0,1,178.816650390625,105.75);"><path d="M-7 -180C-8 -187 -8 -193 -8 -198C-8 -241 29 -276 74 -276C180 -276 290 -152 349 33L490 473L479 482C450 471 427 465 405 463L370 331C358 284 323 211 290 162C255 111 206 67 184 67C172 67 163 90 164 115L180 322C182 353 184 391 184 419C184 464 177 482 160 482C147 482 133 475 85 442L3 386L14 368L64 398C69 401 80 410 89 410C103 410 111 391 111 358C111 357 111 351 110 343L93 100L92 60C92 18 110 -11 135 -11C172 -11 256 74 331 187L282 16C231 -161 181 -234 111 -234C76 -234 49 -207 49 -172C49 -167 50 -159 51 -150L41 -146Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,187.29998779296875,105.75);"><path d="M146 266C146 526 243 632 301 700L282 726C225 675 60 542 60 266C60 159 85 58 133 -32C168 -99 200 -138 282 -215L301 -194C255 -137 146 -15 146 266Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,192.95001220703125,105.75);"><path d="M24 388L31 368L63 389C100 412 103 414 110 414C121 414 128 404 128 389C128 338 87 145 46 2L53 -9C78 -2 101 4 123 8C142 134 163 199 209 268C263 352 338 414 383 414C394 414 400 405 400 390C400 372 397 351 389 319L337 107C328 70 324 47 324 31C324 6 335 -9 354 -9C380 -9 416 12 514 85L504 103L478 86C449 67 427 56 417 56C410 56 404 65 404 76C404 81 405 92 406 96L472 372C479 401 483 429 483 446C483 469 472 482 452 482C410 482 341 444 282 389C244 354 216 320 164 247L202 408C206 426 208 438 208 449C208 470 200 482 185 482C164 482 125 460 52 408Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,202.38330078125,105.75);"><path d="M51 726L32 700C87 636 187 526 187 266C187 -10 83 -131 32 -194L51 -215C104 -165 273 -23 273 265C273 542 108 675 51 726Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><g style="transform:matrix(1,0,-0.00785414312898359,1,1.1820485409120352,0);"><g><g style="transform:matrix(1,0,0,1,241.98333740234375,156.75);"><path d="M166 420C187 420 203 421 229 424C118 304 76 221 76 121C76 44 122 -11 186 -11C324 -11 477 236 477 384C477 441 451 482 415 482C402 482 390 478 382 470L332 423L343 404C352 410 361 413 370 413C397 413 413 390 413 350C413 202 316 39 228 39C179 39 148 81 148 146C148 251 187 342 285 464L275 482C255 473 242 470 214 470C186 470 144 472 115 475L103 476C97 477 92 477 91 477C79 477 70 475 59 470C45 443 34 407 21 352L43 352L60 394C67 411 87 422 111 422C144 422 128 420 166 420Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,250.4666748046875,156.75);"><path d="M146 266C146 526 243 632 301 700L282 726C225 675 60 542 60 266C60 159 85 58 133 -32C168 -99 200 -138 282 -215L301 -194C255 -137 146 -15 146 266Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,256.11669921875,156.75);"><path d="M24 388L31 368L63 389C100 412 103 414 110 414C121 414 128 404 128 389C128 338 87 145 46 2L53 -9C78 -2 101 4 123 8C142 134 163 199 209 268C263 352 338 414 383 414C394 414 400 405 400 390C400 372 397 351 389 319L337 107C328 70 324 47 324 31C324 6 335 -9 354 -9C380 -9 416 12 514 85L504 103L478 86C449 67 427 56 417 56C410 56 404 65 404 76C404 81 405 92 406 96L472 372C479 401 483 429 483 446C483 469 472 482 452 482C410 482 341 444 282 389C244 354 216 320 164 247L202 408C206 426 208 438 208 449C208 470 200 482 185 482C164 482 125 460 52 408Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,265.54998779296875,156.75);"><path d="M51 726L32 700C87 636 187 526 187 266C187 -10 83 -131 32 -194L51 -215C104 -165 273 -23 273 265C273 542 108 675 51 726Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><g style="transform:matrix(1,0,-0.00785414312898359,1,1.1035071096221998,0);"><g><g style="transform:matrix(1,0,0,1,128.816650390625,146.75);"><path d="M483 722L471 733C419 707 383 698 311 691L307 670L355 670C379 670 389 663 389 646C389 638 388 629 387 622L359 468C329 477 302 482 277 482C208 482 114 410 68 323C37 265 17 170 17 86C17 21 32 -11 61 -11C88 -11 125 6 159 33C213 77 246 116 313 217L290 126C279 82 274 50 274 24C274 3 283 -9 300 -9C317 -9 341 3 375 28L456 88L446 107L402 76C388 66 372 59 363 59C355 59 349 68 349 82C349 90 350 99 357 128ZM114 59C98 59 89 73 89 98C89 224 135 380 184 418C197 428 216 433 243 433C287 433 316 427 349 410L337 351C300 171 159 59 114 59Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,137.29998779296875,146.75);"><path d="M146 266C146 526 243 632 301 700L282 726C225 675 60 542 60 266C60 159 85 58 133 -32C168 -99 200 -138 282 -215L301 -194C255 -137 146 -15 146 266Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,142.95001220703125,146.75);"><path d="M24 388L31 368L63 389C100 412 103 414 110 414C121 414 128 404 128 389C128 338 87 145 46 2L53 -9C78 -2 101 4 123 8C142 134 163 199 209 268C263 352 338 414 383 414C394 414 400 405 400 390C400 372 397 351 389 319L337 107C328 70 324 47 324 31C324 6 335 -9 354 -9C380 -9 416 12 514 85L504 103L478 86C449 67 427 56 417 56C410 56 404 65 404 76C404 81 405 92 406 96L472 372C479 401 483 429 483 446C483 469 472 482 452 482C410 482 341 444 282 389C244 354 216 320 164 247L202 408C206 426 208 438 208 449C208 470 200 482 185 482C164 482 125 460 52 408Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,152.38333129882812,146.75);"><path d="M51 726L32 700C87 636 187 526 187 266C187 -10 83 -131 32 -194L51 -215C104 -165 273 -23 273 265C273 542 108 675 51 726Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><g style="transform:matrix(1,0,-0.00785414312898359,1,1.1820485409120298,0);"><g><g style="transform:matrix(1,0,0,1,1.91668701171875,156.75);"><path d="M328 111L304 94C251 56 203 36 167 36C120 36 91 73 91 133C91 158 94 185 99 214C116 218 225 248 250 259C335 296 374 342 374 404C374 451 340 482 290 482C222 496 112 423 75 349C45 299 15 180 15 113C15 35 59 -11 131 -11C188 -11 244 17 336 92ZM113 274C130 343 150 386 179 412C197 428 228 440 252 440C281 440 300 420 300 388C300 344 265 297 213 272C185 258 149 247 104 237Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,8.51666259765625,156.75);"><path d="M146 266C146 526 243 632 301 700L282 726C225 675 60 542 60 266C60 159 85 58 133 -32C168 -99 200 -138 282 -215L301 -194C255 -137 146 -15 146 266Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,14.16668701171875,156.75);"><path d="M24 388L31 368L63 389C100 412 103 414 110 414C121 414 128 404 128 389C128 338 87 145 46 2L53 -9C78 -2 101 4 123 8C142 134 163 199 209 268C263 352 338 414 383 414C394 414 400 405 400 390C400 372 397 351 389 319L337 107C328 70 324 47 324 31C324 6 335 -9 354 -9C380 -9 416 12 514 85L504 103L478 86C449 67 427 56 417 56C410 56 404 65 404 76C404 81 405 92 406 96L472 372C479 401 483 429 483 446C483 469 472 482 452 482C410 482 341 444 282 389C244 354 216 320 164 247L202 408C206 426 208 438 208 449C208 470 200 482 185 482C164 482 125 460 52 408Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,23.600006103515625,156.75);"><path d="M51 726L32 700C87 636 187 526 187 266C187 -10 83 -131 32 -194L51 -215C104 -165 273 -23 273 265C273 542 108 675 51 726Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><g style="transform:matrix(1,0,-0.00785414312898359,1,0.7893413844628441,0);"><g><g><g><g><g style="transform:matrix(1,0,0,1,81.98333740234375,107.75);"><path d="M-7 -180C-8 -187 -8 -193 -8 -198C-8 -241 29 -276 74 -276C180 -276 290 -152 349 33L490 473L479 482C450 471 427 465 405 463L370 331C358 284 323 211 290 162C255 111 206 67 184 67C172 67 163 90 164 115L180 322C182 353 184 391 184 419C184 464 177 482 160 482C147 482 133 475 85 442L3 386L14 368L64 398C69 401 80 410 89 410C103 410 111 391 111 358C111 357 111 351 110 343L93 100L92 60C92 18 110 -11 135 -11C172 -11 256 74 331 187L282 16C231 -161 181 -234 111 -234C76 -234 49 -207 49 -172C49 -167 50 -159 51 -150L41 -146Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><svg x="81.98333740234375" style="overflow:visible;" y="88.75" height="9" width="8.483322143554688"><polyline points="0.00,8.06 4.24,5.23 8.48,8.06" style="fill:none;stroke-width:1;stroke:rgb(0, 0, 0);"></polyline></svg></g><g style="transform:matrix(1,0,0,1,90.4666748046875,107.75);"><path d="M146 266C146 526 243 632 301 700L282 726C225 675 60 542 60 266C60 159 85 58 133 -32C168 -99 200 -138 282 -215L301 -194C255 -137 146 -15 146 266Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,96.11666870117188,107.75);"><path d="M24 388L31 368L63 389C100 412 103 414 110 414C121 414 128 404 128 389C128 338 87 145 46 2L53 -9C78 -2 101 4 123 8C142 134 163 199 209 268C263 352 338 414 383 414C394 414 400 405 400 390C400 372 397 351 389 319L337 107C328 70 324 47 324 31C324 6 335 -9 354 -9C380 -9 416 12 514 85L504 103L478 86C449 67 427 56 417 56C410 56 404 65 404 76C404 81 405 92 406 96L472 372C479 401 483 429 483 446C483 469 472 482 452 482C410 482 341 444 282 389C244 354 216 320 164 247L202 408C206 426 208 438 208 449C208 470 200 482 185 482C164 482 125 460 52 408Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g><g style="transform:matrix(1,0,0,1,105.54998779296875,107.75);"><path d="M51 726L32 700C87 636 187 526 187 266C187 -10 83 -131 32 -194L51 -215C104 -165 273 -23 273 265C273 542 108 675 51 726Z" stroke="rgb(0, 0, 0)" stroke-width="8" fill="rgb(0, 0, 0)" style="transform:matrix(0.017,0,0,-0.017,0,0);"></path></g></g></g><g><g><text x="195.11669921875" y="127.75" style="white-space:pre;stroke:none;fill:rgb(0, 0, 0);font-size:15px;font-family:Arial, Helvetica, sans-serif;font-weight:400;dominant-baseline:text-before-edge;text-decoration:none;">+</text></g></g><g><g><text x="199.11669921875" y="151.75" style="white-space:pre;stroke:none;fill:rgb(0, 0, 0);font-size:15px;font-family:Arial, Helvetica, sans-serif;font-weight:400;dominant-baseline:text-before-edge;text-decoration:none;">+</text></g></g><g><g><text x="92.11666870117188" y="153.75" style="white-space:pre;stroke:none;fill:rgb(0, 0, 0);font-size:15px;font-family:Arial, Helvetica, sans-serif;font-weight:400;dominant-baseline:text-before-edge;text-decoration:none;">+</text></g></g><g><g><text x="85.13333129882812" y="123.75" style="white-space:pre;stroke:none;fill:rgb(0, 0, 0);font-size:15px;font-family:Arial, Helvetica, sans-serif;font-weight:400;dominant-baseline:text-before-edge;text-decoration:none;">-</text></g></g></svg>
+</svg></p>
+<p>where</p>
+<ul>
+<li><span class="arithmatex">\(x(n) \in \mathbb{C}\)</span> is the input sample</li>
+<li><span class="arithmatex">\(\hat{ \mathbf{h} } = \left[ \hat{h}_{-\infty}, ... , \hat{h}_{-1},  \hat{h}_0, \hat{h}_{1}, ..., \hat{h}_{\infty} \right]\)</span> is a linear filter</li>
+<li><span class="arithmatex">\(y(n) \in \mathbb{C}\)</span> is the output of the unknown system</li>
+<li><span class="arithmatex">\(v(n) \in \mathbb{C}\)</span> is the interference added to <span class="arithmatex">\(y(n)\)</span></li>
+<li><span class="arithmatex">\(\hat{y}(n) = \sum_{i=-\infty}^{\infty}(\hat{h_i}^*x(n-i)) \in \mathbb{C}\)</span> is the estimated output of the unknown system</li>
+<li><span class="arithmatex">\(\left\{\cdot\right\}^*\)</span> is conjugate</li>
+</ul>
+<p>Note that only <span class="arithmatex">\(x(n)\)</span>, <span class="arithmatex">\(\hat{y}(n)\)</span>, <span class="arithmatex">\(d(n)\)</span>, and <span class="arithmatex">\(e(n)\)</span> are observable, while <span class="arithmatex">\(y(n)\)</span>, and <span class="arithmatex">\(v(n)\)</span> are not directly observable.</p>
+<p>We want to design <span class="arithmatex">\(\hat{ \mathbf{h} }\)</span> so that its output, <span class="arithmatex">\(\hat{y}(n)\)</span>, is statistically a good estimate of <span class="arithmatex">\(d(n)\)</span>.</p>
+<h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
+<p>Assuming that</p>
+<ol>
+<li><span class="arithmatex">\(x(n)\)</span> is wide-sense stationary,</li>
+<li><span class="arithmatex">\(d(n)\)</span> is wide-sense stationary,</li>
+<li><span class="arithmatex">\(x(n)\)</span> and <span class="arithmatex">\(d(n)\)</span> are jointly wide-sense stationary,</li>
+<li>We use the mean square error (MSE) as the cost function to evaluate whether <span class="arithmatex">\(\hat{y}(n)\)</span> is a good estimate of <span class="arithmatex">\(d(n)\)</span>,</li>
+</ol>
+<p>How do we choose <span class="arithmatex">\(\hat{ \mathbf{h} }\)</span> to minimize the MSE between <span class="arithmatex">\(\hat{y}(n)\)</span> and <span class="arithmatex">\(d(n)\)</span>?</p>
+<h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h2>
+<p>To minimize the MSE subject to <span class="arithmatex">\(\hat{ \mathbf{h} }\)</span>, we need to solve the following equation:</p>
+<div class="arithmatex">\[
+\nabla _{{\hat {\mathbf {h} }}^{H}} E \left( \left| e(n) \right|^2 \right) = 0
+\]</div>
+<p>Or equivalently,</p>
+<div class="arithmatex">\[
+\frac{\partial}{\partial \hat{h}_i^* } E \left( \left| e(n) \right|^2 \right) = 0 \qquad \forall i \in \mathbb{N}
+\]</div>
+<p>The equation above can be written as</p>
+<div class="arithmatex">\[
+\begin{align}
+\frac{\partial}{\partial \hat{h}_i^* } E \left( \left| e(n) \right|^2 \right) &amp;= \frac{\partial}{\partial \hat{h}_i^* } E \left( e(n)e^*(n) \right) \\
+&amp;= E \left( \frac{\partial e(n)}{\partial \hat{h}_i^* } \cdot e^*(n) \right) + E \left( e(n) \cdot \frac{\partial e^*(n)}{\partial \hat{h}_i^* } \right) \\
+&amp;= E \left( x(n-i) e^*(n) \right) +E \left( e(n) x^*(n-i) \right) \\
+&amp;= E \left( x(n-i)d^*(n) \right) - \sum_{j=-\infty}^{\infty} \hat{h}_j E \left( x(n-i)x^*(n-j) \right) + E \left( d(n)x^*(n-i) \right) - \sum_{j=-\infty}^{\infty} \hat{h}_j^* E \left( x(n-j)x^*(n-i) \right)    \\
+&amp;= \phi_{xd}(i) - \sum_{j=-\infty}^{\infty} \hat{h}_j \phi_{xx}(i-j) + \left( \phi_{xd}(i) - \sum_{j=-\infty}^{\infty} \hat{h}_j \phi_{xx}(i-j) \right)^*  \\
+&amp;= 0
+\end{align}
+\]</div>
+<p>where</p>
+<ul>
+<li><span class="arithmatex">\(\phi_{xd}(i)\)</span> is the cross-correlation of <span class="arithmatex">\(x(n)\)</span> and <span class="arithmatex">\(d(n)\)</span>,</li>
+<li><span class="arithmatex">\(\phi_{xx}(i)\)</span> is the autocorrelation of <span class="arithmatex">\(x(n)\)</span></li>
+</ul>
+<p>So the optimal <span class="arithmatex">\(\hat{ \mathbf{h} }\)</span> should satisfy the following equation:</p>
+<div class="arithmatex">\[
+\phi_{xd}(i) - \sum_{j=-\infty}^{\infty} \hat{h}_j \phi_{xx}(i-j) = 0
+\]</div>
+<p>In the case of <span class="arithmatex">\(\hat{ \mathbf{h} }\)</span> being an <span class="arithmatex">\(p\)</span>-tap FIR filter, the equation can be written in the matrix form:</p>
+<div class="arithmatex">\[
+\underbrace{
+    \left[\begin{array}{cccc}
+    \phi_{xx}(0) &amp; \phi_{xx}(-1) &amp; \cdots &amp; \phi_{xx}(-p+1) \\
+    \phi_{xx}(1) &amp; \phi_{xx}(0) &amp; \cdots &amp; \phi_{xx}(-p+2) \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    \phi_{xx}(p-1) &amp; \phi_{xx}(p-2) &amp; \cdots &amp; \phi_{xx}(0)
+    \end{array}\right]
+}_{\mathbf{\Phi_{xx}} }
+\underbrace{
+    \left[\begin{array}{c}
+    \hat{h}_0 \\
+    \hat{h}_1 \\
+    \vdots \\
+    \hat{h}_{p-1}
+    \end{array}\right]
+}_{\mathbf{ \hat{h} } }
+=
+\underbrace{
+    \left[\begin{array}{c}
+    \phi_{xd}(0) \\
+    \phi_{xd}(1) \\
+    \vdots \\
+    \phi_{xd}(p-1)
+    \end{array}\right]
+}_{\mathbf{\Phi_{xd}} }
+\]</div>
+<p>and the optimal <span class="arithmatex">\(\mathbf{ \hat{h} }\)</span> would be</p>
+<div class="arithmatex">\[
+\mathbf{ \hat{h} } = \mathbf{\Phi_{xx}^{-1}} \mathbf{\Phi_{xd}}
+\]</div>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://web.stanford.edu/class/archive/ee/ee264/ee264.1072/mylecture12.pdf">https://web.stanford.edu/class/archive/ee/ee264/ee264.1072/mylecture12.pdf</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wiener_filter">https://en.wikipedia.org/wiki/Wiener_filter</a> </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

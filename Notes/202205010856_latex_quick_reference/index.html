@@ -1,0 +1,1179 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>LaTex Quick Reference - YYC's Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#latex-quick-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-header__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YYC's Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LaTex Quick Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-nav__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YYC's Workbench
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Map of Content
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Map of Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207311054_moc_quick_ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182111_moc_dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Digital Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182345_moc_audio_eng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207222056_moc_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210816_moc_math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210835_moc_programming_language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210846_moc_uncategorized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uncategorized
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#greek-and-hebrew-letters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Greek and Hebrew letters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latex-math-constructs" class="md-nav__link">
+    <span class="md-ellipsis">
+      LaTex Math Constructs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-sized-symbols-displayed-formulae-show-larger-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable-sized symbols (displayed formulae show larger version)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-function-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Function Names
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-operationrelation-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Operation/Relation Symbols
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary Operation/Relation Symbols">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equal-signs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equal Signs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arrow-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arrow symbols
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous-symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miscellaneous symbols
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math-mode-accents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math mode accents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#styles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Styles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-environment-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array environment, examples
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Misc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Misc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linebreak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linebreak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alignment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equation-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equation Box
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equation-numbering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Equation Numbering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spacing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spacing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entering-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entering text
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="latex-quick-reference">LaTex Quick Reference<a class="headerlink" href="#latex-quick-reference" title="Permanent link">&para;</a></h1>
+<h2 id="greek-and-hebrew-letters">Greek and Hebrew letters<a class="headerlink" href="#greek-and-hebrew-letters" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\alpha\)</span> \alpha</td>
+<td><span class="arithmatex">\(\beta\)</span> \beta</td>
+<td><span class="arithmatex">\(\chi\)</span> \chi</td>
+<td><span class="arithmatex">\(\delta\)</span> \delta</td>
+<td><span class="arithmatex">\(\epsilon\)</span> \epsilon</td>
+<td><span class="arithmatex">\(\eta\)</span> \eta</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\gamma\)</span> \gamma</td>
+<td><span class="arithmatex">\(\iota\)</span> \iota</td>
+<td><span class="arithmatex">\(\kappa\)</span> \kappa</td>
+<td><span class="arithmatex">\(\lambda\)</span> \lambda</td>
+<td><span class="arithmatex">\(\mu\)</span> \mu</td>
+<td><span class="arithmatex">\(\nu\)</span> \nu</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(o\)</span> o</td>
+<td><span class="arithmatex">\(\omega\)</span> \omega</td>
+<td><span class="arithmatex">\(\phi\)</span> \phi</td>
+<td><span class="arithmatex">\(\pi\)</span> \pi</td>
+<td><span class="arithmatex">\(\psi\)</span> \psi</td>
+<td><span class="arithmatex">\(\rho\)</span> \rho</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma\)</span> \sigma</td>
+<td><span class="arithmatex">\(\tau\)</span> \tau</td>
+<td><span class="arithmatex">\(\theta\)</span> \theta</td>
+<td><span class="arithmatex">\(\upsilon\)</span> \upsilon</td>
+<td><span class="arithmatex">\(\xi\)</span> \xi</td>
+<td><span class="arithmatex">\(\zeta\)</span> \zeta</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\digamma\)</span> \digamma</td>
+<td><span class="arithmatex">\(\varepsilon\)</span> \varepsilon</td>
+<td><span class="arithmatex">\(\varkappa\)</span> \varkappa</td>
+<td><span class="arithmatex">\(\varphi\)</span> \varphi</td>
+<td><span class="arithmatex">\(\varpi\)</span> \varpi</td>
+<td><span class="arithmatex">\(\varrho\)</span> \varrho</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\varsigma\)</span> \varsigma</td>
+<td><span class="arithmatex">\(\vartheta\)</span> \vartheta</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="latex-math-constructs">LaTex Math Constructs<a class="headerlink" href="#latex-math-constructs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\frac{x}{y}\)</span> <code>\frac{x}{y}</code></td>
+<td><span class="arithmatex">\(\overline{x}\)</span> <code>\overline{x}</code></td>
+<td><span class="arithmatex">\(\underline{x}\)</span> <code>\underline{x}</code></td>
+<td><span class="arithmatex">\(\sqrt{x}\)</span> <code>\sqrt{x}</code></td>
+<td><span class="arithmatex">\(\sqrt[n]{x}\)</span> <code>\sqrt[n]{x}</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\({n \choose k}\)</span> <code>{n \choose k}</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>## Delimiters</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\{\)</span> \{</td>
+<td><span class="arithmatex">\(\}\)</span> \}</td>
+<td><span class="arithmatex">\(\vert\)</span> \vert</td>
+<td><span class="arithmatex">\([\)</span> [</td>
+<td><span class="arithmatex">\(]\)</span> ]</td>
+</tr>
+</tbody>
+</table>
+<p>Also the vertical bar ("|"): <span class="arithmatex">\(|\)</span> </p>
+<p>Use <code>\left</code> and <code>\right</code> to pair the delimiters and match their heights:</p>
+<div class="highlight"><pre><span></span><code>x = <span class="k">\left</span>[<span class="k">\begin</span><span class="nb">{</span>array<span class="nb">}{</span>cc<span class="nb">}</span>
+  1 <span class="nb">&amp;</span> 2 <span class="k">\\</span>
+  3 <span class="nb">&amp;</span> 4 <span class="k">\\</span>
+<span class="k">\end</span><span class="nb">{</span>array<span class="nb">}</span><span class="k">\right</span>]
+</code></pre></div>
+<div class="arithmatex">\[
+x = \left[\begin{array}{cc}
+  1 &amp; 2 \\
+  3 &amp; 4 \\
+\end{array}\right]
+\]</div>
+<p>Use <code>\left.</code> or <code>\right.</code> to start or end a pair without using a delimiter:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\delta</span>(t) = <span class="k">\left\{\begin</span><span class="nb">{</span>array<span class="nb">}{</span>ccl<span class="nb">}</span>
+  1 <span class="nb">&amp;</span> <span class="k">\cdots</span> <span class="nb">&amp;</span> t = 0 <span class="k">\\</span>
+  0 <span class="nb">&amp;</span> <span class="k">\cdots</span> <span class="nb">&amp;</span> <span class="k">\mbox</span><span class="nb">{</span>otherwise<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>array<span class="nb">}</span><span class="k">\right</span>.
+</code></pre></div>
+<div class="arithmatex">\[
+\delta(t) = \left\{\begin{array}{ccl}
+  1 &amp; \cdots &amp; t = 0 \\
+  0 &amp; \cdots &amp; \mbox{otherwise}
+\end{array}\right.
+\]</div>
+<h2 id="variable-sized-symbols-displayed-formulae-show-larger-version">Variable-sized symbols (displayed formulae show larger version)<a class="headerlink" href="#variable-sized-symbols-displayed-formulae-show-larger-version" title="Permanent link">&para;</a></h2>
+<h2 id="standard-function-names">Standard Function Names<a class="headerlink" href="#standard-function-names" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\operatorname{MyFunc}\)</span> \operatorname{MyFunc}</td>
+<td><span class="arithmatex">\(\cos\)</span> \cos</td>
+<td><span class="arithmatex">\(\sin\)</span> \sin</td>
+<td><span class="arithmatex">\(\exp\)</span> \exp</td>
+<td><span class="arithmatex">\(\arg\)</span> \arg</td>
+</tr>
+</tbody>
+</table>
+<h2 id="binary-operationrelation-symbols">Binary Operation/Relation Symbols<a class="headerlink" href="#binary-operationrelation-symbols" title="Permanent link">&para;</a></h2>
+<h3 id="operators">Operators<a class="headerlink" href="#operators" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\ast\)</span> \ast</td>
+<td><span class="arithmatex">\(\star\)</span> \star</td>
+<td><span class="arithmatex">\(\cdot\)</span> \cdot</td>
+<td><span class="arithmatex">\(\circ\)</span> \circ</td>
+<td><span class="arithmatex">\(\times\)</span> \times</td>
+</tr>
+</tbody>
+</table>
+<h3 id="equal-signs">Equal Signs<a class="headerlink" href="#equal-signs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\triangleq\)</span> \triangleq</td>
+<td><span class="arithmatex">\(\equiv\)</span> \equiv</td>
+<td><span class="arithmatex">\(\cong\)</span> \cong</td>
+<td><span class="arithmatex">\(\sim\)</span> \sim</td>
+<td><span class="arithmatex">\(\neq\)</span> \neq</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arrow-symbols">Arrow symbols<a class="headerlink" href="#arrow-symbols" title="Permanent link">&para;</a></h2>
+<h2 id="miscellaneous-symbols">Miscellaneous symbols<a class="headerlink" href="#miscellaneous-symbols" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\infty\)</span> \infty</td>
+<td><span class="arithmatex">\(\nabla\)</span> \nabla</td>
+<td><span class="arithmatex">\(\partial\)</span> \partial</td>
+<td><span class="arithmatex">\(\eth\)</span> \eth</td>
+<td><span class="arithmatex">\(\forall\)</span> \forall</td>
+<td><span class="arithmatex">\(\exists\)</span> \exists</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\cdots\)</span> \cdots</td>
+<td><span class="arithmatex">\(\vdots\)</span> \vdots</td>
+<td><span class="arithmatex">\(\ldots\)</span> \ldots</td>
+<td><span class="arithmatex">\(\ddots\)</span> \ddots</td>
+<td><span class="arithmatex">\(\Im\)</span> \Im</td>
+<td><span class="arithmatex">\(\Re\)</span> \Re</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\imath\)</span> \imath</td>
+<td><span class="arithmatex">\(\jmath\)</span> \jmath</td>
+<td><span class="arithmatex">\(\ell\)</span> \ell</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="math-mode-accents">Math mode accents<a class="headerlink" href="#math-mode-accents" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\acute{a}\)</span> \acute{a}</td>
+<td><span class="arithmatex">\(\breve{a}\)</span> \breve{a}</td>
+<td><span class="arithmatex">\(\ddot{a}\)</span> \ddot{a}</td>
+<td><span class="arithmatex">\(\grave{a}\)</span> \grave{a}</td>
+<td><span class="arithmatex">\(\tilde{a}\)</span> \tilde{a}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\bar{a}\)</span> \bar{a}</td>
+<td><span class="arithmatex">\(\check{a}\)</span> \check{a}</td>
+<td><span class="arithmatex">\(\dot{a}\)</span> \dot{a}</td>
+<td><span class="arithmatex">\(\hat{a}\)</span> \hat{a}</td>
+<td><span class="arithmatex">\(\vec{a}\)</span> \vec{a}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\acute{\acute{A}}\)</span> \acute{\acute{A}}</td>
+<td><span class="arithmatex">\(\breve{\breve{A}}\)</span> \breve{\breve{A}}</td>
+<td><span class="arithmatex">\(\ddot{\ddot{A}}\)</span> \ddot{\ddot{A}}</td>
+<td><span class="arithmatex">\(\grave{\grave{A}}\)</span> \grave{\grave{A}}</td>
+<td><span class="arithmatex">\(\tilde{\tilde{A}}\)</span> \tilde{\tilde{A}}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\bar{\bar{A}}\)</span> \bar{\bar{A}}</td>
+<td><span class="arithmatex">\(\check{\check{A}}\)</span> \check{\check{A}}</td>
+<td><span class="arithmatex">\(\dot{\dot{A}}\)</span> \dot{\dot{A}}</td>
+<td><span class="arithmatex">\(\hat{\hat{A}}\)</span> \hat{\hat{A}}</td>
+<td><span class="arithmatex">\(\vec{\vec{A}}\)</span> \vec{\vec{A}}</td>
+</tr>
+</tbody>
+</table>
+<h2 id="styles">Styles<a class="headerlink" href="#styles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\mathcal{ABC}\)</span> \mathcal{ABC}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathbb{ABC}\)</span> \mathbb{ABC}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathfrak{ABC}\)</span> \mathfrak{ABC}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathsf{ABC}\)</span> \mathsf{ABC}</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathbf{ABC}\)</span> \mathbf{ABC}</td>
+</tr>
+</tbody>
+</table>
+<h2 id="array-environment-examples">Array environment, examples<a class="headerlink" href="#array-environment-examples" title="Permanent link">&para;</a></h2>
+<p>Quick summary</p>
+<ul>
+<li>Use <code>\left</code> + Delimiter and <code>\right</code> + Delimiter to label the boundary of a block of math. In this way the delimiter will scale properly if the block of math occupies more than one line.</li>
+<li>Use <code>\begin{array}</code> and <code>\end{array}</code> to specify a block of array</li>
+<li>The curly braces after <code>\begin{array}</code> specifies the alignment of each entry in a row. <code>{cr}</code> means the first column is center aligned and the 2nd column is aligned to the right.</li>
+<li>Within the array block, <code>&amp;</code> separates the entry in a row, and <code>\\</code> indicates a new row.</li>
+</ul>
+<p>Latex code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">\left</span>(
+  <span class="k">\begin</span><span class="nb">{</span>array<span class="nb">}{</span>cc<span class="nb">}</span>
+    2<span class="k">\tau</span> <span class="nb">&amp;</span> 7<span class="k">\phi</span> - <span class="k">\frac</span>5<span class="nb">{</span>12<span class="nb">}</span> <span class="k">\\</span>  
+    3<span class="k">\psi</span> <span class="nb">&amp;</span> <span class="k">\frac</span><span class="nb">{</span><span class="k">\pi</span><span class="nb">}</span>8
+  <span class="k">\end</span><span class="nb">{</span>array<span class="nb">}</span>
+<span class="k">\right</span>)
+<span class="k">\left</span>(
+  <span class="k">\begin</span><span class="nb">{</span>array<span class="nb">}{</span>c<span class="nb">}</span>
+    x <span class="k">\\</span>
+    y
+  <span class="k">\end</span><span class="nb">{</span>array<span class="nb">}</span>
+<span class="k">\right</span>)
+~<span class="k">\mbox</span><span class="nb">{</span>and<span class="nb">}</span>~
+<span class="k">\left</span>[
+  <span class="k">\begin</span><span class="nb">{</span>array<span class="nb">}{</span>cc|r<span class="nb">}</span>
+    3 <span class="nb">&amp;</span> 4 <span class="nb">&amp;</span> 5 <span class="k">\\</span>
+    1 <span class="nb">&amp;</span> 3 <span class="nb">&amp;</span> 729
+  <span class="k">\end</span><span class="nb">{</span>array<span class="nb">}</span>
+<span class="k">\right</span>]
+</code></pre></div>
+<p>Result:</p>
+<div class="arithmatex">\[
+\left(
+  \begin{array}{cc}
+    2\tau &amp; 7\phi - \frac5{12} \\  
+    3\psi &amp; \frac{\pi}8
+  \end{array}
+\right)
+\left(
+  \begin{array}{c}
+    x \\
+    y
+  \end{array}
+\right)
+~\mbox{and}~
+\left[
+  \begin{array}{cc|r}
+    3 &amp; 4 &amp; 5 \\
+    1 &amp; 3 &amp; 729
+  \end{array}
+\right]
+\]</div>
+<h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
+<h3 id="linebreak">Linebreak<a class="headerlink" href="#linebreak" title="Permanent link">&para;</a></h3>
+<p>Use <code>\\</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+x <span class="nb">&amp;</span>= 1 <span class="k">\\</span>
+y <span class="nb">&amp;</span>= 2
+<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+</code></pre></div>
+<div class="arithmatex">\[
+\begin{align}
+x &amp;= 1 \\
+y &amp;= 2
+\end{align}
+\]</div>
+<h3 id="alignment">Alignment<a class="headerlink" href="#alignment" title="Permanent link">&para;</a></h3>
+<p>Use <code>\begin{align*}</code> and <code>\end{align*}</code> to specify the block that requires alignment; use <code>&amp;</code> to specify the location to be aligned. The '*' after 'align' indicates that this equation will not be numbered.</p>
+<div class="highlight"><pre><span></span><code><span class="k">\begin</span><span class="nb">{</span>align*<span class="nb">}</span>
+  y <span class="nb">&amp;</span>= x + x <span class="k">\\</span>
+    <span class="nb">&amp;</span>= 2x
+<span class="k">\end</span><span class="nb">{</span>align*<span class="nb">}</span>
+</code></pre></div>
+<div class="arithmatex">\[
+\begin{align*}
+  y &amp;= x + x \\
+    &amp;= 2x
+\end{align*}
+\]</div>
+<h3 id="equation-box">Equation Box<a class="headerlink" href="#equation-box" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">\boxed</span><span class="nb">{</span>y = Ax<span class="nb">}</span>
+</code></pre></div>
+<div class="arithmatex">\[
+\boxed{y = Ax}
+\]</div>
+<h3 id="equation-numbering">Equation Numbering<a class="headerlink" href="#equation-numbering" title="Permanent link">&para;</a></h3>
+<p>Equation block defined with <code>\begin{equation}</code> and <code>\end{equation}</code> will be numbered, while the block defined with <code>\begin{equation*}</code> and <code>\end{equation*}</code> will not. Same syntax applies to <code>\begin{align*}</code></p>
+<h3 id="spacing">Spacing<a class="headerlink" href="#spacing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>1 <span class="k">\,</span> 2
+1 <span class="k">\!</span> 2
+1 <span class="k">\&gt;</span> 2
+1 <span class="k">\;</span> 2
+1 <span class="k">\quad</span> 2
+1 <span class="k">\qquad</span> 2
+</code></pre></div>
+<div class="arithmatex">\[
+\begin{align}
+&amp; 1 \, 2 \\
+&amp; 1 \! 2 \\
+&amp; 1 \&gt; 2 \\
+&amp; 1 \; 2 \\
+&amp; 1 \quad 2 \\
+&amp; 1 \qquad 2 \\
+\end{align}
+\]</div>
+<h3 id="entering-text">Entering text<a class="headerlink" href="#entering-text" title="Permanent link">&para;</a></h3>
+<p>use <code>\text</code>
+<div class="highlight"><pre><span></span><code>Y(k) = <span class="k">\text</span><span class="nb">{</span>DFT of<span class="nb">}</span> <span class="k">\;</span> y(n)
+</code></pre></div></p>
+<div class="arithmatex">\[
+Y(k) = \text{DFT of} \; y(n)
+\]</div>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://groups.csail.mit.edu/netmit/wordpress/wp-content/themes/netmit/papers/Symbols.pdf">Latex Mathematical Symbols</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

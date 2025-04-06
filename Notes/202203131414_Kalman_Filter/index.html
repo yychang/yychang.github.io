@@ -1,0 +1,836 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Kalman Filter - YYC's Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kalman-filter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-header__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YYC's Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Kalman Filter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-nav__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YYC's Workbench
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Map of Content
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Map of Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207311054_moc_quick_ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182111_moc_dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Digital Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182345_moc_audio_eng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207222056_moc_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210816_moc_math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210835_moc_programming_language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210846_moc_uncategorized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uncategorized
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-predict-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      The "Predict" Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-update-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      The "Update" Phase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estimation-of-the-noise-covariances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estimation of the noise covariances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kalman-filer-is-a-mmse-estimator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kalman filer is a MMSE estimator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="kalman-filter">Kalman Filter<a class="headerlink" href="#kalman-filter" title="Permanent link">&para;</a></h1>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>Given a system that contains <span class="arithmatex">\(N\)</span> unknown states, whose values at time <span class="arithmatex">\(k\)</span> are denoted as</p>
+<div class="arithmatex">\[
+\mathbf{x}_k \in \mathbb{R}^N
+\]</div>
+<p>We want to know the values of <span class="arithmatex">\(\mathbf{x}_k\)</span>, but we were unable to directly observe <span class="arithmatex">\(\mathbf{x}_k\)</span>. What we have is a noisy observation <span class="arithmatex">\(\mathbf{z}_k \in \mathbb{R}^N\)</span> for any time <span class="arithmatex">\(k\)</span>. </p>
+<p>Assume that we can model the transition of the unknown states <span class="arithmatex">\(\mathbf{x}_k\)</span> over time based on the following equation (known as the <strong>process equation</strong>):</p>
+<div class="arithmatex">\[
+\mathbf{x}_k = \mathbf{F}_k\mathbf{x}_{k-1} + \mathbf{B}_k\mathbf{u}_k + \mathbf{w}_k
+\]</div>
+<p>where</p>
+<ul>
+<li><span class="arithmatex">\(\mathbf{F}_k \in \mathbb{R}^{N \times N}\)</span> is the state transition model which is applied to the previous state <span class="arithmatex">\(\mathbf{x}_{k-1}\)</span></li>
+<li><span class="arithmatex">\(\mathbf{B}_k \in \mathbb{R}^{N \times L}\)</span> is the control-input model which is applied to the control vector <span class="arithmatex">\(\mathbf{u}_k\)</span></li>
+<li><span class="arithmatex">\(\mathbf{u}_k \in \mathbb{R}^L\)</span> is the control input to the system</li>
+<li><span class="arithmatex">\(\mathbf{w}_k \in \mathbb{R}^N\)</span> is the process noise which is assumed to be drawn from a zero mean multivariate normal distribution with covariance <span class="arithmatex">\(\mathbf{Q}_k\)</span>: <span class="arithmatex">\(\mathbf{w}_k \sim \mathcal {N} \left(0,\mathbf{Q}_{k}\right)\)</span></li>
+</ul>
+<p>Also, assume that we can model the observation <span class="arithmatex">\(\mathbf{z}_k\)</span> of the true state <span class="arithmatex">\(\mathbf{x}_k\)</span> based on following equation (known as the <strong>measurement equation</strong> or <strong>observation equation</strong>):</p>
+<div class="arithmatex">\[
+\mathbf{z}_k = \mathbf{H}_k \mathbf{x}_k + \mathbf{v}_k
+\]</div>
+<p>where</p>
+<ul>
+<li><span class="arithmatex">\(\mathbf{H}_k \in \mathbb{R}^{N \times N}\)</span> is the observation model which maps the true state space into the observed space</li>
+<li><span class="arithmatex">\(\mathbf{v}_k \in \mathbb{R}^N\)</span> is the observation noise which is assumed to be drawn from a zero mean multivariate normal distribution with covariance <span class="arithmatex">\(\mathbf{R}_k\)</span>: <span class="arithmatex">\(\mathbf{v}_k \sim \mathcal {N} \left(0,\mathbf{R}_{k}\right)\)</span></li>
+</ul>
+<p>We want to have a good estimate of <span class="arithmatex">\(\mathbf{x}_k\)</span> based on the history of the observations <span class="arithmatex">\(\mathbf{z}_0, \mathbf{z}_1, \cdots, \mathbf{z}_k\)</span></p>
+<h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
+<p>Given that we know all of <span class="arithmatex">\(\mathbf{F}_k\)</span>, <span class="arithmatex">\(\mathbf{B}_k\)</span>, <span class="arithmatex">\(\mathbf{u}_k\)</span>, <span class="arithmatex">\(\mathbf{Q}_k\)</span>, <span class="arithmatex">\(\mathbf{H}_k\)</span>, and <span class="arithmatex">\(\mathbf{R}_k\)</span>, how to make a good estimate of <span class="arithmatex">\(\mathbf{x}_k\)</span> based on the history of the observations <span class="arithmatex">\(\mathbf{z}_0, \mathbf{z}_1, \cdots, \mathbf{z}_k\)</span>?</p>
+<h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h2>
+<p>Define the following variables:</p>
+<ul>
+<li><span class="arithmatex">\(\hat{\mathbf{x}}_{k|k} \in \mathbb{R}^N\)</span>, the a posteriori state estimate at time <span class="arithmatex">\(k\)</span> given observations up to and including at time <span class="arithmatex">\(k\)</span></li>
+<li><span class="arithmatex">\(\mathbf{P}_{k|k} \in \mathbb{R}^{N \times N}\)</span>, the a posteriori error covariance matrix</li>
+<li>This can be considered a measure of the estimated accuracy of the state estimate.</li>
+</ul>
+<p>The objective is to compute <span class="arithmatex">\(\hat{\mathbf{x}}_{k|k}\)</span> that minimize the residual error (<span class="arithmatex">\(\mathbf{x}_k - \hat{\mathbf{x}}_{k|k}\)</span>) by going through the following steps:</p>
+<ol>
+<li>Empirically specify the initial state <span class="arithmatex">\(\hat{\mathbf{x}}_{0|0}\)</span> and <span class="arithmatex">\(\mathbf{P}_{0|0}\)</span></li>
+<li>Repeat the following two steps for k = 1, 2, 3, ...</li>
+<li>Do the "predict" step (computing <span class="arithmatex">\(\hat{\mathbf{x}}_{k|k-1}\)</span> and <span class="arithmatex">\(\mathbf{P}_{k|k-1}\)</span>)</li>
+<li>Do the "update" step (computing <span class="arithmatex">\(\tilde{\mathbf{y}}_k\)</span>, <span class="arithmatex">\(\mathbf{S}_k\)</span>, <span class="arithmatex">\(\mathbf{K}_k\)</span>, <span class="arithmatex">\(\mathbf{S}_k\)</span>, <span class="arithmatex">\(\hat{\mathbf{x}}_{k|k}\)</span>, <span class="arithmatex">\(\mathbf{P}_{k|k}\)</span>, <span class="arithmatex">\(\tilde{\mathbf{y}}_{k|k}\)</span>)</li>
+</ol>
+<h3 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">&para;</a></h3>
+<p>The initial state is typically chosen as follows:</p>
+<div class="arithmatex">\[
+\begin{align}
+\hat{\mathbf{x}}_{0|0} &amp;= \operatorname{E} \left( \mathbf{x}_0 \right) \\
+\mathbf{P}_{0|0} &amp;= \operatorname{E} \left[ (\mathbf{x}_0 - \hat{\mathbf{x}}_{0|0})(\mathbf{x}_0 - \hat{\mathbf{x}}_{0|0})^T \right]
+\end{align}
+\]</div>
+<h3 id="the-predict-phase">The "Predict" Phase<a class="headerlink" href="#the-predict-phase" title="Permanent link">&para;</a></h3>
+<p>The predict phase computes the followings:</p>
+<div class="arithmatex">\[
+\begin{align}
+\hat{\mathbf{x}}_{k|k-1} &amp;= \mathbf{F}_k\hat{\mathbf{x}}_{k-1|k-1}+\mathbf{B}_k\mathbf{u}_k \\
+\mathbf{P}_{k|k-1} &amp;= \mathbf{F}_k \mathbf{P}_{k-1|k-1} \mathbf{F}_k^T+\mathbf{Q}_k
+\end{align}
+\]</div>
+<h3 id="the-update-phase">The "Update" Phase<a class="headerlink" href="#the-update-phase" title="Permanent link">&para;</a></h3>
+<p>The update phase computes the followings:</p>
+<div class="arithmatex">\[
+\begin{align}
+\tilde{\mathbf{y}}_k &amp;= \mathbf{z}_k - \mathbf{H}_k \hat{\mathbf{x}}_{k|k-1} \\
+\mathbf{S}_k &amp;= \mathbf{H}_k \mathbf{P}_{k|k-1} \mathbf{H}_k^T + \mathbf{R}_k \\
+\mathbf{K}_k &amp;= \mathbf{P}_{k|k-1}  \mathbf{H}_k^T  \mathbf{S}_k^{-1} \\
+\hat{\mathbf{x}}_{k|k} &amp;= \hat{\mathbf{x}}_{k|k-1} + \mathbf{K}_k \tilde{\mathbf{y}}_k \\
+\mathbf{P}_{k|k} &amp;= \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k  \right) \mathbf{P}_{k|k-1} \\
+\tilde{\mathbf{y}}_{k|k} &amp;= \mathbf{z}_k - \mathbf{H}_k  \hat{\mathbf{x}}_{k|k}
+\end{align}
+\]</div>
+<p>where</p>
+<ul>
+<li><span class="arithmatex">\(\tilde{\mathbf{y}}_k\)</span> is the measurement pre-fit residual</li>
+<li><span class="arithmatex">\(\mathbf{S}_k\)</span> is the pre-fit residual covariance</li>
+<li><span class="arithmatex">\(\mathbf{K}_k\)</span> is the optimal Kalman gain</li>
+<li><span class="arithmatex">\(\hat{\mathbf{x}}_{k|k}\)</span> is the a posteriori state estimate</li>
+<li><span class="arithmatex">\(\mathbf{P}_{k|k}\)</span> is the a posteriori estimate covariance</li>
+<li><span class="arithmatex">\(\tilde{\mathbf{y}}_{k|k}\)</span> is the measurement post-fit residual</li>
+</ul>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<h3 id="estimation-of-the-noise-covariances">Estimation of the noise covariances<a class="headerlink" href="#estimation-of-the-noise-covariances" title="Permanent link">&para;</a></h3>
+<p>If the noise covariances <span class="arithmatex">\(\mathbf{Q}_k\)</span> and <span class="arithmatex">\(\mathbf{R}_k\)</span> is not known, one practical approach is to use autocovariance least-squares (ALS) technique to estimate them.</p>
+<h3 id="kalman-filer-is-a-mmse-estimator">Kalman filer is a MMSE estimator<a class="headerlink" href="#kalman-filer-is-a-mmse-estimator" title="Permanent link">&para;</a></h3>
+<p>The Kalman filter is a MMSE estimator that minimizes the error <span class="arithmatex">\(\mathbf{x}_k - \hat{\mathbf{x}}_{k|k}\)</span> under the following assumptions:</p>
+<ol>
+<li>The models (<span class="arithmatex">\(\mathbf{x}_k\)</span> and <span class="arithmatex">\(\mathbf{z}_k\)</span>) are accurate</li>
+<li>The values for <span class="arithmatex">\(\hat{ \mathbf{x} }_{0|0}\)</span> and <span class="arithmatex">\(\mathbf{P}_{0|0}\)</span> accurately reflect the distribution of the initial state values</li>
+<li>The measurement error <span class="arithmatex">\(\mathbf{v}_k\)</span>, the process noise <span class="arithmatex">\(\mathbf{w}_k\)</span>, and the initial state <span class="arithmatex">\(\mathbf{x}_{0|0}\)</span> are mutually independent,</li>
+</ol>
+<p>To prove it, we first derive the error covariance <span class="arithmatex">\(\mathbf{P}_{k|k}\)</span> from its definition:</p>
+<div class="arithmatex">\[
+\mathbf{P}_{k|k} = \operatorname{cov} \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k} \right)
+\]</div>
+<p>substitue in the definition of <span class="arithmatex">\(\hat{\mathbf{x}}_{k|k}\)</span>, <span class="arithmatex">\(\tilde{\mathbf{y}}_k\)</span>, and <span class="arithmatex">\(\mathbf{z}_k\)</span>, we get</p>
+<div class="arithmatex">\[
+\begin{align}
+\mathbf{P}_{k|k} &amp;= \operatorname{cov} 
+\left( 
+    \mathbf{x}_k - 
+    \left[ 
+        \hat{\mathbf{x}}_{k|k-1} + \mathbf{K}_k 
+        \left( 
+            \mathbf{H}_k \mathbf{x}_k + 
+            \mathbf{v}_k  - 
+            \mathbf{H}_k \hat{\mathbf{x}}_{k|k-1}
+        \right)
+    \right]
+\right)\\
+&amp;= \operatorname{cov} 
+\left[
+    \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) 
+    \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k-1} \right) - 
+    \mathbf{K}_k \mathbf{v}_k
+\right]
+\end{align}
+\]</div>
+<p>With the assumption of the mutually independent <span class="arithmatex">\(\mathbf{v}_k\)</span>, <span class="arithmatex">\(\mathbf{w}_k\)</span>, and <span class="arithmatex">\(\mathbf{x}_{0|0}\)</span>, we get</p>
+<div class="arithmatex">\[
+\begin{align}
+\mathbf{P}_{k|k} &amp;= \operatorname{cov} 
+\left[ 
+    \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) 
+    \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k-1} \right)
+\right] + 
+\operatorname{cov} \left[  \mathbf{K}_k \mathbf{v}_k \right] \\
+&amp;= \left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right) \operatorname{cov} \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k-1} \right) 
+\left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)^T + 
+\mathbf{K}_k \operatorname{cov} \left( \mathbf{v}_k \right) \mathbf{K}_k^T
+\end{align}
+\]</div>
+<p>By definition,</p>
+<div class="arithmatex">\[
+\begin{align}
+\mathbf{P}_{k|k-1} &amp;= \operatorname{cov} \left( \mathbf{x}_k - \hat{\mathbf{x}}_{k|k-1} \right) \\
+\mathbf{R}_k &amp; = \operatorname{cov} \left( \mathbf{v}_k \right)
+\end{align}
+\]</div>
+<p>therefore we get</p>
+<div class="arithmatex">\[
+\begin{align}
+\mathbf{P}_{k|k} &amp;= 
+\left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)
+\mathbf{P}_{k|k-1}
+\left( \mathbf{I} - \mathbf{K}_k \mathbf{H}_k \right)^T + 
+\mathbf{K}_k \mathbf{R}_k \mathbf{K}_k^T \\
+&amp;=
+\mathbf{P}_{k|k-1} - 
+\mathbf{K}_k \mathbf{H}_k \mathbf{P}_{k|k-1} - 
+\mathbf{P}_{k|k-1}\mathbf{H}^T_k \mathbf{K}^T_k + 
+\mathbf{K}_k \left( \mathbf{H}_k \mathbf{P}_{k|k-1} \mathbf{H}^T_k + \mathbf{R}_k \right) \mathbf{K}^T_k \\
+&amp;=
+\mathbf{P}_{k|k-1} - 
+\mathbf{K}_k \mathbf{H}_k \mathbf{P}_{k|k-1} - 
+\mathbf{P}_{k|k-1}\mathbf{H}^T_k \mathbf{K}^T_k + 
+\mathbf{K}_k \mathbf{S}_k \mathbf{K}^T_k
+\end{align}
+\]</div>
+<p>Also, by definition:</p>
+<div class="arithmatex">\[
+\operatorname{tr} \left( \mathbf{P}_{k|k} \right) = E \left[ || \mathbf{x}_k - \hat{\mathbf{x}}_{k|k} ||^2  \right]
+\]</div>
+<p>Therefore, to miminze <span class="arithmatex">\(E \left[ || \mathbf{x}_k - \hat{\mathbf{x}}_{k|k} ||^2 \right]\)</span>, we want to solve the following equation:</p>
+<div class="arithmatex">\[
+\frac{ \partial \; \operatorname{tr} (\mathbf{P} _{k|k})}{\partial \;\mathbf{K}_k} = -2 \left( \mathbf{H}_k \mathbf{P}_{k|k-1} \right)^T +  2 \mathbf{K}_k \mathbf{S}_k = 0
+\]</div>
+<p>which yields</p>
+<div class="arithmatex">\[
+\mathbf{K}_k = \mathbf{P}_{k|k-1} \mathbf{H}^T_k \mathbf{S}^{-1}_k
+\]</div>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Kalman_filter">Wikipedia: Kalman filter</a></li>
+<li><a href="https://academic.csuohio.edu/simond/pubs/IETKalman.pdf">D. Simon, Kalman filtering with state constraints: a survey of linear and nonlinear algorithms</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

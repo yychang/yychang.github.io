@@ -1,0 +1,1079 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Git Quick Reference - YYC's Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git-quick-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-header__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YYC's Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git Quick Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-nav__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YYC's Workbench
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Map of Content
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Map of Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207311054_moc_quick_ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182111_moc_dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Digital Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182345_moc_audio_eng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207222056_moc_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210816_moc_math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210835_moc_programming_language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210846_moc_uncategorized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uncategorized
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#common-diff-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common diff options
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-log-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Log Formatting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-log-searching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Log Searching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-branch-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Some Branch Operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-bisect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git Bisect
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submodule" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submodule
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-only-part-of-a-file-interactive-staging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit Only Part of a File (Interactive Staging)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-sparse-checkout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git sparse-checkout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-patch-and-applying-to-a-different-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating patch and applying to a different repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating patch and applying to a different repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applying-patches-to-a-different-repository-with-different-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applying Patches to a different repository with different directory structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-gitk-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling Gitk Color
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remote
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bare-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bare Repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-listing" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Listing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status Reporting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Misc
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="git-quick-reference">Git Quick Reference<a class="headerlink" href="#git-quick-reference" title="Permanent link">&para;</a></h1>
+<h2 id="common-diff-options">Common diff options<a class="headerlink" href="#common-diff-options" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>--numstat<span class="w">       </span>Shows<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>added<span class="w"> </span>and<span class="w"> </span>deleted<span class="w"> </span>lines
+
+--name-only<span class="w">     </span>Show<span class="w"> </span>only<span class="w"> </span>names<span class="w"> </span>of<span class="w"> </span>changed<span class="w"> </span>files.
+
+--name-status<span class="w">   </span>Show<span class="w"> </span>only<span class="w"> </span>names<span class="w"> </span>and<span class="w"> </span>status<span class="w"> </span>of<span class="w"> </span>changed<span class="w"> </span>files.<span class="w"> </span>
+<span class="w">                </span>See<span class="w"> </span>the<span class="w"> </span>description<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>--diff-filter<span class="w"> </span>option<span class="w"> </span>
+<span class="w">                </span>on<span class="w"> </span>what<span class="w"> </span>the<span class="w"> </span>status<span class="w"> </span>letters<span class="w"> </span>mean.
+
+--diff-filter<span class="o">=[(</span>A<span class="p">|</span>C<span class="p">|</span>D<span class="p">|</span>M<span class="p">|</span>R<span class="p">|</span>T<span class="p">|</span>U<span class="p">|</span>X<span class="p">|</span>B<span class="o">)</span>…<span class="o">[</span>*<span class="o">]]</span>
+<span class="w">                </span>Select<span class="w"> </span>only<span class="w"> </span>files<span class="w"> </span>that<span class="w"> </span>are<span class="w"> </span>Added<span class="w"> </span><span class="o">(</span>A<span class="o">)</span>,<span class="w"> </span>Copied<span class="w"> </span><span class="o">(</span>C<span class="o">)</span>,<span class="w"> </span>
+<span class="w">                </span>Deleted<span class="w"> </span><span class="o">(</span>D<span class="o">)</span>,<span class="w"> </span>Modified<span class="w"> </span><span class="o">(</span>M<span class="o">)</span>,<span class="w"> </span>Renamed<span class="w"> </span><span class="o">(</span>R<span class="o">)</span>,<span class="w"> </span>have<span class="w"> </span>their<span class="w"> </span>
+<span class="w">                </span><span class="nb">type</span><span class="w"> </span><span class="o">(</span>i.e.<span class="w"> </span>regular<span class="w"> </span>file,<span class="w"> </span>symlink,<span class="w"> </span>submodule,<span class="w"> </span>…<span class="o">)</span><span class="w"> </span>
+<span class="w">                </span>changed<span class="w"> </span><span class="o">(</span>T<span class="o">)</span>,<span class="w"> </span>are<span class="w"> </span>Unmerged<span class="w"> </span><span class="o">(</span>U<span class="o">)</span>,<span class="w"> </span>are<span class="w"> </span>Unknown<span class="w"> </span><span class="o">(</span>X<span class="o">)</span>,<span class="w"> </span>or<span class="w"> </span>
+<span class="w">                </span>have<span class="w"> </span>had<span class="w"> </span>their<span class="w"> </span>pairing<span class="w"> </span>Broken<span class="w"> </span><span class="o">(</span>B<span class="o">)</span>.
+
+-S&lt;string&gt;<span class="w">      </span>Look<span class="w"> </span><span class="k">for</span><span class="w"> </span>differences<span class="w"> </span>that<span class="w"> </span>introduce<span class="w"> </span>or<span class="w"> </span>remove<span class="w"> </span>an<span class="w"> </span>
+<span class="w">                </span>instance<span class="w"> </span>of<span class="w"> </span>&lt;string&gt;.
+
+-G&lt;regex&gt;<span class="w">       </span>Look<span class="w"> </span><span class="k">for</span><span class="w"> </span>differences<span class="w"> </span>whose<span class="w"> </span>added<span class="w"> </span>or<span class="w"> </span>removed<span class="w"> </span>line<span class="w"> </span>
+<span class="w">                </span>matches<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>&lt;regex&gt;.
+
+-b
+--ignore-space-change
+<span class="w">                </span>Ignore<span class="w"> </span>changes<span class="w"> </span><span class="k">in</span><span class="w"> </span>amount<span class="w"> </span>of<span class="w"> </span>whitespace.
+
+-w
+--ignore-all-space
+<span class="w">                </span>Ignore<span class="w"> </span>whitespace<span class="w"> </span>when<span class="w"> </span>comparing<span class="w"> </span>lines.
+</code></pre></div>
+<h2 id="git-log-formatting">Git Log Formatting<a class="headerlink" href="#git-log-formatting" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--pretty<span class="o">=</span>&lt;format&gt;
+</code></pre></div>
+<p>List of the valid <code>&lt;format&gt;</code>:</p>
+<ul>
+<li><code>oneline</code></li>
+<li><code>short</code></li>
+<li><code>medium</code></li>
+<li><code>full</code></li>
+<li><code>fuller</code></li>
+<li><code>email</code></li>
+<li><code>raw</code></li>
+<li><code>format:&lt;string&gt;</code></li>
+<li><code>tformat:&lt;string&gt;</code></li>
+</ul>
+<p><code>format:&lt;string&gt;</code> and <code>tformat:&lt;string&gt;</code> work a bit like <code>printf</code>. User composes <code>&lt;string&gt;</code> to specify how the information should be shown. See <a href="https://git-scm.com/docs/git-log#_pretty_formats">Git-log: Pretty Format</a> for the valid <em>placeholders</em> can be used in <code>&lt;string&gt;</code>.</p>
+<p>The difference between <code>format:&lt;string&gt;</code> and <code>tformat:&lt;string&gt;</code> is that <code>format:&lt;string&gt;</code> uses a separator between commits while <code>tformat:&lt;string&gt;</code> uses a terminator between commits.</p>
+<h2 id="git-log-searching">Git Log Searching<a class="headerlink" href="#git-log-searching" title="Permanent link">&para;</a></h2>
+<p>Show the commits that that contain/add/remove <code>&lt;string&gt;</code> or <code>&lt;pattern&gt;</code></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>-S&lt;string&gt;<span class="w"> </span>-i<span class="w"> </span>-p
+git<span class="w"> </span>log<span class="w"> </span>-G&lt;pattern&gt;<span class="w"> </span>-i<span class="w"> </span>-p
+</code></pre></div>
+<p>Note:</p>
+<ul>
+<li>Option <code>-i</code> for case-insensitive search</li>
+<li>Option <code>-p</code> to show the file diff</li>
+<li>The results are printed by Unix command <code>LESS</code>, which supports the following commands/operations<ul>
+<li><code>-i</code>: toggle case-insensitive search</li>
+<li><code>/</code>: search</li>
+<li><code>1G</code>, <code>j</code>, <code>k</code>: movement commands like Vim</li>
+</ul>
+</li>
+</ul>
+<p>Exclude directories or files</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--<span class="w"> </span>.<span class="w"> </span><span class="s1">&#39;:!path/to/ignore&#39;</span>
+</code></pre></div>
+<h2 id="some-branch-operations">Some Branch Operations<a class="headerlink" href="#some-branch-operations" title="Permanent link">&para;</a></h2>
+<p>Rebase branch <code>ABC</code> onto branch <code>master</code></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>master<span class="w"> </span>ABC
+git<span class="w"> </span>rebase<span class="w"> </span>master<span class="w"> </span>ABC<span class="w"> </span>-i
+git<span class="w"> </span>rebase<span class="w"> </span>--onto<span class="w"> </span>master<span class="w"> </span>ABCParent<span class="w"> </span>ABC
+</code></pre></div>
+<p>The option <code>-i</code> (<code>--interactive</code>) allows user to edit the list of commits to be rebased.</p>
+<p><em>NOTE</em>: <code>git merge</code> only merges the specified branches to the <em>current</em> branch. To merge branch <code>ABC</code> into branch <code>master</code>, user has to first change to <code>master</code> and perform <code>git merge</code> with the other branch.</p>
+<p>Given the following repo graph:</p>
+<div class="highlight"><pre><span></span><code>  C1 &lt;-- C2 &lt;-- C5 &lt;-- C6 (master)
+           \
+            \-- C3 &lt;-- C4 &lt;-- C9 (ABCParent)
+                  \
+                   \-- C7 &lt;-- C8 (ABC)
+</code></pre></div>
+<p>Rebase commands:</p>
+<ul>
+<li><code>git rebase master ABC</code> "replays" <code>C3</code>, <code>C7</code>, and <code>C8</code> onto <code>C6</code></li>
+<li><code>git rebase --onto master ABCParent ABC</code> "replays" <code>C7</code>, and <code>C8</code> onto <code>C6</code></li>
+</ul>
+<p>Create a new branch <code>ABC</code> at the commit <code>XYZ</code>
+<div class="highlight"><pre><span></span><code>git branch ABC XYZ
+</code></pre></div></p>
+<p>Reset the branch <code>ABC</code> to the commit <code>XYZ</code>
+<div class="highlight"><pre><span></span><code>git branch -f ABC XYZ
+</code></pre></div></p>
+<p>Rename a branch <code>ABC</code> to new name <code>XYZ</code>
+<div class="highlight"><pre><span></span><code>git branch -m ABC XYZ
+</code></pre></div></p>
+<h2 id="git-bisect">Git Bisect<a class="headerlink" href="#git-bisect" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>bisect<span class="w"> </span>start<span class="w"> </span>&lt;bad_commit&gt;<span class="w"> </span>&lt;good_commit&gt;
+
+<span class="c1"># Do bisect using the script. Note that the initial &lt;bad_commit&gt; and &lt;good_commit&gt;</span>
+<span class="c1"># are assumed to be correctly labeled and are NOT checked.</span>
+git<span class="w"> </span>bisect<span class="w"> </span>run<span class="w"> </span>my_script<span class="w"> </span>my_script_arguments
+
+git<span class="w"> </span>bisect<span class="w"> </span>reset
+</code></pre></div>
+<h2 id="submodule">Submodule<a class="headerlink" href="#submodule" title="Permanent link">&para;</a></h2>
+<p>Ref: <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">https://git-scm.com/book/en/v2/Git-Tools-Submodules</a></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone a repo with submodules</span>
+git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>&lt;repo&gt;<span class="w"> </span>&lt;dir&gt;
+
+<span class="c1"># Initialize the (nested) submodules in an already cloned repo:</span>
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+
+<span class="c1"># Check out a commit and sync all the submodules to the state associated </span>
+<span class="c1"># to that commit</span>
+git<span class="w"> </span>checkout<span class="w"> </span>--recurse-submodules<span class="w"> </span>&lt;commit&gt;
+
+<span class="c1"># Configure git to automatically check out with the --recurse-submodules flag</span>
+git<span class="w"> </span>config<span class="w"> </span>submodule.recurse<span class="w"> </span><span class="nb">true</span>
+</code></pre></div>
+<h2 id="commit-only-part-of-a-file-interactive-staging">Commit Only Part of a File (Interactive Staging)<a class="headerlink" href="#commit-only-part-of-a-file-interactive-staging" title="Permanent link">&para;</a></h2>
+<p>Use <code>git add -p file</code> (<code>-p</code> or <code>--patch</code>) to determine whether to stage each hunk of the changes.</p>
+<p>Use <code>git add -i</code>  (<code>-i</code> or <code>--interactive</code>) to enter a more verbose mode to allow user to select the hunks of the changes from individual files.</p>
+<p>Git will show a hunk of the change and ask user to select an action upon the shown hunk:</p>
+<ul>
+<li>y - stage this hunk</li>
+<li>n - do not stage this hunk</li>
+<li>a - stage this and all the remaining hunks in the file</li>
+<li>d - do not stage this hunk nor any of the remaining hunks in the file</li>
+<li>g - select a hunk to go to</li>
+<li>/ - search for a hunk matching the given regex</li>
+<li>j - leave this hunk undecided, see next undecided hunk</li>
+<li>J - leave this hunk undecided, see next hunk</li>
+<li>k - leave this hunk undecided, see previous undecided hunk</li>
+<li>K - leave this hunk undecided, see previous hunk</li>
+<li>s - split the current hunk into smaller hunks</li>
+<li>e - manually edit the current hunk</li>
+<li>? - print help</li>
+</ul>
+<h2 id="git-sparse-checkout">Git sparse-checkout<a class="headerlink" href="#git-sparse-checkout" title="Permanent link">&para;</a></h2>
+<p>Enable the sparse-checkout
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>core.sparsecheckout<span class="w"> </span><span class="nb">true</span>
+</code></pre></div></p>
+<p>The filter file is located at <code>.git/info/sparse-checkout</code>. Each line of <code>.git/info/sparse-checkout</code> defines a filter, and the latter definition overwrites the former ones. For example, the following <code>.git/info/sparse-checkout</code>  will check out all files except those in the folder <code>/Tools/</code>
+<div class="highlight"><pre><span></span><code>/*              # check out all files
+!/Tools/        # Do not check out the folder /Tools/, this filter
+                # overwrites the filter defined in the above lines.
+</code></pre></div></p>
+<p>Update the working tree:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>read-tree<span class="w"> </span>-mu<span class="w"> </span>HEAD
+</code></pre></div></p>
+<h2 id="creating-patch-and-applying-to-a-different-repository">Creating patch and applying to a different repository<a class="headerlink" href="#creating-patch-and-applying-to-a-different-repository" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>format-patch<span class="w"> </span>-k<span class="w"> </span>&lt;revision<span class="w"> </span>range&gt;
+git<span class="w"> </span>am<span class="w"> </span>-3<span class="w"> </span>-k<span class="w"> </span>--keep-cr<span class="w"> </span>&lt;patches&gt;
+</code></pre></div>
+<p><code>git format-patch</code> prepares the commits as patches for e-mail submission</p>
+<ul>
+<li>Use <code>-k</code> to instruct git not to add the label <code>[PATCH]</code> in the subject line. This is useful when the commit header also uses the format of <code>[TAG_NAME]</code> to categorize the commit (e.g. <code>[Bug]</code>, <code>[Refactor]</code>).</li>
+</ul>
+<blockquote>
+<p>NOTE:
+<code>git format-patch</code> generates the patches by specifying the file path with respect to the root of the current git repo. In other words, with the same <code>git format-patch</code> command under a git repo, the patches generated under <code>&lt;GitRepoRoot&gt;/a/b/c</code> are identical with those generated under <code>&lt;GitRepoRoot&gt;</code>.</p>
+</blockquote>
+<p><code>git am</code> applies the "patch emails" (those generated by <code>git format-patch</code>) to git repository</p>
+<ul>
+<li>Use <code>-3</code> to 3-way merge the patch. This option makes <code>git am</code> to try merging when conflict is found.</li>
+<li>Use <code>-k</code> to instruct git to not remove the email cruft in the subject line. This is useful when the commit header also uses the format of <code>[TAG_NAME]</code>, for git considers those <code>[TAG_NAME]</code> as some crufts to be removed.</li>
+<li>Use <code>--keep-cr</code> to instruct git to keep the CR when applying the patch. This option will resolve some problems that the patch for a DOS file cannot be applied.</li>
+<li>Use <code>--ignore-whitespace</code> to workaround some cases that <code>git diff</code> cannot find the context lines in the files to be patched. <strong>WARNING:</strong> This option may mess the line-endings in the file of DOS format. Use with caution.</li>
+</ul>
+<blockquote>
+<p>NOTE:
+<code>git am</code> applies the patches by recognizing the file path with respect to the root of the current git repo. In other words, with the same <code>git am</code> command under a git repo, the result of <code>git am</code> will be the same regardless of the current working directory and/or the location of the patch files.</p>
+</blockquote>
+<p>While it is undocumented, <code>git format-patch</code> seems to work with the following syntax</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>format-patch<span class="w"> </span>&lt;revision<span class="w"> </span>range&gt;<span class="w"> </span>&lt;files&gt;
+</code></pre></div>
+<p>So the following command generates the patches only related to the files in <code>path/of/interest/</code> and the sub directories:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>format-patch<span class="w"> </span>-k<span class="w"> </span>&lt;revision<span class="w"> </span>range&gt;<span class="w"> </span>path/of/interest/**
+</code></pre></div>
+<h3 id="applying-patches-to-a-different-repository-with-different-directory-structure">Applying Patches to a different repository with different directory structure<a class="headerlink" href="#applying-patches-to-a-different-repository-with-different-directory-structure" title="Permanent link">&para;</a></h3>
+<p>If there are directory changes for the files of interest between the repo to generate the patch and the repo to apply the patch, use <code>-p&lt;N&gt;</code> and <code>--directory=&lt;root&gt;</code> to tweak the path where the patch will be applied.</p>
+<p>Example 1: We want to apply the change made in <code>&lt;Repo1&gt;/a/b/c/MyFILE</code> to <code>&lt;Repo2&gt;/x/y/z/MyFILE</code>. The corresponding git commands for creating and applying patches will be</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In &lt;Repo1&gt;</span>
+git<span class="w"> </span>format-patch<span class="w"> </span>-k<span class="w"> </span>&lt;revision<span class="w"> </span>range&gt;<span class="w"> </span>a/b/c/MyFILE
+
+<span class="c1"># In &lt;Repo2&gt;</span>
+git<span class="w"> </span>am<span class="w"> </span>-k<span class="w"> </span>-p4<span class="w"> </span>--directory<span class="o">=</span>x/y/z<span class="w"> </span>&lt;patches&gt;
+</code></pre></div>
+<p>The option <code>-p&lt;N&gt;</code> is to "remove <code>&lt;N&gt;</code> leading slashes from traditional diff paths." Effectively, given the file specified in the patch is at <code>./a/b/c/MyFILE</code> with respect to the root of the git repo:</p>
+<ul>
+<li><code>-p1</code>: <code>git am</code> expects to find the file at ./a/b/c/MyFILE (with respect to the root of the git repo)</li>
+<li><code>-p2</code>: <code>git am</code> expects to find the file at ./b/c/MyFILE</li>
+<li><code>-p4</code>: <code>git am</code> expects to find the file at ./MyFILE</li>
+</ul>
+<p>The option <code>--directory=&lt;root&gt;</code> is to "prepend <code>&lt;root&gt;</code> to all filenames", and the prepending takes place after <code>-p&lt;N&gt;</code>. In other words:</p>
+<ul>
+<li><code>-p1 --directory=x/y/z</code>: <code>git am</code> expects to find the file at ./x/y/z/a/b/c/MyFILE</li>
+<li><code>-p4 --directory=x/y/z</code>: <code>git am</code> expects to find the file at ./x/y/z/MyFILE</li>
+</ul>
+<h2 id="controlling-gitk-color">Controlling Gitk Color<a class="headerlink" href="#controlling-gitk-color" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>diff<span class="w"> </span>~/.config/git/gitk.bak<span class="w"> </span>~/.config/git/gitk
+<span class="m">21</span>,22c21,22
+&lt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>bgcolor<span class="w"> </span>SystemWindow
+&lt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>fgcolor<span class="w"> </span>SystemWindowText
+---
+&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>bgcolor<span class="w"> </span>black
+&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>fgcolor<span class="w"> </span>grey
+26c26
+&lt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>diffcolors<span class="w"> </span><span class="o">{</span>red<span class="w"> </span><span class="s2">&quot;#00a000&quot;</span><span class="w"> </span>blue<span class="o">}</span>
+---
+&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>diffcolors<span class="w"> </span><span class="o">{</span>red<span class="w"> </span><span class="s2">&quot;#00a000&quot;</span><span class="w"> </span>cyan<span class="o">}</span>
+30c30
+&lt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>selectbgcolor<span class="w"> </span>SystemHighlight
+---
+&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>selectbgcolor<span class="w"> </span>blue
+52c52
+&lt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>linkfgcolor<span class="w"> </span>blue
+---
+&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>linkfgcolor<span class="w"> </span>cyan
+</code></pre></div>
+<h2 id="remote">Remote<a class="headerlink" href="#remote" title="Permanent link">&para;</a></h2>
+<p>Ref:
+* <a href="https://git-scm.com/docs/git-remote">https://git-scm.com/docs/git-remote</a>
+* <a href="http://stackoverflow.com/questions/16408300/what-are-the-differences-between-local-branch-local-tracking-branch-remote-bra">http://stackoverflow.com/questions/16408300/what-are-the-differences-between-local-branch-local-tracking-branch-remote-bra</a></p>
+<p>Terminology:</p>
+<ul>
+<li>Remote repository: A git repo on a remote machine</li>
+<li>Remote branch: A git branch on the remote repository</li>
+<li>Remote-tracking branch: A git branch on the local repository set up for tracking a remote branch. This branch usually named in the format of <code>remotes/&lt;RepoName&gt;/&lt;BranchName&gt;</code></li>
+<li>Local non-tracking branch: A git branch on the local repository that is not set to track any other branch.</li>
+<li>Local tracking branch: A git branch on the local repository that is set to track another branch (usually a remote-tracking branch).</li>
+</ul>
+<p>Start tracking branches in a remote repository</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>-t<span class="w"> </span>&lt;BranchName&gt;<span class="w"> </span>-m<span class="w"> </span>&lt;MasterBranchName&gt;<span class="w"> </span>-f<span class="w"> </span>--<span class="w"> </span>&lt;RepoName&gt;<span class="w"> </span>&lt;url&gt;
+</code></pre></div>
+<ul>
+<li><code>-t &lt;BranchName&gt;</code>: Specify the branch in the remote repo to be tracked. There can be more than one <code>-t</code>. If no <code>-t</code> is specified, all branches in the remote repo will be tracked.</li>
+<li><code>-m &lt;MasterBranchName&gt;</code>: Specify the "master" branch in the remote repo. Practically, a symbolic-ref <code>refs/remotes/&lt;RepoName&gt;/HEAD</code> will be set up to point at remote’s <code>&lt;MasterBranchName&gt;</code> branch.</li>
+<li><code>-f</code>: fetch the remote repo after the remote information is set up.</li>
+<li><code>&lt;RepoName&gt;</code>: The name of the remote repo appearing in the git log.</li>
+<li>In gitk it appears as <code>remotes/&lt;RepoName&gt;/&lt;BranchName&gt;</code>.</li>
+<li><code>&lt;url&gt;</code>: The path to the remote repo. It can be a HTTP path or a file path.</li>
+</ul>
+<p><a href="http://stackoverflow.com/questions/2765421/push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too">Push a new local branch to a remote repository and track it too</a>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>&lt;RepoName&gt;<span class="w"> </span>&lt;BranchName&gt;
+</code></pre></div></p>
+<p>Create a local tracking branch to track a remote-tracking branch:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;LocalBranchName&gt;<span class="w"> </span>&lt;RepoName&gt;/&lt;BranchName&gt;
+</code></pre></div>
+Technically <code>&lt;LocalBranchName&gt;</code> can be different from <code>&lt;BranchName&gt;</code>, but conventionally (and for convenience) <code>&lt;LocalBranchName&gt;</code> tends to be the same as <code>&lt;BranchName&gt;</code>.</p>
+<p><a href="http://stackoverflow.com/questions/3046436/how-do-you-stop-tracking-a-remote-branch-in-git">Stop tracking a remote branch</a> (done by deleting the corresponding remote-tracking branch)</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>-r<span class="w"> </span>&lt;RepoName&gt;/&lt;BranchName&gt;
+</code></pre></div>
+<p><a href="http://www.gitguys.com/topics/adding-and-removing-remote-branches">Delete a remote branch</a></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>&lt;RepoName&gt;<span class="w"> </span>--delete<span class="w"> </span>&lt;BranchName&gt;
+</code></pre></div>
+<p><a href="http://stackoverflow.com/questions/5094293/git-remote-branch-deleted-but-still-appears-in-branch-a">Remove the remote-tracking branches whose corresponding remote branches were deleted in the remote repo</a></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w"> </span>prune<span class="w"> </span>&lt;RepoName&gt;
+git<span class="w"> </span>fetch<span class="w"> </span>-p<span class="w"> </span>&lt;RepoName&gt;
+git<span class="w"> </span>pull<span class="w"> </span>-p<span class="w"> </span>&lt;RepoName&gt;
+</code></pre></div>
+<h2 id="bare-repository">Bare Repository<a class="headerlink" href="#bare-repository" title="Permanent link">&para;</a></h2>
+<p><a href="http://stackoverflow.com/questions/3301956/git-correct-way-to-change-active-branch-in-a-bare-repository">Change active branch in a bare repository</a></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>symbolic-ref<span class="w"> </span>HEAD<span class="w"> </span>refs/heads/&lt;BranchName&gt;
+</code></pre></div>
+<h2 id="file-listing">File Listing<a class="headerlink" href="#file-listing" title="Permanent link">&para;</a></h2>
+<p>List the untracked files:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>ls-files<span class="w"> </span>--others<span class="w"> </span>--exclude-standard
+</code></pre></div>
+<p>List the staged changes:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>--cached<span class="w"> </span>--name-only
+</code></pre></div>
+<p>List the unstaged changes:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>--name-only
+</code></pre></div>
+<p>List the staged/unstaged changes and untracked files (good for checking if there is any uncommitted local changes)</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status<span class="w"> </span>--porcelain
+</code></pre></div>
+<p>List the files in the git repo:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># List the files under the current directory (recursively)</span>
+git<span class="w"> </span>ls-tree<span class="w"> </span>-r<span class="w"> </span>HEAD
+
+<span class="c1"># List all files regardless of the current directory.</span>
+git<span class="w"> </span>ls-tree<span class="w"> </span>-r<span class="w"> </span>HEAD<span class="w"> </span>--full-tree
+
+<span class="c1"># List the files and only print the file path</span>
+git<span class="w"> </span>ls-tree<span class="w"> </span>-r<span class="w"> </span>HEAD<span class="w"> </span>--name-only
+</code></pre></div>
+<h2 id="status-reporting">Status Reporting<a class="headerlink" href="#status-reporting" title="Permanent link">&para;</a></h2>
+<p>Get the name of the current branch (when not on a detached HEAD)</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rev-parse<span class="w"> </span>--abbrev-ref<span class="w"> </span>HEAD
+</code></pre></div>
+<p>Show git root directory</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rev-parse<span class="w"> </span>--show-toplevel
+</code></pre></div>
+<p><a href="http://stackoverflow.com/questions/1419623/how-to-list-branches-that-contain-a-given-commit">List all branches that contain commit <code>&lt;commit&gt;</code></a></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>--contain<span class="w"> </span>&lt;commit&gt;<span class="w"> </span><span class="c1"># search local branches</span>
+git<span class="w"> </span>branch<span class="w"> </span>-r<span class="w"> </span>--contain<span class="w"> </span>&lt;commit&gt;<span class="w"> </span><span class="c1"># search remote-tracking branches</span>
+</code></pre></div>
+<p>Find the common ancestor of <code>&lt;commit1&gt;</code> and <code>&lt;commit2&gt;</code>:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge-base<span class="w"> </span>&lt;commit1&gt;<span class="w"> </span>&lt;commit2&gt;
+</code></pre></div>
+<p><a href="http://stackoverflow.com/questions/8475448/find-merge-commit-which-include-a-specific-commit">Find merge commit where <code>&lt;commit&gt;</code> is merged into <code>&lt;branch&gt;</code></a></p>
+<ul>
+<li>
+<p>Option 1:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rev-list<span class="w"> </span>&lt;SHA-1_for_c&gt;..master<span class="w"> </span>--ancestry-path<span class="w"> </span>&gt;<span class="w"> </span>a.txt
+git<span class="w"> </span>rev-list<span class="w"> </span>&lt;SHA-1_for_c&gt;..master<span class="w"> </span>--first-parent<span class="w"> </span>&gt;<span class="w"> </span>f.txt
+comm<span class="w"> </span>-1<span class="w"> </span>-2<span class="w"> </span>a.txt<span class="w"> </span>f.txt
+<span class="c1"># The last common line shows the desired merge commit.</span>
+</code></pre></div>
+</li>
+<li>
+<p>Option 2: use the git alias (adding it to <code>.gitconfig</code>) in bash</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>alias<span class="o">]</span>
+<span class="w">    </span>find-merge<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;!sh -c &#39;commit=</span><span class="nv">$0</span><span class="s2"> &amp;&amp; branch=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">HEAD</span><span class="si">}</span><span class="s2"> &amp;&amp; (git rev-list </span><span class="nv">$commit</span><span class="s2">..</span><span class="nv">$branch</span><span class="s2"> --ancestry-path | cat -n; git rev-list </span><span class="nv">$commit</span><span class="s2">..</span><span class="nv">$branch</span><span class="s2"> --first-parent | cat -n) | sort -k2 | uniq -f1 -d | sort -n | tail -1 | cut -f2&#39;&quot;</span>
+<span class="w">    </span>show-merge<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;!sh -c &#39;merge=</span><span class="k">$(</span>git<span class="w"> </span>find-merge<span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="nv">$1</span><span class="k">)</span><span class="s2"> &amp;&amp; [ -n \&quot;</span><span class="nv">$merge</span><span class="s2">\&quot; ] &amp;&amp; git show </span><span class="nv">$merge</span><span class="s2">&#39;&quot;</span>
+</code></pre></div>
+</li>
+</ul>
+<h2 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h2>
+<p>Allow empty commit:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--allow-empty
+</code></pre></div>
+<p>Rediscover lost commits (ref: <a href="http://gitready.com/advanced/2009/01/17/restoring-lost-commits.html">restoring lost commits</a>)</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fsck<span class="w"> </span>--lost-found
+git<span class="w"> </span>reflog
+</code></pre></div>
+<p>Check out the files modified in <code>COMMIT_X</code>:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span><span class="k">$(</span>git<span class="w"> </span>diff<span class="w"> </span>COMMIT_X^<span class="w"> </span>COMMIT_X<span class="w"> </span>--name-only<span class="w"> </span>--relative<span class="k">)</span>
+</code></pre></div>
+<p>Unstage a staged file:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>FILEPATH
+</code></pre></div>
+<p>Detect whether a string is a valid commit</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>cat-file<span class="w"> </span>-t<span class="w"> </span>master
+git<span class="w"> </span>cat-file<span class="w"> </span>-t<span class="w"> </span>29a8ed626f
+</code></pre></div>
+<p>Force to create a merge commit</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>--no-ff
+</code></pre></div>
+<p>Overwrite the current commit's timestamp</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--no-edit<span class="w"> </span>--date<span class="w"> </span><span class="s2">&quot;TIMESTAMP&quot;</span>
+</code></pre></div>
+<p>Check if a local branch exists</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>show-ref<span class="w"> </span>--verify<span class="w"> </span>--quiet<span class="w"> </span>refs/heads/<span class="s2">&quot;&lt;BranchName&gt;&quot;</span>
+</code></pre></div>
+<ul>
+<li>Recommend to quote <code>&lt;BranchName&gt;</code> in case it contains special characters</li>
+<li>With <code>--quiet</code>, the command prints nothing regardless of the existence of <code>&lt;BranchName&gt;</code>. Use the returned error code to determine the result<ul>
+<li>Error code 0: branch exists</li>
+<li>Error code 256: branch does not exist</li>
+</ul>
+</li>
+<li>Without <code>--quiet</code>, the command prints different message based on the existence of <code>&lt;BranchName&gt;</code>:<ul>
+<li>branch exists: "<code>&lt;CommitHash&gt; refs/heads/&lt;BranchName&gt;</code>"</li>
+<li>branch does not exist: "<code>fatal: 'refs/heads/&lt;BranchName&gt;' - not a valid ref</code>"</li>
+</ul>
+</li>
+</ul>
+<p>Find large objects in the git repo (Ref: <a href="https://stackoverflow.com/questions/10622179/how-to-find-identify-large-commits-in-git-history">Stackoverflow</a>)</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rev-list<span class="w"> </span>--objects<span class="w"> </span>--all<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>git<span class="w"> </span>cat-file<span class="w"> </span>--batch-check<span class="o">=</span><span class="s1">&#39;%(objecttype) %(objectname) %(objectsize) %(rest)&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;s/^blob //p&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>--numeric-sort<span class="w"> </span>--key<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span>-12,41-<span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span><span class="k">$(</span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>gnumfmt<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>numfmt<span class="k">)</span><span class="w"> </span>--field<span class="o">=</span><span class="m">2</span><span class="w"> </span>--to<span class="o">=</span>iec-i<span class="w"> </span>--suffix<span class="o">=</span>B<span class="w"> </span>--padding<span class="o">=</span><span class="m">7</span><span class="w"> </span>--round<span class="o">=</span>nearest
+</code></pre></div>
+<p>Replicate the repo at <code>/path/to/new/repo/</code> with an undesired file (<code>Unwanted.dat</code>) removed: (Ref: <a href="https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-git-repository">Stackoverflow</a>)</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>filter-branch<span class="w"> </span>--prune-empty<span class="w"> </span>-d<span class="w"> </span>/path/to/new/repo<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--index-filter<span class="w"> </span><span class="s2">&quot;git rm --cached -f --ignore-unmatch Unwanted.dat&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--all
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

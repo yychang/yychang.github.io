@@ -1,0 +1,862 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Sox Quick Reference - YYC's Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sox-quick-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-header__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YYC's Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sox Quick Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-nav__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YYC's Workbench
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Map of Content
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Map of Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207311054_moc_quick_ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182111_moc_dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Digital Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182345_moc_audio_eng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207222056_moc_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210816_moc_math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210835_moc_programming_language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210846_moc_uncategorized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uncategorized
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-synopsis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Synopsis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input-file-combining" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input File Combining
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-audio-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling Audio File
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scaling Audio File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scaling-input-by-infile-option-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling Input by infile option -v
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-output-by-effect-vol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling Output by effect vol
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normalizing-audio-with-global-option-norm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normalizing Audio with global option --norm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trimming-audio-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trimming Audio File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remixing-the-channels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remixing the channels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtaining-the-length-of-the-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obtaining the length of the file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#padding-silence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Padding silence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changing-sampling-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changing sampling rate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-white-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding white noise
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-a-silence-or-a-tone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating a silence or a tone
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specify-wav-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specify WAV format
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-pcm-format-to-wav" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert PCM format to WAV
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sox-quick-reference">Sox Quick Reference<a class="headerlink" href="#sox-quick-reference" title="Permanent link">&para;</a></h1>
+<h2 id="basic-synopsis">Basic Synopsis<a class="headerlink" href="#basic-synopsis" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sox<span class="w"> </span><span class="o">[</span>global-options<span class="o">]</span><span class="w"> </span><span class="o">[</span>inflie-options<span class="o">]</span><span class="w"> </span>infile1<span class="w"> </span><span class="o">[[</span>infile-options<span class="o">]</span><span class="w"> </span>infile2<span class="o">]</span><span class="w"> </span>...<span class="w"> </span><span class="o">[</span>outfile-options<span class="o">]</span><span class="w"> </span>outfile<span class="w"> </span><span class="o">[</span>effect<span class="w"> </span><span class="o">[</span>effect-options<span class="o">]]</span><span class="w"> </span>...
+</code></pre></div>
+<p>Highlights:</p>
+<ul>
+<li>The <em>options</em> (e.g. global options <code>-h</code>, options for input file <code>-v</code>, and options for input/output file <code>-b</code>) always have a leading dash ('-' or '--'), while the <em>effects</em> (e.g. <code>vol</code>) do not</li>
+<li>The <em>global options</em> can be specified anywhere before the first effect</li>
+<li>The <em>effects</em> should be specified after the <code>outfile</code> and will be applied to the <code>outfile</code> after the inputs are combined.</li>
+</ul>
+<h2 id="input-file-combining">Input File Combining<a class="headerlink" href="#input-file-combining" title="Permanent link">&para;</a></h2>
+<p>SoX supports the following methods to combine multiple input files:</p>
+<ul>
+<li><em>concatenate</em>: <ul>
+<li>Default method for SoX. Or explicitly specified by global option <code>--combine concatenate</code></li>
+<li>Input files must have the same sampling rate and the same number of channels.</li>
+<li><span class="arithmatex">\(N\)</span> input files of duration <span class="arithmatex">\(T_1, T_2, \cdots, T_N\)</span> will be concatenated to one output of duration <span class="arithmatex">\((T_1+T_2+\cdots+T_N)\)</span></li>
+</ul>
+</li>
+<li><em>mix</em>:<ul>
+<li>Specified by global option <code>--combine mix</code> or <code>-m</code></li>
+<li>Input files must have the same sampling rate.</li>
+<li>The <span class="arithmatex">\(k\)</span>-th channel at output is the sum of the <span class="arithmatex">\(k\)</span>-th channel of all <span class="arithmatex">\(N\)</span> input files</li>
+<li>If infile option <code>--volume</code> is not specified for individual input files, a normalization factor of <span class="arithmatex">\(\frac{1}{N}\)</span> will be applied by default.</li>
+</ul>
+</li>
+<li><em>mix-power</em>:<ul>
+<li>Specifiled by global option <code>--combine mix-power</code></li>
+<li>Similar to <em>mix</em>, but the default normalization factor is <span class="arithmatex">\(\frac{1}{\sqrt{N}}\)</span></li>
+</ul>
+</li>
+<li><em>merge</em>:<ul>
+<li>Specified by global option <code>--combine merge</code> or <code>-M</code></li>
+<li>Input files must have the same sampling rate</li>
+<li><span class="arithmatex">\(N\)</span> input files of  <span class="arithmatex">\(K_1, K_2, \cdots, K_N\)</span> channels will be merged to one output of  <span class="arithmatex">\((K_1 + K_2 + \cdots + K_N)\)</span> channels</li>
+</ul>
+</li>
+<li><em>multiply</em>: <ul>
+<li>Specified by global option <code>--combine multiply</code> or <code>-T</code></li>
+<li>Input files must hoave the same sampling rate</li>
+<li>The <span class="arithmatex">\(k\)</span>-th channel at output is the product of the <span class="arithmatex">\(k\)</span>-th channel of all <span class="arithmatex">\(N\)</span> input files. If the number of channels in the input files is not the same, the missing channels are considered to contain all zero.</li>
+</ul>
+</li>
+</ul>
+<h2 id="scaling-audio-file">Scaling Audio File<a class="headerlink" href="#scaling-audio-file" title="Permanent link">&para;</a></h2>
+<h3 id="scaling-input-by-infile-option-v">Scaling Input by infile option <code>-v</code><a class="headerlink" href="#scaling-input-by-infile-option-v" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># scale in1 by 2x and scale in2 by 0.5x and then combine them</span>
+sox<span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>in1.wav<span class="w"> </span>-v<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>in2.wav<span class="w"> </span>out.wav
+</code></pre></div>
+<h3 id="scaling-output-by-effect-vol">Scaling Output by effect <code>vol</code><a class="headerlink" href="#scaling-output-by-effect-vol" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># scale out.wav by 2x</span>
+sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>vol<span class="w"> </span><span class="m">2</span>
+
+<span class="c1"># scale out.wav by 3dB</span>
+sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>vol<span class="w"> </span>3dB
+</code></pre></div>
+<h3 id="normalizing-audio-with-global-option-norm">Normalizing Audio with global option  <code>--norm</code><a class="headerlink" href="#normalizing-audio-with-global-option-norm" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Normalize audio to magnitude +/-1.0</span>
+sox<span class="w"> </span>--norm<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav
+
+<span class="c1"># Normalize audio to magnitude +/-0.5, or -6dBFS</span>
+sox<span class="w"> </span>--norm<span class="o">=</span>-6<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav
+</code></pre></div>
+<h2 id="trimming-audio-file">Trimming Audio File<a class="headerlink" href="#trimming-audio-file" title="Permanent link">&para;</a></h2>
+<p>To trim an audio file to preserve the original audio between the timestamp {N1, N2} (unit: seconds):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># use add an equal sign (=) before N2 to denote that N2 is the end</span>
+<span class="c1"># timestamp rather than the length</span>
+sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>trim<span class="w"> </span><span class="nv">N1</span><span class="w"> </span><span class="o">=</span>N2
+</code></pre></div>
+<p>To trim an audio file to discard the audio before timestamp N1 (unit: seconds) and keep L1 seconds of audio after N1:</p>
+<div class="highlight"><pre><span></span><code>sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>trim<span class="w"> </span>N1<span class="w"> </span>L1
+</code></pre></div>
+<h2 id="remixing-the-channels">Remixing the channels<a class="headerlink" href="#remixing-the-channels" title="Permanent link">&para;</a></h2>
+<p><code>remix</code> command allows the user to remix the audio channels of one file</p>
+<div class="highlight"><pre><span></span><code>sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>remix<span class="w"> </span><span class="m">1</span>-3,5<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+<p>The above command creates <code>out.wav</code> with 3 channels where</p>
+<ul>
+<li><code>out.wav</code> channel 1 = mix of <code>in.wav</code> channel 1,2,3 and 5 (by averaging them)</li>
+<li><code>out.wav</code> channel 2 = <code>in.wav</code> channel 4</li>
+<li><code>out.wav</code> channel 3 = silence</li>
+</ul>
+<p>To manually control the scaling factor when mixing the channels:</p>
+<div class="highlight"><pre><span></span><code>sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>remix<span class="w"> </span>1v1.0,2v0.5,3v0.5,5v0.2
+</code></pre></div>
+<p>Now <code>out.wav</code> channel 1 = 1.0<em>(<code>in.wav</code> channel 1) + 0.5</em>(<code>in.wav</code> channel 2) + 0.5<em>(<code>in.wav</code> channel 3) + 0.2</em>(<code>in.wav</code> channel 5)</p>
+<h2 id="obtaining-the-length-of-the-file">Obtaining the length of the file<a class="headerlink" href="#obtaining-the-length-of-the-file" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Return the length in HH:MM:SS format</span>
+sox<span class="w"> </span>--i<span class="w"> </span>-d<span class="w"> </span><span class="k">in</span>.wav
+
+<span class="c1"># Return the length in seconds</span>
+sox<span class="w"> </span>--i<span class="w"> </span>-D<span class="w"> </span><span class="k">in</span>.wav
+
+<span class="c1"># Return the length in number of samples</span>
+sox<span class="w"> </span>--i<span class="w"> </span>-s<span class="w"> </span><span class="k">in</span>.wav
+</code></pre></div>
+<h2 id="padding-silence">Padding silence<a class="headerlink" href="#padding-silence" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Pad 1 seconds silence at the beginning and 2 seconds silence at </span>
+<span class="c1"># the end of the in.wav</span>
+sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>pad<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span><span class="m">2</span>.0
+
+<span class="c1"># Pad 3 seconds silence at 4 minutes into the in.wav</span>
+sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>pad<span class="w"> </span><span class="m">3</span>.0@4:00
+
+<span class="c1"># Pad 5000 samples of silence at 4 minutes into the in.wav</span>
+sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>out.wav<span class="w"> </span>pad<span class="w"> </span>5000s@4:00
+</code></pre></div>
+<h2 id="changing-sampling-rate">Changing sampling rate<a class="headerlink" href="#changing-sampling-rate" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>-r<span class="w"> </span><span class="m">16000</span><span class="w"> </span>out.wav
+</code></pre></div>
+<h2 id="adding-white-noise">Adding white noise<a class="headerlink" href="#adding-white-noise" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate noise.wav that is of the same format (duration, </span>
+<span class="c1"># number of channels, etc) as in.wav</span>
+sox<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>noise.wav<span class="w"> </span>synth<span class="w"> </span>whitenoise<span class="w"> </span>vol<span class="w"> </span><span class="m">0</span>.02
+
+<span class="c1"># Generate out.wav by mixing in.wav and noise.wav with their </span>
+<span class="c1"># original volume</span>
+sox<span class="w"> </span>-m<span class="w"> </span>-v<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span><span class="k">in</span>.wav<span class="w"> </span>-v<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span>noise.wav<span class="w"> </span>out.wav
+</code></pre></div>
+<h2 id="generating-a-silence-or-a-tone">Generating a silence or a tone<a class="headerlink" href="#generating-a-silence-or-a-tone" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate a 5 second, 16kHz, 2-channel, audio file containing silence.</span>
+sox<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="m">16000</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>silence.wav<span class="w"> </span>trim<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">5</span>
+
+<span class="c1"># Generate a 5 second, 8kHz, audio file containing a sine-wave of 300Hz:</span>
+sox<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="m">8000</span><span class="w"> </span>sine.wav<span class="w"> </span>synth<span class="w"> </span><span class="m">5</span><span class="w"> </span>sine<span class="w"> </span><span class="m">300</span>
+
+<span class="c1"># Generate a 5 second, 8kHz, audio file containing a sine-wave swept </span>
+<span class="c1"># from 300 to 3300 Hz:</span>
+sox<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="m">8000</span><span class="w"> </span>sine.wav<span class="w"> </span>synth<span class="w"> </span><span class="m">5</span><span class="w"> </span>sine<span class="w"> </span><span class="m">300</span>-3300
+</code></pre></div>
+<p>Note:</p>
+<ul>
+<li><code>-n</code> is the "null file" option and is considered as a file containing infinite amount of silence. This option is usually used with some finite-length effects such as <code>trim</code> or <code>synth</code></li>
+</ul>
+<h2 id="specify-wav-format">Specify WAV format<a class="headerlink" href="#specify-wav-format" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate a 5 second, 8kHz, audio file containing a sine-wave of 300Hz</span>
+sox<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="m">8000</span><span class="w"> </span>sine.wav<span class="w"> </span>synth<span class="w"> </span><span class="m">5</span><span class="w"> </span>sine<span class="w"> </span><span class="m">300</span>
+
+<span class="c1"># Generate the wave file in 16-bit PCM</span>
+sox<span class="w"> </span>-n<span class="w"> </span>-r<span class="w"> </span><span class="m">8000</span><span class="w"> </span>-b<span class="w"> </span><span class="m">16</span><span class="w"> </span>-e<span class="w"> </span>signed-integer<span class="w"> </span>sine.wav<span class="w"> </span>synth<span class="w"> </span><span class="m">5</span><span class="w"> </span>sine<span class="w"> </span><span class="m">300</span>
+</code></pre></div>
+<p>Some other common encodings:</p>
+<ul>
+<li><code>unsigned-integer</code>: PCM data stored as unsigned integers. Commonly used with an 8-bit encoding size</li>
+<li><code>floating-point</code>: PCM data stored as IEEE 753 single precision (32-bit) or double precision (64-bit) floating-point (‘real’) numbers</li>
+<li><code>a-law</code>: International telephony standard for logarithmic encoding to 8 bits per sample</li>
+</ul>
+<h2 id="convert-pcm-format-to-wav">Convert PCM format to WAV<a class="headerlink" href="#convert-pcm-format-to-wav" title="Permanent link">&para;</a></h2>
+<p>Convert a PCM file of 1 channel, 16-bit, 48kHz sampling rate, signed-integer encoding to WAV</p>
+<div class="highlight"><pre><span></span><code>sox<span class="w"> </span>-t<span class="w"> </span>raw<span class="w"> </span>-c<span class="w"> </span><span class="m">1</span><span class="w"> </span>-b<span class="w"> </span><span class="m">16</span><span class="w"> </span>-r<span class="w"> </span><span class="m">48000</span><span class="w"> </span>-e<span class="w"> </span>signed<span class="w"> </span><span class="k">in</span>.pcm<span class="w"> </span>out.wav
+</code></pre></div>
+<p>It is required to specify the file type <code>-t raw</code>. Otherwise <code>sox</code> will fail due to <code>.pcm</code> being an unrecognized format. See <a href="https://linux.die.net/man/7/soxformat">soxformat</a> for the list of the supported formats.</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://sox.sourceforge.net/sox.html">http://sox.sourceforge.net/sox.html</a> </li>
+<li><a href="https://linux.die.net/man/7/soxformat">https://linux.die.net/man/7/soxformat</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

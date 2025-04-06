@@ -1,0 +1,1778 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Python Quick Reference - YYC's Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-quick-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-header__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YYC's Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python Quick Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-nav__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YYC's Workbench
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Map of Content
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Map of Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207311054_moc_quick_ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182111_moc_dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Digital Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182345_moc_audio_eng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207222056_moc_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210816_moc_math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210835_moc_programming_language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210846_moc_uncategorized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uncategorized
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#terminologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Terminologies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      String
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      String Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      String Operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-string-literals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw String Literals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      List
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-list-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful List Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nested List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tuple
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuple">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-tuple-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Tuple Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionarymaphash-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dictionary/Map/Hash Table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dictionary/Map/Hash Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-dict-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Dict Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control Flow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Control Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#break-continue-and-else-on-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      break, continue, and else on Loops
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pass-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      pass Statement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterable-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iterable object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Iterable object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Operations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filedirectory-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      File/Directory Operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Hints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Hints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type Alias
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readwrite-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read/Write Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Read/Write Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-csv-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load CSV File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-wav-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load WAV File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readwrite-text-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read/Write text file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readwrite-json-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read/Write JSON file
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parse-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parse arguments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequently-used-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frequently Used Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequently Used Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-line Arguments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-a-cmd-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      Execute a CMD command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile-a-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profile a function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progress-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Progress Bar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-a-lib-from-a-user-specified-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load a lib from a user-specified location
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-cartesian-product-of-multiple-iterables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Cartesian product of multiple iterables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-the-current-time-as-a-string-of-custom-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get the current time as a string of custom format
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python-quick-reference">Python Quick Reference<a class="headerlink" href="#python-quick-reference" title="Permanent link">&para;</a></h1>
+<h2 id="terminologies">Terminologies<a class="headerlink" href="#terminologies" title="Permanent link">&para;</a></h2>
+<p>Function v.s. Method:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Independent of any object</td>
+<td>Associated to an object</td>
+</tr>
+<tr>
+<td>All the parameters are passed explicitly</td>
+<td>The associated object is implicitly passed on</td>
+</tr>
+<tr>
+<td>May or may not return any data</td>
+<td>May or may not return any data</td>
+</tr>
+</tbody>
+</table>
+<p>Example of a function</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Definition</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">print_hello_word</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">print_hello_word</span><span class="p">()</span>
+</code></pre></div>
+<p>Example of a method (in the class "MyClass")</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Definition</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_hello_world</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Usage</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<span class="n">x</span><span class="o">.</span><span class="n">print_hello_world</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="operators">Operators<a class="headerlink" href="#operators" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Syntax</th>
+<th>Function</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addition</td>
+<td>a + b</td>
+<td>add(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Concatenation</td>
+<td>seq1 + seq2</td>
+<td>concat(seq1, seq2)</td>
+<td></td>
+</tr>
+<tr>
+<td>Containment Test</td>
+<td>obj in seq</td>
+<td>contains(seq, obj)</td>
+<td></td>
+</tr>
+<tr>
+<td>Division</td>
+<td>a / b</td>
+<td>truediv(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Floor Division</td>
+<td>a // b</td>
+<td>floordiv(a, b)</td>
+<td>13 // 5 = 2</td>
+</tr>
+<tr>
+<td>Bitwise And</td>
+<td>a &amp; b</td>
+<td>and_(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Bitwise Exclusive Or</td>
+<td>a ^ b</td>
+<td>xor(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Bitwise Inversion</td>
+<td>~ a</td>
+<td>invert(a)</td>
+<td></td>
+</tr>
+<tr>
+<td>Bitwise Or</td>
+<td>a</td>
+<td>b</td>
+<td>or_(a, b)</td>
+</tr>
+<tr>
+<td>Exponentiation</td>
+<td>a ** b</td>
+<td>pow(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Identity</td>
+<td>a is b</td>
+<td>is_(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Identity</td>
+<td>a is not b</td>
+<td>is_not(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Indexed Assignment</td>
+<td>obj[k] = v</td>
+<td>setitem(obj, k, v)</td>
+<td></td>
+</tr>
+<tr>
+<td>Indexed Deletion</td>
+<td>del obj[k]</td>
+<td>delitem(obj, k)</td>
+<td></td>
+</tr>
+<tr>
+<td>Indexing</td>
+<td>obj[k]</td>
+<td>getitem(obj, k)</td>
+<td></td>
+</tr>
+<tr>
+<td>Left Shift</td>
+<td>a &lt;&lt; b</td>
+<td>lshift(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Modulo</td>
+<td>a % b</td>
+<td>mod(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td>a * b</td>
+<td>mul(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Negation (Arithmetic)</td>
+<td>- a</td>
+<td>neg(a)</td>
+<td></td>
+</tr>
+<tr>
+<td>Negation (Logical)</td>
+<td>not a</td>
+<td>not_(a)</td>
+<td></td>
+</tr>
+<tr>
+<td>Positive</td>
+<td>+ a</td>
+<td>pos(a)</td>
+<td></td>
+</tr>
+<tr>
+<td>Right Shift</td>
+<td>a &gt;&gt; b</td>
+<td>rshift(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Slice Assignment</td>
+<td>seq[i:j] = values</td>
+<td>setitem(seq, slice(i, j), values)</td>
+<td></td>
+</tr>
+<tr>
+<td>Slice Deletion</td>
+<td>del seq[i:j]</td>
+<td>delitem(seq, slice(i, j))</td>
+<td></td>
+</tr>
+<tr>
+<td>Slicing</td>
+<td>seq[i:j]</td>
+<td>getitem(seq, slice(i, j))</td>
+<td></td>
+</tr>
+<tr>
+<td>String Formatting</td>
+<td>s % obj</td>
+<td>mod(s, obj)</td>
+<td></td>
+</tr>
+<tr>
+<td>Subtraction</td>
+<td>a - b</td>
+<td>sub(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Truth Test</td>
+<td>obj</td>
+<td>truth(obj)</td>
+<td></td>
+</tr>
+<tr>
+<td>Ordering</td>
+<td>a &lt; b</td>
+<td>lt(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Ordering</td>
+<td>a &lt;= b</td>
+<td>le(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Equality</td>
+<td>a == b</td>
+<td>eq(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Difference</td>
+<td>a != b</td>
+<td>ne(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Ordering</td>
+<td>a &gt;= b</td>
+<td>ge(a, b)</td>
+<td></td>
+</tr>
+<tr>
+<td>Ordering</td>
+<td>a &gt; b</td>
+<td>gt(a, b)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Ternary condition operator:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># v2.5+</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">a</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">b</span>
+</code></pre></div>
+<p>The last printed expression is assigned to the variable <code>_</code></p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="mi">3</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">_</span>
+<span class="mi">8</span>
+</code></pre></div>
+<h2 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h2>
+<h3 id="string-declaration">String Declaration<a class="headerlink" href="#string-declaration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Strings can be declared with either single quotes or double quotes.</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;This is a book&#39;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;This is a book&quot;</span>
+
+<span class="c1"># Strings declared with single quotes or double quotes are almost the same, except</span>
+<span class="c1"># how they treat the single quote or double quote within the string</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;This isn</span><span class="se">\&#39;</span><span class="s1">t a book&#39;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;This isn&#39;t a book&quot;</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="s1">&#39;He said &quot;Yes&quot;&#39;</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="s2">&quot;He said </span><span class="se">\&quot;</span><span class="s2">Yes</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+
+<span class="c1"># Strings support the commonly used special characters such as \n (newline)</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;Line1</span><span class="se">\n</span><span class="s1">Line2&#39;</span>
+
+<span class="c1"># Multi-line string</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Line1</span>
+<span class="s2">Line2&quot;&quot;&quot;</span>
+
+<span class="c1"># Use trailing backslash to beautify the multi-line string</span>
+<span class="c1"># declaration without adding extra newlines</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">Line1</span>
+<span class="s2">Line2</span><span class="se">\</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Format string using %-formatting</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Data.txt&quot;</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mf">19.2</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;The file name is </span><span class="si">%s</span><span class="s2"> and the size is </span><span class="si">%.2f</span><span class="s2">MB&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+<span class="c1"># Format string using Formatted string literals (f-string) (v3.6+)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;The file name is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> and the size is </span><span class="si">{</span><span class="n">size</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">MB&quot;</span>
+
+<span class="c1"># Concatenate multiple strings across multiple lines using parenthesis</span>
+<span class="n">program_cmd</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;MyProg.exe&quot;</span> <span class="o">+</span>
+               <span class="s2">&quot; --arg1 &quot;</span> <span class="o">+</span> <span class="n">Value1</span> <span class="o">+</span>
+               <span class="s2">&quot; --arg2 &quot;</span> <span class="o">+</span> <span class="n">Value2</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="string-operation">String Operation<a class="headerlink" href="#string-operation" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Multiplication and concatenation</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="s1">&#39;un&#39;</span> <span class="o">+</span> <span class="s1">&#39;ium&#39;</span> <span class="c1"># s1 = &#39;unununium&#39;</span>
+
+<span class="c1"># Slicing</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;abcdefg&#39;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># s2 = &#39;ab&#39;</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">s1</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>   <span class="c1"># s3 = &#39;ab&#39;</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="n">s1</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>   <span class="c1"># s4 = &#39;efg&#39;</span>
+<span class="n">s5</span> <span class="o">=</span> <span class="n">s1</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>  <span class="c1"># s5 = &#39;fg&#39;</span>
+
+<span class="c1"># Remove trailing whitespaces and/or leading whitespaces, including newlines</span>
+<span class="n">s6</span> <span class="o">=</span> <span class="s1">&#39;  </span><span class="se">\r\n</span><span class="s1">  </span><span class="se">\r</span><span class="s1">  abc def  </span><span class="se">\n\n</span><span class="s1">  </span><span class="se">\r\n</span><span class="s1"> &#39;</span>
+<span class="n">s6</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>   <span class="c1"># remove trailing whitespaces (returns &#39;  \r\n  \r  abc def&#39;)</span>
+<span class="n">s6</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>   <span class="c1"># remove leading whitespaces (returns &#39;abc def  \n\n  \r\n &#39;)</span>
+<span class="n">s6</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>    <span class="c1"># remove both leading and trailing whitespaces (returns &#39;abc def&#39;)</span>
+
+<span class="c1"># Return the string after the last slash</span>
+<span class="n">s7</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/wiki/Least_mean_squares_filter&#39;</span>
+<span class="n">s8</span> <span class="o">=</span> <span class="n">s7</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Return the string before the first slash</span>
+<span class="n">s9</span> <span class="o">=</span> <span class="n">s7</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="raw-string-literals">Raw String Literals<a class="headerlink" href="#raw-string-literals" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># With prefix &#39;r&#39;, backslash will be treated as literal with only one exception:</span>
+<span class="c1"># to escape the quote</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;My </span><span class="se">\&quot;</span><span class="s2">Hello World!</span><span class="se">\&quot;</span><span class="s2"> program is at C:\Project\HelloWorld&quot;</span>
+
+<span class="c1"># Raw string is handy when defining the regular expression patterns</span>
+<span class="n">Pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;int function\((.+)\)&quot;</span>
+</code></pre></div>
+<h2 id="list">List<a class="headerlink" href="#list" title="Permanent link">&para;</a></h2>
+<h3 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">List1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">List2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">List1</span><span class="p">]</span>
+<span class="n">List3</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>       <span class="c1"># Works only in Python 2.x (range() returns a list)</span>
+<span class="n">List4</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span> <span class="c1"># Works only in Python 3.x (range() returns an iterator)</span>
+</code></pre></div>
+<h3 id="useful-list-operations">Useful List Operations<a class="headerlink" href="#useful-list-operations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Concatenation</span>
+<span class="n">List2</span> <span class="o">=</span> <span class="n">List1</span> <span class="o">+</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># Append</span>
+<span class="n">List2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="mi">10</span> <span class="p">)</span>
+
+<span class="c1"># Find the list size</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">List2</span><span class="p">)</span>
+
+<span class="c1"># Remove the first item whose value is x</span>
+<span class="n">List2</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># raise ValueError if there is no such item</span>
+
+<span class="c1"># Remove the item of index n</span>
+<span class="n">List2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># Remove the last item</span>
+<span class="n">List2</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+<span class="c1"># Clear the list</span>
+<span class="n">List2</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Iterate through the list</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">List2</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">x</span>
+
+<span class="c1"># Iterate through the list, with the information about the index</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">List2</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">i</span>
+    <span class="nb">print</span> <span class="n">x</span>
+
+<span class="c1"># Iterate through multiple lists concurrently using zip();</span>
+<span class="c1"># stop when the shortest list reaches the end.</span>
+<span class="k">for</span> <span class="n">x1</span><span class="p">,</span><span class="n">x2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">List1</span><span class="p">,</span> <span class="n">List2</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span>
+
+<span class="c1"># Create a duplicated &quot;view&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span>    <span class="c1"># y will be a list of 5 references to x.</span>
+             <span class="c1"># Note that each element in y references to the same x,</span>
+             <span class="c1"># so changing x will affect every entry in y</span>
+
+<span class="c1"># Loop through a list in batch</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">])</span>
+
+<span class="c1"># Add an item between each item already in the list</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;newItem&#39;</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Create a list of length 2N-1 filled with the new item</span>
+<span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>             <span class="c1"># Fill z[2*n] with x[n]</span>
+</code></pre></div>
+<h3 id="nested-list">Nested List<a class="headerlink" href="#nested-list" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">List1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">List2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">List3</span> <span class="o">=</span> <span class="p">[</span><span class="n">List1</span><span class="p">,</span> <span class="n">List2</span><span class="p">]</span>
+
+<span class="c1"># This returns [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+<span class="n">List3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># This returns &#39;a&#39;</span>
+<span class="n">List3</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="tuple">Tuple<a class="headerlink" href="#tuple" title="Permanent link">&para;</a></h2>
+<h3 id="initialization_1">Initialization<a class="headerlink" href="#initialization_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span>   <span class="c1"># Initialization by &quot;tuple packing&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">()</span>             <span class="c1"># Creating an empty tuple</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>             <span class="c1"># Creating an singleton tuple using a trailing comma &#39;,&#39;</span>
+<span class="n">not_a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># This won&#39;t create a tuple</span>
+</code></pre></div>
+<h3 id="useful-tuple-operations">Useful Tuple Operations<a class="headerlink" href="#useful-tuple-operations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>    <span class="c1"># Access the first element</span>
+<span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># Access the last element</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># Access the all the elements from the 2nd to the end of the tuple,</span>
+        <span class="c1"># with a step size of 2.</span>
+
+<span class="c1"># Tuple unpacking: assign the elements in the tuple to individual variables.</span>
+<span class="c1"># The number of variables on the left hand side has to be equal to the number</span>
+<span class="c1"># of values in the tuple</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span>
+<span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span>
+</code></pre></div>
+<h2 id="dictionarymaphash-table">Dictionary/Map/Hash Table<a class="headerlink" href="#dictionarymaphash-table" title="Permanent link">&para;</a></h2>
+<p>The keys have to be of immutable type (e.g. numbers or strings, but not lists); the values can be any variable.</p>
+<p>If a tuple contains only immutable objects, then the tuple can be used as a key.</p>
+<h3 id="initialization_2">Initialization<a class="headerlink" href="#initialization_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">MyMap</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span> <span class="p">:</span> <span class="s2">&quot;January&quot;</span><span class="p">,</span>
+    <span class="mi">2</span> <span class="p">:</span> <span class="s2">&quot;February&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Key&quot;</span> <span class="p">:</span> <span class="s2">&quot;Value&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">MyMap</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;January&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;February&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Key&quot;</span><span class="p">,</span> <span class="s2">&quot;Value&quot;</span><span class="p">)])</span>
+
+<span class="n">MySquareMap</span> <span class="o">=</span> <span class="p">{</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div>
+<h3 id="useful-dict-operations">Useful Dict Operations<a class="headerlink" href="#useful-dict-operations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add an element</span>
+<span class="n">MyMap</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;March&quot;</span>
+
+<span class="c1"># Remove an element</span>
+<span class="k">del</span> <span class="n">MyMap</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>      <span class="c1"># This method raises KeyError if the key does not exist</span>
+<span class="n">MyMap</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="c1"># This method returns None if the key does not exist</span>
+
+<span class="c1"># Find the number of key-value pairs</span>
+<span class="n">NumElement</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">MyMap</span><span class="p">)</span>
+
+<span class="c1"># Check if a key exists</span>
+<span class="k">if</span><span class="p">(</span> <span class="mi">3</span> <span class="ow">in</span> <span class="n">MyMap</span> <span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3 exists</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3 does not exist</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Iterate through all elements</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">MyMap</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="n">k</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">MyMap</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="nb">print</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;=&gt;&quot;</span><span class="p">,</span> <span class="n">v</span>
+
+<span class="c1"># Get all the keys</span>
+<span class="n">MyKeys</span> <span class="o">=</span> <span class="n">MyMap</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="c1"># Filter dict items</span>
+<span class="n">MyMap2</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">MyMap</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">}</span>
+</code></pre></div>
+<h2 id="control-flow">Control Flow<a class="headerlink" href="#control-flow" title="Permanent link">&para;</a></h2>
+<p><code>while</code> statement</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</code></pre></div>
+<p><code>if</code> statement</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter an integer: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Negative changed to zero&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Zero&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Single&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;More&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p><code>for</code> statement</p>
+<div class="highlight"><pre><span></span><code><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">,</span> <span class="s1">&#39;defenestrate&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+</code></pre></div>
+<p>To modify the list while iterating through its elements, it's highly recommended to first make a copy of the list and then iterate through the copy instead of the origin:</p>
+<div class="highlight"><pre><span></span><code><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">,</span> <span class="s1">&#39;defenestrate&#39;</span><span class="p">]</span>
+
+<span class="c1"># Loop over a slice copy &quot;words[:]&quot; of the original list &quot;words&quot;</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">[:]:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">words</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+
+<span class="c1"># Loop over the original list, resulting in an infinite loop keeping inserting</span>
+<span class="c1"># &#39;defenestrate&#39;</span>
+<span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">words</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="break-continue-and-else-on-loops"><code>break</code>, <code>continue</code>, and <code>else</code> on Loops<a class="headerlink" href="#break-continue-and-else-on-loops" title="Permanent link">&para;</a></h3>
+<p>The <code>else</code> clause for a loop is executed when the loop terminates through exhaustion of the list (with <code>for</code>) or when the condition becomes false (with <code>while</code>), but not when the loop is terminated by a <code>break</code> statement. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x contains odd number&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x does not contain any odd number&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>continue</code> statement continues with the next iteration of the loop.</p>
+<h3 id="pass-statement"><code>pass</code> Statement<a class="headerlink" href="#pass-statement" title="Permanent link">&para;</a></h3>
+<p>The <code>pass</code> statement does nothing. It can be used when a statement is required syntactically but the program requires no action.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c1"># TODO: Implement this later</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="iterable-object">Iterable object<a class="headerlink" href="#iterable-object" title="Permanent link">&para;</a></h2>
+<p>An <em>iterable objec</em> is an object which returns the successive items of the desired sequence when being iterated over. While it may behave like a list in some ways, it is essentially not a list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c1"># This prints &#39;range(0,5)&#39;</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Convert an iterable object into a list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>     <span class="c1"># This prints &#39;[0, 1, 2, 3, 4]&#39;</span>
+</code></pre></div>
+<p>Usage of <code>range()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c1"># Returns an iterable object that successively returns 0,1,2,3,4</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>   <span class="c1"># Returns an iterable object that successively returns 0,1,2,3,4</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Returns an iterable object that successively returns 0,2,4</span>
+</code></pre></div>
+<h3 id="useful-operations">Useful Operations<a class="headerlink" href="#useful-operations" title="Permanent link">&para;</a></h3>
+<p>Print the elements in a list along with their indices.</p>
+<div class="highlight"><pre><span></span><code><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div>
+<p>Move to next element</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Pop an element (and print the popped element to STDOUT)</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Pop an element and assign it to _, so that the popped element will not be</span>
+<span class="c1"># printed to STDOUT</span>
+<span class="n">_</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="filedirectory-operations">File/Directory Operations<a class="headerlink" href="#filedirectory-operations" title="Permanent link">&para;</a></h2>
+<p>Basic file operations</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="c1"># Copy a file</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span> <span class="c1"># dst can be a file or a directory</span>
+
+<span class="c1"># Copy a directory (dst must not already exist)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+</code></pre></div>
+<p>Get current working directory</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get cwd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="c1"># Replace &#39;\&#39; with &#39;/&#39; if on Windows</span>
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">cwd</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Check if the file/directory exists:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Python 3.4+</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">my_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/path/to/something&quot;</span><span class="p">)</span>
+<span class="n">file_exists</span> <span class="o">=</span> <span class="n">my_file</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span>
+<span class="n">dir_exists</span> <span class="o">=</span> <span class="n">my_file</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span>
+<span class="n">path_exists</span> <span class="o">=</span> <span class="n">my_file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+
+<span class="c1"># Older Python</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">mypath</span> <span class="o">=</span> <span class="s1">&#39;/path/to/something&#39;</span>
+<span class="n">file_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">mypath</span><span class="p">)</span>
+<span class="n">dir_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">mypath</span><span class="p">)</span>
+<span class="n">path_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">mypath</span><span class="p">)</span>
+</code></pre></div>
+<p>List all files/dirs in a directory</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Python 3.4+</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="n">mypath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/path/to/my/dir&#39;</span><span class="p">)</span>
+<span class="n">onlydirs</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mypath</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()]</span>
+<span class="n">onlyfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mypath</span><span class="o">.</span><span class="n">iterdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">is_file</span><span class="p">()]</span>
+
+<span class="c1"># Older Python</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">isdir</span><span class="p">,</span> <span class="n">join</span>
+<span class="n">mypath</span> <span class="o">=</span> <span class="s1">&#39;/path/to/my/dir&#39;</span>
+<span class="n">files_and_dirs</span> <span class="o">=</span> <span class="n">listdir</span><span class="p">(</span><span class="n">mypath</span><span class="p">)</span>
+<span class="n">onlyfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">mypath</span><span class="p">)</span> <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
+<span class="n">onlydirs</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">mypath</span><span class="p">)</span> <span class="k">if</span> <span class="n">isdir</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">mypath</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
+</code></pre></div>
+<p>Create directory if it does not exist</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Python 3.4+</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/my/directory&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="type-hints">Type Hints<a class="headerlink" href="#type-hints" title="Permanent link">&para;</a></h2>
+<p>New in version 3.5.</p>
+<h3 id="basic-use">Basic Use<a class="headerlink" href="#basic-use" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Sequence</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">my_func1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">z</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">my_func2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<h3 id="type-alias">Type Alias<a class="headerlink" href="#type-alias" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
+<span class="n">Vector</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">my_func1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Vector</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Vector</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+<h2 id="readwrite-files">Read/Write Files<a class="headerlink" href="#readwrite-files" title="Permanent link">&para;</a></h2>
+<h3 id="load-csv-file">Load CSV File<a class="headerlink" href="#load-csv-file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.csv&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">spamreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">spamreader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="load-wav-file">Load WAV File<a class="headerlink" href="#load-wav-file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">wavfile</span>
+<span class="p">[</span><span class="n">fs</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">wavfile</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">wav_path</span><span class="p">)</span>
+
+<span class="c1"># Convert x from int to float</span>
+<span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;int16&#39;</span><span class="p">:</span>
+    <span class="n">n_bits</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="k">elif</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span><span class="s1">&#39;int32&#39;</span><span class="p">:</span>
+    <span class="n">n_bits</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">n_bits</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">if</span><span class="p">(</span><span class="n">n_bits</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">max_val</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">n_bits</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="n">max_val</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="readwrite-text-file">Read/Write text file<a class="headerlink" href="#readwrite-text-file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Read file</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">text_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text_file</span><span class="p">:</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="c1"># Write file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;Output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">text_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">text_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="readwrite-json-file">Read/Write JSON file<a class="headerlink" href="#readwrite-json-file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="c1"># Read</span>
+<span class="n">json_path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/myfile.JSON&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">jf</span><span class="p">:</span>
+    <span class="n">jsonData</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">jf</span><span class="p">)</span>
+
+<span class="c1"># Write</span>
+<span class="n">my_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Key1&quot;</span><span class="p">:</span> <span class="s2">&quot;Val1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Key2&quot;</span><span class="p">:</span> <span class="mf">3.14159</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">jf</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">my_data</span><span class="p">,</span> <span class="n">jf</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="parse-arguments">Parse arguments<a class="headerlink" href="#parse-arguments" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Description for this Python script&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define a positional argument &#39;input1&#39;.</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;input1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># Define a positional argument &#39;input2&#39;, but store it as &#39;in2&#39;,</span>
+<span class="c1"># and show it as &#39;N&#39; in the help message</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;input2&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;in2&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define an optional argument with more than 1 way to specify it</span>
+<span class="n">parse</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--out&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;out&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mark an optional argument as required</span>
+<span class="n">parse</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--in3&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># If user specifies &#39;--in4 c&#39;, in4 will be &#39;c&#39;;</span>
+<span class="c1"># If user specifies &#39;--in4&#39; without argument, in4 will be &#39;b&#39;</span>
+<span class="c1"># If user does not specify &#39;--in4&#39;, in4 will be &#39;a&#39;</span>
+<span class="n">parse</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--in4&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;?&#39;</span> <span class="n">const</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># &#39;--in5&#39; expects 2 arguments; in5 will be a list of length 2</span>
+<span class="c1"># Note: &quot;nargs=&#39;1&#39;&quot; yields a list of length 1 instead of a scalar</span>
+<span class="n">parse</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--in5&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+
+<span class="c1"># Parse the arguments. The arguments will become the fields of args</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="c1"># Access the arguments</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">in3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">in5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="frequently-used-operations">Frequently Used Operations<a class="headerlink" href="#frequently-used-operations" title="Permanent link">&para;</a></h2>
+<h3 id="command-line-arguments">Command-line Arguments<a class="headerlink" href="#command-line-arguments" title="Permanent link">&para;</a></h3>
+<p>Reading the arguments</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of arguments = </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">))</span>
+<span class="c1"># sys.argv[0] is the script name, and the rest are the arguments</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Argument List: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="execute-a-cmd-command">Execute a CMD command<a class="headerlink" href="#execute-a-cmd-command" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="n">my_cmd</span> <span class="o">=</span> <span class="s2">&quot;run.bat </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">my_bat_arguments</span><span class="p">)</span>
+<span class="n">my_cwd</span> <span class="o">=</span> <span class="s2">&quot;path/to/workdir&quot;</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span><span class="n">my_cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cwd</span><span class="o">=</span><span class="n">my_cwd</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+
+<span class="c1"># Suppress stderr and stdout</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">my_cmd</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">)</span>
+
+<span class="c1"># Print messages only if the return code is not 0</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">my_cmd</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="mi">0</span> <span class="o">!=</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+<span class="c1"># Print messages to file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;out.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">my_cmd</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">fh</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="profile-a-function">Profile a function<a class="headerlink" href="#profile-a-function" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">cProfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pstats</span>
+
+<span class="n">cmd</span> <span class="o">=</span> <span class="s2">&quot;run_some_function()&quot;</span>
+
+<span class="n">pr</span> <span class="o">=</span> <span class="n">cProfile</span><span class="o">.</span><span class="n">Profile</span><span class="p">()</span>
+<span class="n">pr</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_prof.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="n">pr</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="n">stream</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s1">&#39;cumulative&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sort the stats by the cumulative time&quot;&quot;&quot;</span>
+
+    <span class="n">p</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mf">.2</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print only the top 20% of the profile&quot;&quot;&quot;</span>
+</code></pre></div>
+<h3 id="progress-bar">Progress Bar<a class="headerlink" href="#progress-bar" title="Permanent link">&para;</a></h3>
+<p>Basic usage</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">input_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]</span>
+
+<span class="c1"># Wrap an iterable object with tqdm()</span>
+<span class="k">for</span> <span class="nb">input</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span> <span class="n">input_list</span> <span class="p">):</span>
+    <span class="n">do_some_work</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></div>
+<p>Set the progress based on stdout:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="k">with</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">some_command</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">p</span><span class="p">,</span> \
+                        <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="n">num_files</span><span class="p">)</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+    <span class="n">file_processed</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+        <span class="c1"># Assuming that some_command will print the string</span>
+        <span class="c1"># &quot;Processing file &lt;Num&gt;&quot; to stdout</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^Processing file (\d+)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+            <span class="n">latest_processed</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">latest_processed</span> <span class="o">&gt;</span> <span class="n">file_processed</span><span class="p">):</span>
+                <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">latest_processed</span> <span class="o">-</span> <span class="n">file_processed</span><span class="p">)</span>
+                <span class="n">file_processed</span> <span class="o">=</span> <span class="n">latest_processed</span>
+</code></pre></div>
+<h3 id="load-a-lib-from-a-user-specified-location">Load a lib from a user-specified location<a class="headerlink" href="#load-a-lib-from-a-user-specified-location" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/path/to/my/lib&#39;</span><span class="p">)</span>
+
+<span class="c1"># Load /path/to/my/lib/mylib.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mylib</span>
+</code></pre></div>
+<h3 id="create-a-cartesian-product-of-multiple-iterables">Create a Cartesian product of multiple iterables<a class="headerlink" href="#create-a-cartesian-product-of-multiple-iterables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+
+<span class="n">List1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">List2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">List3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">prod</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">List1</span><span class="p">,</span> <span class="n">List2</span><span class="p">,</span> <span class="n">List3</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span> <span class="ow">in</span> <span class="n">prod</span><span class="p">:</span>
+    <span class="n">myfunc</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="get-the-current-time-as-a-string-of-custom-format">Get the current time as a string of custom format<a class="headerlink" href="#get-the-current-time-as-a-string-of-custom-format" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">time_str</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

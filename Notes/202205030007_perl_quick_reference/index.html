@@ -1,0 +1,2054 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Perl Quick Reference - YYC's Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#perl-quick-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-header__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            YYC's Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Perl Quick Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="YYC&#39;s Workbench" class="md-nav__button md-logo" aria-label="YYC's Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    YYC's Workbench
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Map of Content
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Map of Content
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207311054_moc_quick_ref/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182111_moc_dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Digital Signal Processing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207182345_moc_audio_eng/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202207222056_moc_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210816_moc_math/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210835_moc_programming_language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Programming Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOC/202305210846_moc_uncategorized/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uncategorized
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#matchsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match/Search
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Match/Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quantifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quantifiers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metacharacters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metacharacters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexp-quote-like-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regexp Quote-Like Operators
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-capture-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named Capture Group
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-variables-as-literal-in-match-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Variables as Literal in Match Operator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-a-reference-of-an-anonymous-array-or-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialize a reference of an anonymous array or hash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rules-using-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rules using Reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-the-reference-of-a-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the reference of a hash
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initialization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-array-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Array Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-of-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Array of reference
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-hash-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Useful Hash Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash references
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      String
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-quoted-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single-quoted String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-quoted-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double-quoted String
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      String Input
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loops
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-character" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special character
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predefined-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predefined Variable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filedirectory-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      File/Directory Operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#short-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Short options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Long options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Long options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#long-options-calling-subroutines-to-handle-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Long Options: Calling Subroutines to Handle Options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequently-used-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frequently Used Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequently Used Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-fileclose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Open file/Close file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-from-file-handle-fh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read from file handle $fh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sub Functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use switch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push" class="md-nav__link">
+    <span class="md-ellipsis">
+      Push
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cut-the-rn-at-line-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cut the \r\n at line end
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weed-out-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Weed out comments
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-something-to-each-element-of-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Do something to each element of an array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-two-arrays-into-one-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge Two arrays into one array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-duplicate-elements-from-an-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove duplicate elements from an array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-the-uniondifferenceintersection-of-two-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find the union/difference/intersection of two arrays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count-the-occurrence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Count the occurrence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constant-in-regular-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constant in regular expression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length-of-a-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Length of a variable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sort
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block comment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miscellaneous
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Templates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usage-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Message
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#good-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Good Practice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="perl-quick-reference">Perl Quick Reference<a class="headerlink" href="#perl-quick-reference" title="Permanent link">&para;</a></h1>
+<h2 id="matchsearch">Match/Search<a class="headerlink" href="#matchsearch" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PATTERNS&quot;</span><span class="w"> </span><span class="c1">#See following examples</span>
+<span class="nv">$SEARCHING_STRING</span><span class="w"> </span><span class="o">=~</span><span class="w"> </span><span class="sr">m/$PATTERN/</span><span class="w"> </span><span class="c1">#This will return the match result</span>
+</code></pre></div>
+<h3 id="quantifiers">Quantifiers<a class="headerlink" href="#quantifiers" title="Permanent link">&para;</a></h3>
+<p>Ref: <a href="http://perldoc.perl.org/perlre.html#Quantifiers">Quantifiers</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="w">           </span><span class="n">Match</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="nb">times</span>
+<span class="c1">##           Match 1 or more times</span>
+<span class="p">?</span><span class="w">           </span><span class="n">Match</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nb">times</span>
+<span class="p">{</span><span class="n">n</span><span class="p">}</span><span class="w">         </span><span class="n">Match</span><span class="w"> </span><span class="n">exactly</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="nb">times</span>
+<span class="p">{</span><span class="n">n</span><span class="p">,}</span><span class="w">        </span><span class="n">Match</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="nb">times</span>
+<span class="p">{</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">}</span><span class="w">       </span><span class="n">Match</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="nb">times</span>
+</code></pre></div>
+<p>Example</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mz*r&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1"># Matches &quot;mr&quot;, &quot;mzr&quot;, &quot;mzzr&quot;, &quot;mzzzzzzzr&quot;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mz+r&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1"># Matches &quot;mzr&quot;, &quot;mzzr&quot;, &quot;mzzzzzzzr&quot;, but not &quot;mr&quot;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mz{2, 4}r&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1"># Matches &quot;mzzr&quot;, &quot;mzzzr&quot;, &quot;mzzzzr&quot;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;m(zz)*r&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1"># Matches &quot;mr&quot;, &quot;mzzr&quot;, &quot;mzzzzr&quot;, but not &quot;mzzzr&quot;</span>
+</code></pre></div>
+<h3 id="metacharacters">Metacharacters<a class="headerlink" href="#metacharacters" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="o">\</span><span class="w">     </span><span class="n">Quote</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="n">metacharacter</span>
+<span class="o">^</span><span class="w">     </span><span class="n">Match</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">beginning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">appears</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">beginning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">expression</span><span class="p">)</span>
+<span class="o">.</span><span class="w">     </span><span class="n">Match</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="p">(</span><span class="n">except</span><span class="w"> </span><span class="n">newline</span><span class="p">)</span>
+<span class="nv">$</span><span class="w">     </span><span class="nv">Match</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">newline</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="nv">$</span><span class="w"> </span><span class="nv">appears</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">regular</span><span class="w"> </span><span class="n">expression</span><span class="p">)</span>
+<span class="o">|</span><span class="w">     </span><span class="n">Alternation</span>
+<span class="p">()</span><span class="w">    </span><span class="n">Grouping</span>
+<span class="o">[]</span><span class="w">    </span><span class="n">Character</span><span class="w"> </span><span class="n">class</span>
+</code></pre></div>
+<p>To find a pattern with "zz" OR "qq", "is" OR "was": use |</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;m(zz|qq)r&quot;</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;It (is|was) a good choice&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>To find any element of a set: use [ ], and - to describe a range</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;[a-zA-Z_]&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1"># a,b,c,...,z and A,B,C,...,Z and _</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;[0-9]&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1"># 0,1,2,...,9</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;[!@#$\-%^]&quot;</span><span class="w"> </span><span class="c1"># Note that if you want to include &quot;-&quot;, you need to type &quot;\-&quot;</span>
+</code></pre></div>
+<p>To find any element NOT in a set: use [ ] with ^ AT THE BEGINNING</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&quot;</span><span class="p">[</span><span class="o">^</span><span class="mi">13579</span><span class="p">]</span><span class="w"> </span><span class="c1"># anything NOT 1,3,5,7,9</span>
+</code></pre></div>
+<p>To find all char: use .</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;m.r&quot;</span><span class="w"> </span><span class="c1"># &quot;m r&quot;, mar, mBr, m#r, m2r will match.</span>
+</code></pre></div>
+<p>To find char .: use [.]</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;m[.]r&quot;</span><span class="w"> </span><span class="c1"># now only m.r will match.</span>
+</code></pre></div>
+<p>To ignore char case: use /$PATTERN/i</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$SEARCHING_STRING</span><span class="w"> </span><span class="o">=~</span><span class="w"> </span><span class="sr">m/$PATTERN/i</span>
+</code></pre></div>
+<p>To ignore line changing: use /$PATTERN/s</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$SEARCHING_STRING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I changed \n a \n line.&quot;</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$PATTERN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;changed.*line&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">#Notice that by using .* we allows any number of any char between &quot;changed&quot; and &quot;line&quot;</span>
+<span class="nv">$SEARCHING_STRING</span><span class="w"> </span><span class="o">=~</span><span class="w"> </span><span class="sr">m/$PATTERN/s</span>
+<span class="c1">#you can ignore char case and line changine by using /$PATTERN/is</span>
+</code></pre></div>
+<p>To recursively find all matching pattern: use /$PATTERN/g</p>
+<h3 id="regexp-quote-like-operators">Regexp Quote-Like Operators<a class="headerlink" href="#regexp-quote-like-operators" title="Permanent link">&para;</a></h3>
+<p>Use <code>qr//</code> to define a variable to be used as the regular expression pattern later.</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$re</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sx">qr/my.STRING/</span><span class="n">is</span><span class="p">;</span>
+<span class="nv">$string</span><span class="w"> </span><span class="o">=~</span><span class="sr"> /foo${re}bar/</span><span class="p">;</span>
+<span class="nv">$string</span><span class="w"> </span><span class="o">=~</span><span class="sr"> /$re/</span><span class="p">;</span>
+</code></pre></div>
+<p>See <a href="http://perldoc.perl.org/perlop.html#Regexp-Quote-Like-Operators">http://perldoc.perl.org/perlop.html#Regexp-Quote-Like-Operators</a></p>
+<h3 id="named-capture-group">Named Capture Group<a class="headerlink" href="#named-capture-group" title="Permanent link">&para;</a></h3>
+<p>Use the syntax <code>(?&lt;name&gt;...)</code> to associate the capture group with a name.</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;2015-01-02&#39;</span><span class="p">;</span>
+<span class="nv">$date</span><span class="w"> </span><span class="o">=~</span><span class="w"> </span><span class="sr">m/ (?&lt;year&gt;\d+) \-</span>
+<span class="sr">            (?&lt;month&gt;\d+) \-</span>
+<span class="sr">            (?&lt;day&gt;\d+)</span>
+<span class="sr">          /x</span><span class="p">;</span>
+
+<span class="c1"># Obtain the named capture group from system variable %+</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">$+</span><span class="p">{</span><span class="n">day</span><span class="p">};</span>
+</code></pre></div>
+<h3 id="use-variables-as-literal-in-match-operator">Use Variables as Literal in Match Operator<a class="headerlink" href="#use-variables-as-literal-in-match-operator" title="Permanent link">&para;</a></h3>
+<p>Sometimes user wants to match a <code>$variable</code> with <code>$variable</code> being treated as a literal string (e.g. matching the file path without Perl seeing '\' and '/' as special character). To do so, use one of the following approaches:</p>
+<ul>
+<li>
+<p>Approach 1: Use <code>quotemeta()</code> to escape the string</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;path/to/file&quot;</span><span class="p">;</span>
+<span class="nv">$variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">quotemeta</span><span class="p">(</span><span class="nv">$variable</span><span class="p">);</span>
+<span class="nv">$file</span><span class="w"> </span><span class="o">=~</span><span class="sr"> /$variable/</span><span class="p">;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Approach 2: Use <code>\Q \E</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;path/to/file&quot;</span><span class="p">;</span>
+<span class="nv">$file</span><span class="w"> </span><span class="o">=~</span><span class="sr"> /\Q$variable\E/</span><span class="p">;</span>
+</code></pre></div>
+</li>
+</ul>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<h3 id="reference-declaration">Reference declaration<a class="headerlink" href="#reference-declaration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">$scalarref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">\</span><span class="nv">$foo</span><span class="p">;</span>
+<span class="nv">$arrayref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">\</span><span class="nv">@array</span><span class="p">;</span>
+<span class="nv">$href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">\</span><span class="nv">%hash</span><span class="p">;</span>
+<span class="nv">$coderef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">\&amp;</span><span class="n">handler</span><span class="p">;</span>
+<span class="nv">$globref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">\*</span><span class="n">foo</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="initialize-a-reference-of-an-anonymous-array-or-hash">Initialize a reference of an anonymous array or hash<a class="headerlink" href="#initialize-a-reference-of-an-anonymous-array-or-hash" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use (a,b,c) to initialize an array</span>
+<span class="c1"># Use [a,b,c] to initialize a reference of an anonymous array</span>
+<span class="nv">$arrayref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;c&#39;</span><span class="p">]];</span>
+<span class="nv">$arrayref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nv">@array</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="c1"># A new array reference having all data in @array</span>
+
+<span class="c1"># Use (&#39;key&#39; =&gt; &#39;val&#39;) to initialize an hash</span>
+<span class="c1"># Use {&#39;key&#39; =&gt; &#39;val&#39;} to initialize an reference of an anonymous hash</span>
+<span class="nv">$href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="s">&#39;Adam&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&#39;Eve&#39;</span><span class="p">,</span>
+<span class="s">&#39;Clyde&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&#39;Bonnie&#39;</span>
+<span class="p">};</span>
+<span class="nv">$href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">%hash</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1"># A new ha    sh reference having all data in %hash</span>
+</code></pre></div>
+<h3 id="rules-using-reference">Rules using Reference<a class="headerlink" href="#rules-using-reference" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Anywhere you'd put an identifier (or chain of identifiers) as part of a variable or subroutine name, you can replace the identifier with a simple scalar variable containing a reference of the correct type. The dereference of the scalar variable happens before it does any key lookups.</li>
+<li>Anywhere you'd put an identifier (or chain of identifiers) as part of a variable or subroutine name, you can replace the identifier with a BLOCK returning a reference of the correct type.</li>
+<li>The left side of the arrow can be any expression returning a reference, including a previous dereference. Also, The arrow is optional between brackets subscripts.</li>
+</ol>
+<h3 id="access-the-reference-of-a-hash">Access the reference of a hash<a class="headerlink" href="#access-the-reference-of-a-hash" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">%hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">%$href</span><span class="p">;</span><span class="w"> </span><span class="c1"># &#39;$href&#39; replaces the hash variable name. See Rule 1.</span>
+<span class="nv">$value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$href</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$key</span><span class="p">};</span><span class="w"> </span><span class="c1"># &#39;-&gt;&#39; dereferences $href. See Rule 3</span>
+<span class="nv">$value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$$href</span><span class="p">{</span><span class="nv">$key</span><span class="p">};</span>
+<span class="nv">@slice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">@$href</span><span class="p">{</span><span class="nv">$key1</span><span class="p">,</span><span class="w"> </span><span class="nv">$key2</span><span class="p">,</span><span class="w"> </span><span class="nv">$key3</span><span class="p">};</span><span class="w"> </span><span class="c1"># note: no arrow!</span>
+<span class="nv">@keys</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">keys</span><span class="w"> </span><span class="nv">%$href</span><span class="p">;</span>
+</code></pre></div>
+<p>For details, visit: <a href="http://perldoc.perl.org/perlref.html">http://perldoc.perl.org/perlref.html</a></p>
+<h2 id="array">Array<a class="headerlink" href="#array" title="Permanent link">&para;</a></h2>
+<h3 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">@array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">...</span><span class="mi">4</span><span class="p">);</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sx">qw/first second third/</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="useful-array-operations">Useful Array Operations<a class="headerlink" href="#useful-array-operations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$arrsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">scalar</span><span class="w"> </span><span class="nv">@array</span><span class="p">;</span><span class="w"> </span><span class="c1"># Array size.</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$arrsize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">@array</span><span class="p">;</span><span class="w">  </span><span class="c1"># assigning an array to a scalar gives you its element count</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$lastindex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$#array</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@arrayAB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nv">@arrayA</span><span class="p">,</span><span class="w"> </span><span class="nv">@arrayB</span><span class="p">);</span><span class="w"> </span><span class="c1"># merging</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$Third_to_the_last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$array</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">];</span><span class="w"> </span><span class="c1"># Accessing n-th to the last element</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@removed_items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">splice</span><span class="p">(</span><span class="w"> </span><span class="nv">@array</span><span class="p">,</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="nb">length</span><span class="p">,</span><span class="w"> </span><span class="nv">@replaced_with</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1"># Remove (or replaced with @replace_with) $array[offset] ~ $array[offset+length-1]</span>
+<span class="nb">delete</span><span class="w"> </span><span class="nv">$array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="c1"># deleting an element</span>
+</code></pre></div>
+<h3 id="array-of-reference">Array of reference<a class="headerlink" href="#array-of-reference" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">@list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">\</span><span class="nv">$a</span><span class="p">,</span><span class="w"> </span><span class="o">\</span><span class="nv">@b</span><span class="p">,</span><span class="w"> </span><span class="o">\</span><span class="nv">%c</span><span class="p">);</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">\</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span><span class="w"> </span><span class="nv">@b</span><span class="p">,</span><span class="w"> </span><span class="nv">%c</span><span class="p">);</span><span class="w"> </span><span class="c1"># same thing!</span>
+</code></pre></div>
+<p>Array of arrays: (The element of the array is references to arrays, not arrays)
+Array of hashes: (The element of the array is references to hashes, not hashes)</p>
+<p>If you want to have an array to access multiple hashes, use reference of hashes as the entry of the array:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">push</span><span class="p">(</span><span class="nv">@array</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">%hash</span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+</code></pre></div>
+<p>DO NOT write like the followings:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">push</span><span class="p">(</span><span class="nv">@array</span><span class="p">,</span><span class="w"> </span><span class="nv">%hash</span><span class="p">)</span><span class="w"> </span><span class="c1"># (See &quot;Assign a hash to an array&quot;)</span>
+<span class="nb">push</span><span class="p">(</span><span class="nv">@array</span><span class="p">,</span><span class="w"> </span><span class="o">\</span><span class="nv">%hash</span><span class="p">)</span><span class="w"> </span><span class="c1"># This will not copy the input hash but only record the address of the given hash.</span>
+</code></pre></div>
+<p>Assign a hash to an array:</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">@array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">%hash</span><span class="p">;</span>
+<span class="c1"># The resulting @array will be:</span>
+<span class="c1"># $array[0] = $key_0, $array[1] = $hash{ $key_0 }</span>
+<span class="c1"># $array[2] = $key_1, $array[3] = $hash{ $key_1 }</span>
+<span class="c1"># ...</span>
+<span class="c1"># However, $key_0 is not necessary the first key when %hash is initialized.</span>
+</code></pre></div>
+<h2 id="hash">Hash<a class="headerlink" href="#hash" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">%hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">();</span>
+<span class="nv">%hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="s">&#39;key1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;value1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;key2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;value2&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;key3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;value3&#39;</span><span class="p">);</span>
+<span class="nv">%hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="s">&#39;key1&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&#39;value1&#39;</span><span class="p">,</span>
+<span class="s">&#39;key2&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&#39;value2&#39;</span><span class="p">,</span>
+<span class="s">&#39;key3&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">&#39;value3&#39;</span><span class="w"> </span><span class="p">);</span>
+<span class="nv">$hash</span><span class="p">{</span><span class="w"> </span><span class="nv">$key</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$value</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">%hash_copy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">%hash</span><span class="p">;</span>
+<span class="nb">delete</span><span class="w"> </span><span class="nv">$hash</span><span class="p">{</span><span class="nv">$key</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="useful-hash-operations">Useful Hash Operations<a class="headerlink" href="#useful-hash-operations" title="Permanent link">&para;</a></h3>
+<p>Hash size</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$hash_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">keys</span><span class="p">(</span><span class="w"> </span><span class="nv">%hash</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div>
+<p>Process through each keys</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">my</span><span class="w"> </span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span><span class="w"> </span><span class="nv">$value</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">each</span><span class="p">(</span><span class="nv">%hash</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;$key =&gt; $value\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="k">for</span><span class="w"> </span><span class="k">my</span><span class="w"> </span><span class="nv">$key</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">keys</span><span class="w"> </span><span class="nv">%hash</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">my</span><span class="w"> </span><span class="nv">$value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$hash</span><span class="p">{</span><span class="nv">$key</span><span class="p">};</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;$key =&gt; $value\n&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>3 status of the hash keys</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nb">exists</span><span class="w"> </span><span class="nv">$hash</span><span class="p">{</span><span class="w"> </span><span class="nv">$key</span><span class="w"> </span><span class="p">};</span><span class="w">           </span><span class="c1"># check the existence of the key. the corresponding value may be undefined</span>
+<span class="k">if</span><span class="w"> </span><span class="nb">defined</span><span class="w"> </span><span class="nv">$hash</span><span class="p">{</span><span class="w"> </span><span class="nv">$key</span><span class="w"> </span><span class="p">};</span>
+<span class="k">if</span><span class="w"> </span><span class="nv">$hash</span><span class="p">{</span><span class="w"> </span><span class="nv">$key</span><span class="w"> </span><span class="p">};</span>
+</code></pre></div>
+<h3 id="hash-references">Hash references<a class="headerlink" href="#hash-references" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="nv">$href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">\</span><span class="nv">%hash</span><span class="p">;</span>
+<span class="nv">$href</span><span class="o">-&gt;</span><span class="p">{</span><span class="w"> </span><span class="nv">$key</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$value</span><span class="p">;</span><span class="w"> </span><span class="c1"># $hash_ref is a reference of a hash.</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$href_copy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$href</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$href_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nv">$href_size</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nb">scalar</span><span class="w"> </span><span class="nb">keys</span><span class="w"> </span><span class="nv">%$href</span><span class="p">;</span>
+<span class="nb">delete</span><span class="w"> </span><span class="nv">$href</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$key</span><span class="p">};</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">my</span><span class="w"> </span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span><span class="w"> </span><span class="nv">$value</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">each</span><span class="p">(</span><span class="nv">%$href</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;$key =&gt; $value\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<h2 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h2>
+<p>(Ref: "Learning Perl", 3rd edition, Chap 2.3)</p>
+<h3 id="single-quoted-string">Single-quoted String<a class="headerlink" href="#single-quoted-string" title="Permanent link">&para;</a></h3>
+<p>Rule: Any character other than a single quote (') or a backslash () between the quote marks (including newline characters, if the string continues onto successive lines) stands for itself inside a string.</p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>Single-quoted String</th>
+<th>Represents</th>
+<th>Char Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>'can\'t'</td>
+<td>can't</td>
+<td>5</td>
+</tr>
+<tr>
+<td>'line1 _</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>line2'</td>
+<td>line1 _</td>
+<td></td>
+</tr>
+<tr>
+<td>line2</td>
+<td>11 (including newline)</td>
+<td></td>
+</tr>
+<tr>
+<td>'blah\blah'</td>
+<td>blah\blah</td>
+<td>9</td>
+</tr>
+<tr>
+<td>'blah\blah'</td>
+<td>blah\blah</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>It is recommended to always use double backslash (\) in the single-quoted string to represent one backslash to avoid confusion.</p>
+<h3 id="double-quoted-string">Double-quoted String<a class="headerlink" href="#double-quoted-string" title="Permanent link">&para;</a></h3>
+<p>Double-quoted string uses backslah () to specify the control characters. The supported control characters are:</p>
+<table>
+<thead>
+<tr>
+<th>Control character</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\n</td>
+<td>Newline</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>Carriage Return</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>Tab</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>Formfeed</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>Backspace</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>Bell</td>
+</tr>
+<tr>
+<td>\e</td>
+<td>Escape (ASCII escape character)</td>
+</tr>
+<tr>
+<td>\007</td>
+<td>Any octal ASCII value (here, 007 = bell)</td>
+</tr>
+<tr>
+<td>\x7f</td>
+<td>Any hex ASCII value (here, 7f = delete)</td>
+</tr>
+<tr>
+<td>\cC</td>
+<td>A "control" character (here, Ctrl-C)</td>
+</tr>
+<tr>
+<td>\</td>
+<td>Backslash</td>
+</tr>
+<tr>
+<td>\"</td>
+<td>Double quote</td>
+</tr>
+<tr>
+<td>\l</td>
+<td>Lowercase next letter</td>
+</tr>
+<tr>
+<td>\L</td>
+<td>Lowercase all following letters until \E</td>
+</tr>
+<tr>
+<td>\u</td>
+<td>Uppercase next letter</td>
+</tr>
+<tr>
+<td>\U</td>
+<td>Uppercase all following letters until \E</td>
+</tr>
+<tr>
+<td>\Q</td>
+<td>Quote non-word characters by adding a backslash until \E</td>
+</tr>
+<tr>
+<td>\E</td>
+<td>Terminate \L, \U, or \Q</td>
+</tr>
+</tbody>
+</table>
+<h2 id="string-input">String Input<a class="headerlink" href="#string-input" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$STORE_VAR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">&lt;STDIN&gt;</span>
+</code></pre></div>
+<h2 id="loops">Loops<a class="headerlink" href="#loops" title="Permanent link">&para;</a></h2>
+<p><code>while</code> and <code>until</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">CONDITION</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ROUTINE</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">#Keep doing &quot;ROUTINE&quot; before CONDITION fails.</span>
+<span class="k">until</span><span class="w"> </span><span class="p">(</span><span class="n">CONDITION</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ROUTINE</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">#Keep doing &quot;ROUTINE&quot; before CONDITION comes true.</span>
+</code></pre></div>
+<p>Loop variables: <code>next, last, redo:</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">EXPR</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">### redo always comes here</span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">### next always comes here (both next and normal while loop come here)</span>
+<span class="w">    </span><span class="n">do_something_else</span><span class="p">;</span>
+<span class="w">    </span><span class="c1"># then back the top to re-check EXPR</span>
+<span class="p">}</span>
+<span class="c1">### last always comes here</span>
+</code></pre></div>
+<p><code>foreach</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">foreach</span><span class="w"> </span><span class="nv">$item</span><span class="w"> </span><span class="p">(</span><span class="nv">@array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Rewrite each array element using <code>for</code> loop:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nv">@data</span><span class="p">){</span><span class="w"> </span><span class="nv">$_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sprintf</span><span class="w"> </span><span class="s">&#39;%03d&#39;</span><span class="p">,</span><span class="w"> </span><span class="nv">$_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<h2 id="special-character">Special character<a class="headerlink" href="#special-character" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="o">\</span><span class="n">t</span><span class="w"> </span><span class="n">tab</span><span class="w"> </span><span class="p">(</span><span class="n">HT</span><span class="p">,</span><span class="w"> </span><span class="n">TAB</span><span class="p">)</span>
+<span class="o">\</span><span class="n">n</span><span class="w"> </span><span class="n">newline</span><span class="w"> </span><span class="p">(</span><span class="n">LF</span><span class="p">,</span><span class="w"> </span><span class="n">NL</span><span class="p">)</span>
+<span class="o">\</span><span class="n">r</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">CR</span><span class="p">)</span>
+<span class="o">\</span><span class="n">f</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">feed</span><span class="w"> </span><span class="p">(</span><span class="n">FF</span><span class="p">)</span>
+<span class="o">\</span><span class="n">a</span><span class="w"> </span><span class="nb">alarm</span><span class="w"> </span><span class="p">(</span><span class="n">bell</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">BEL</span><span class="p">)</span>
+<span class="o">\</span><span class="n">e</span><span class="w"> </span><span class="n">escape</span><span class="w"> </span><span class="p">(</span><span class="n">think</span><span class="w"> </span><span class="n">troff</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">ESC</span><span class="p">)</span>
+<span class="o">\</span><span class="mo">033</span><span class="w"> </span><span class="n">octal</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="p">(</span><span class="n">think</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">PDP</span><span class="o">-</span><span class="mi">11</span><span class="p">)</span>
+<span class="o">\</span><span class="n">x1B</span><span class="w"> </span><span class="nb">hex</span><span class="w"> </span><span class="n">char</span>
+<span class="o">\</span><span class="n">x</span><span class="p">{</span><span class="mi">263</span><span class="n">a</span><span class="p">}</span><span class="w"> </span><span class="n">wide</span><span class="w"> </span><span class="nb">hex</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="p">(</span><span class="n">Unicode</span><span class="w"> </span><span class="n">SMILEY</span><span class="p">)</span>
+<span class="o">\</span><span class="n">c</span><span class="p">[</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="n">char</span>
+<span class="o">\</span><span class="n">N</span><span class="p">{</span><span class="n">name</span><span class="p">}</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">char</span>
+<span class="o">\</span><span class="n">l</span><span class="w"> </span><span class="n">lowercase</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="p">(</span><span class="n">think</span><span class="w"> </span><span class="n">vi</span><span class="p">)</span>
+<span class="o">\</span><span class="n">u</span><span class="w"> </span><span class="n">uppercase</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="p">(</span><span class="n">think</span><span class="w"> </span><span class="n">vi</span><span class="p">)</span>
+<span class="o">\</span><span class="n">L</span><span class="w"> </span><span class="n">lowercase</span><span class="w"> </span><span class="n">till</span><span class="w"> </span><span class="o">\</span><span class="n">E</span><span class="w"> </span><span class="p">(</span><span class="n">think</span><span class="w"> </span><span class="n">vi</span><span class="p">)</span>
+<span class="o">\</span><span class="n">U</span><span class="w"> </span><span class="n">uppercase</span><span class="w"> </span><span class="n">till</span><span class="w"> </span><span class="o">\</span><span class="n">E</span><span class="w"> </span><span class="p">(</span><span class="n">think</span><span class="w"> </span><span class="n">vi</span><span class="p">)</span>
+<span class="o">\</span><span class="n">E</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">modification</span><span class="w"> </span><span class="p">(</span><span class="n">think</span><span class="w"> </span><span class="n">vi</span><span class="p">)</span>
+<span class="o">\</span><span class="n">Q</span><span class="w"> </span><span class="n">quote</span><span class="w"> </span><span class="p">(</span><span class="n">disable</span><span class="p">)</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="n">metacharacters</span><span class="w"> </span><span class="n">till</span><span class="w"> </span><span class="o">\</span><span class="n">E</span>
+<span class="o">\</span><span class="n">w</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s">&quot;word&quot;</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="p">(</span><span class="n">alphanumeric</span><span class="w"> </span><span class="n">plus</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">)</span>
+<span class="o">\</span><span class="n">W</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="s">&quot;word&quot;</span><span class="w"> </span><span class="n">character</span>
+<span class="o">\</span><span class="n">s</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">whitespace</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="p">(</span><span class="n">space</span><span class="p">,</span><span class="w"> </span><span class="n">tab</span><span class="p">,</span><span class="w"> </span><span class="n">newline</span><span class="p">)</span>
+<span class="o">\</span><span class="n">S</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">whitespace</span><span class="w"> </span><span class="n">character</span>
+<span class="o">\</span><span class="n">d</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">digit</span><span class="w"> </span><span class="n">character</span>
+<span class="o">\</span><span class="n">D</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">digit</span><span class="w"> </span><span class="n">character</span>
+<span class="o">\</span><span class="n">pP</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="n">named</span><span class="w"> </span><span class="n">property</span><span class="o">.</span><span class="w"> </span><span class="n">Use</span><span class="w"> </span><span class="o">\</span><span class="n">p</span><span class="p">{</span><span class="n">Prop</span><span class="p">}</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">longer</span><span class="w"> </span><span class="n">names</span><span class="o">.</span>
+<span class="o">\</span><span class="n">PP</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">P</span>
+<span class="o">\</span><span class="n">X</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">eXtended</span><span class="w"> </span><span class="n">Unicode</span><span class="w"> </span><span class="s">&quot;combining character sequence&quot;</span><span class="p">,</span>
+<span class="n">equivalent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="p">(?:</span><span class="o">\</span><span class="n">PM</span><span class="o">\</span><span class="n">pM</span><span class="o">*</span><span class="p">)</span>
+<span class="o">\</span><span class="n">C</span><span class="w"> </span><span class="n">Match</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="p">(</span><span class="n">octet</span><span class="p">)</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">Unicode</span><span class="o">.</span>
+<span class="n">NOTE:</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span>
+<span class="n">so</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">malformed</span><span class="w"> </span><span class="n">pieces</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span><span class="o">.</span>
+<span class="n">Unsupported</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">lookbehind</span><span class="o">.</span>
+</code></pre></div>
+<h2 id="predefined-variable">Predefined Variable<a class="headerlink" href="#predefined-variable" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$!</td>
+<td>Error messages</td>
+</tr>
+<tr>
+<td>@ARGV</td>
+<td>Program arguments</td>
+</tr>
+<tr>
+<td>@_</td>
+<td>Within a subroutine the array @_ contains the parameters passed to that subroutine</td>
+</tr>
+<tr>
+<td>$ARG, $_</td>
+<td>The default input and pattern-searching space</td>
+</tr>
+<tr>
+<td>$ltdigitsgt</td>
+<td>Contains the subpattern from the corresponding set of parentheses in the last pattern matched, not counting patterns matched in nested blocks that have been exited already. (Mnemonic: like \digits.) These variables are all read-only.</td>
+</tr>
+<tr>
+<td>$MATCH, $&amp;</td>
+<td>The string matched by the last successful pattern match (not counting any matches hidden within a BLOCK or eval() enclosed by the current BLOCK)</td>
+</tr>
+<tr>
+<td>$PREMATCH, $`</td>
+<td>The string preceding whatever was matched by the last successful pattern match (not counting any matches hidden within a BLOCK or eval enclosed by the current BLOCK)</td>
+</tr>
+<tr>
+<td>$POSTMATCH, $'</td>
+<td>The string following whatever was matched by the last successful pattern match (not counting any matches hidden within a BLOCK or eval() enclosed by the current BLOCK)</td>
+</tr>
+<tr>
+<td>$PROGRAM_NAME, $0</td>
+<td>Contains the name of the file containing the Perl script being executed.</td>
+</tr>
+<tr>
+<td>$[</td>
+<td>The index of the first element in an array, and of the first character in a substring. Default is 0. (You can set to 1 ot make Perl behave more like Matlab)</td>
+</tr>
+<tr>
+<td>$OSNAME, $^O</td>
+<td>The name of the operating system under which this copy of Perl was built. <code>MSWin32</code> for windows, <code>msys</code> for Git for Windows, <code>linux</code> for linux, and <code>darwin</code> for Mac OS X.</td>
+</tr>
+<tr>
+<td>$CHILD_ERROR, $?</td>
+<td>The status returned by the last pipe close, backtick (`` ) command, successful call to wait() or waitpid(), or from the system() operator.</td>
+</tr>
+</tbody>
+</table>
+<p>Note: <code>@ARGV</code> is different from C tradition. Perl tradition:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">@program</span><span class="o">.</span><span class="n">pl</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">D</span><span class="nv">@</span>
+<span class="err">$</span><span class="nv">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span>
+</code></pre></div>
+<p>C tradition:</p>
+<div class="highlight"><pre><span></span><code><span class="n">program</span><span class="o">.</span><span class="n">exe</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">D</span>
+<span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">program</span><span class="o">.</span><span class="n">exe</span>
+</code></pre></div>
+<p>Note: The following pairs are equivalent:</p>
+<table>
+<thead>
+<tr>
+<th>Implementation 1</th>
+<th>Implementation 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="..">while (&lt;&gt;)</td>
+<td class="..">while (defined($_ = &lt;&gt;))</td>
+</tr>
+<tr>
+<td>/^Subject:/</td>
+<td>$_ =~ /^Subject:/</td>
+</tr>
+<tr>
+<td>tr/a-z/A-Z/</td>
+<td>$_ =~ tr/a-z/A-Z/</td>
+</tr>
+<tr>
+<td>chop</td>
+<td>chop($_)</td>
+</tr>
+</tbody>
+</table>
+<p>Example of $MATCH, $PREMATCH, and $POSTMATCH:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;abcdefghi&#39;</span><span class="p">;</span>
+<span class="sr">/def/</span><span class="p">;</span>
+<span class="k">print</span><span class="w"> </span><span class="s">&quot;$`:$&amp;:$&#39;\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1"># prints abc:def:ghi</span>
+</code></pre></div>
+<p>For details and other predefined variables, visit: <a href="http://www.perl.com/doc/manual/html/pod/perlvar.html">http://www.perl.com/doc/manual/html/pod/perlvar.html</a></p>
+<h2 id="filedirectory-operations">File/Directory Operations<a class="headerlink" href="#filedirectory-operations" title="Permanent link">&para;</a></h2>
+<p>Open a directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$dirpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/home/username/public_html/$DirName&quot;</span><span class="p">;</span>
+<span class="nb">opendir</span><span class="p">(</span><span class="k">my</span><span class="w"> </span><span class="nv">$DirHandle</span><span class="p">,</span><span class="nv">$dirpath</span><span class="p">);</span>
+</code></pre></div>
+<p>Get filenames from a opened directory:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nv">@filenames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="nb">readdir</span><span class="p">(</span><span class="nv">$DirHandle</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div>
+or</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">defined</span><span class="p">(</span><span class="nv">$file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">readdir</span><span class="p">(</span><span class="nv">$DirHandle</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Basic file system operations</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># create the directories if they don&#39;t exist before (similar to &quot;mkdir -p&quot; in Linux)</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">File::Path</span><span class="w"> </span><span class="sx">qw(make_path)</span><span class="p">;</span>
+<span class="n">make_path</span><span class="p">(</span><span class="s">&quot;$path&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1"># double quote the path to handle whitespace.</span>
+
+<span class="c1"># copy</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">File::Copy</span><span class="p">;</span>
+<span class="n">copy</span><span class="p">(</span><span class="s">&quot;$src&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;$dest&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1"># double quote the path to handle whitespace.</span>
+
+<span class="c1"># copy entire directory</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">File::Copy::Recursive</span><span class="w"> </span><span class="sx">qw(dircopy)</span><span class="p">;</span>
+<span class="n">dircopy</span><span class="p">(</span><span class="s">&quot;$src_dir&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;$dest_dir&quot;</span><span class="p">);</span>
+
+<span class="c1"># rename</span>
+<span class="nb">rename</span><span class="p">(</span><span class="s">&quot;$oldname&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;$newname&quot;</span><span class="p">)</span>
+
+<span class="c1"># delete file</span>
+<span class="nb">unlink</span><span class="w"> </span><span class="nv">$path</span><span class="p">;</span>
+
+<span class="c1"># delete empty directory</span>
+<span class="nb">rmdir</span><span class="w"> </span><span class="nv">$path</span><span class="p">;</span>
+
+<span class="c1"># delete nonempty directory</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">File::Path</span><span class="w"> </span><span class="sx">qw(remove_tree)</span>
+<span class="n">remove_tree</span><span class="w"> </span><span class="nv">$path</span><span class="p">;</span>
+</code></pre></div>
+<p>Convert the Linux/UNIX path to DOS/Windows path</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">File::Spec</span>
+<span class="nn">File::Spec</span><span class="o">-&gt;</span><span class="n">canonpath</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>
+</code></pre></div>
+<p>Check if the variable is a valid filename/directory</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="nv">$file</span>
+<span class="k">if</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="nv">$fdir</span>
+<span class="c1"># When the argument of -f test (-d test) is not given, the default argument is $_. Therefore in a subroutine you can write:</span>
+<span class="c1"># sub findfile {</span>
+<span class="c1">#     return if -d</span>
+<span class="c1"># }</span>
+<span class="c1"># where the first argument of subroutine &quot;findfile&quot; is the testing filename</span>
+</code></pre></div>
+<p>Seperate the base, dir, and extension of an given entire filename ($file):</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">File::Basename</span>
+<span class="k">my</span><span class="w"> </span><span class="p">(</span><span class="nv">$base</span><span class="p">,</span><span class="w"> </span><span class="nv">$dir</span><span class="p">,</span><span class="w"> </span><span class="nv">$ext</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fileparse</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span><span class="s">&quot;\.[^.]*&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Find a file in given directories (@dirs) and perform some wanted task on it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">File::Find</span><span class="p">;</span>
+<span class="n">find</span><span class="p">(</span><span class="o">\&amp;</span><span class="n">Wanted</span><span class="p">,</span><span class="w"> </span><span class="nv">@dirs</span><span class="p">);</span>
+<span class="c1"># When subroutine &quot;Wanted&quot; is called:</span>
+<span class="c1"># $_ is set to the current file name</span>
+<span class="c1"># $File::Find::dir is set to the current directory</span>
+<span class="c1"># $File::Find::name is set to &quot;$File::Find::dir/$_&quot;</span>
+<span class="c1"># you are chdir()&#39;d to $File::Find::dir</span>
+<span class="c1"># If Wanted() sets $File::Find::prune on a directory, then find() will not descend into that directory.</span>
+</code></pre></div>
+<p>List files of specific pattern</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">@perl_files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">glob</span><span class="p">(</span><span class="s">&quot;*.pl&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h3 id="short-options">Short options<a class="headerlink" href="#short-options" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">Getopt::Std</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">%OPTS</span><span class="p">;</span>
+<span class="n">getopts</span><span class="p">(</span><span class="s">&#39;a:bcr:&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">\</span><span class="nv">%OPTS</span><span class="p">);</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$fr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">defined</span><span class="p">(</span><span class="nv">$OPTS</span><span class="p">{</span><span class="s">&#39;r&#39;</span><span class="p">}))?</span><span class="w"> </span><span class="nv">$OPTS</span><span class="p">{</span><span class="s">&#39;r&#39;</span><span class="p">}</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="c1"># abcr are vaild options, &#39;a&#39; and &#39;r&#39; , if used, requires an argument.</span>
+<span class="c1"># Use function &quot;defined($OPTS{&#39;r&#39;})&quot; to check if the options -r is used</span>
+<span class="c1"># If used, the argument (if required) will be the value of $OPTS{&#39;r&#39;}</span>
+</code></pre></div>
+<h3 id="long-options">Long options<a class="headerlink" href="#long-options" title="Permanent link">&para;</a></h3>
+<p><a href="http://perldoc.perl.org/Getopt/Long.html">http://perldoc.perl.org/Getopt/Long.html</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">Getopt::Long</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$data</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;file.dat&quot;</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">24</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$weight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$verbose</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@lib</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$libArrRef</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">%def</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$defHashRef</span><span class="p">;</span>
+<span class="n">GetOptions</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;length=i&quot;</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$length</span><span class="p">,</span><span class="w">     </span><span class="c1"># numeric, integer</span>
+<span class="w">            </span><span class="s">&quot;length=o&quot;</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$length</span><span class="p">,</span><span class="w">     </span><span class="c1"># numeric, Perl-style extended integer</span>
+<span class="w">            </span><span class="s">&quot;weight:f&quot;</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$weight</span><span class="p">,</span><span class="w">     </span><span class="c1"># numeric, floating point, the option value is optional (user can use --weight without providing the value)</span>
+<span class="w">            </span><span class="s">&quot;file=s&quot;</span><span class="w">     </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$data</span><span class="p">,</span><span class="w">       </span><span class="c1"># string</span>
+<span class="w">            </span><span class="s">&quot;verbose&quot;</span><span class="w">    </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$verbose</span><span class="p">,</span><span class="w">    </span><span class="c1"># flag</span>
+<span class="w">            </span><span class="s">&quot;library=s&quot;</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">@lib</span><span class="p">,</span><span class="w">        </span><span class="c1"># string, accept multiple input</span>
+<span class="w">            </span><span class="s">&quot;library=s@&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$libArrRef</span><span class="p">,</span><span class="w">  </span><span class="c1"># string, accept multiple input</span>
+<span class="w">            </span><span class="s">&quot;define=s&quot;</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">%def</span><span class="p">,</span><span class="w">        </span><span class="c1"># string, assign value of the form &quot;key=value&quot; to the hash</span>
+<span class="w">            </span><span class="s">&quot;define=s%&quot;</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$defHashRef</span><span class="w">  </span><span class="c1"># string, assign value of the form &quot;key=value&quot; to the hash</span>
+<span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">die</span><span class="p">(</span><span class="s">&quot;Error in command line arguments\n&quot;</span><span class="p">);</span>
+</code></pre></div>
+<p>Example of the option with no value:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Define:</span>
+<span class="w">  </span><span class="n">GetOptions</span><span class="p">(</span><span class="s">&quot;verbose&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$verbose</span><span class="p">);</span>
+<span class="n">Usage:</span>
+<span class="w">  </span><span class="o">--</span><span class="n">verbose</span>
+</code></pre></div>
+<p>Example of the option with one value:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Define:</span>
+<span class="w">  </span><span class="n">GetOptions</span><span class="p">(</span><span class="s">&quot;file=s&quot;</span><span class="w">     </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$data</span><span class="p">);</span><span class="w">       </span><span class="c1"># string</span>
+<span class="n">Usage:</span>
+<span class="w">  </span><span class="o">--</span><span class="n">file</span><span class="w"> </span><span class="n">myfile</span><span class="o">.</span><span class="n">txt</span>
+</code></pre></div>
+<p>Example of the option with one value, with the option value being optional</p>
+<div class="highlight"><pre><span></span><code><span class="n">Define:</span>
+<span class="w">  </span><span class="n">GetOptions</span><span class="p">(</span><span class="s">&quot;file:s&quot;</span><span class="w">     </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$data</span><span class="p">);</span><span class="w">       </span><span class="c1"># string</span>
+<span class="n">Usage:</span>
+<span class="w">  </span><span class="o">--</span><span class="n">file</span><span class="w"> </span><span class="n">myfile</span><span class="o">.</span><span class="n">txt</span>
+<span class="w">  </span><span class="o">--</span><span class="n">file</span>
+</code></pre></div>
+<p>Default values for the optional option value:</p>
+<ul>
+<li>numeric: default value is 0</li>
+<li>string: default value is empty string.</li>
+</ul>
+<p>The Perl-style extended integer includes</p>
+<ul>
+<li>an octal string (e.g. 0777),</li>
+<li>a hexadecimal string (e.g. 0xffff);</li>
+<li>a binary string (e.g. 0b10010);</li>
+</ul>
+<p>Example of the option with multiple input:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Define:</span>
+<span class="w">  </span><span class="n">GetOptions</span><span class="p">(</span><span class="s">&quot;library=s@&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$libArrRef</span><span class="p">);</span><span class="w">  </span><span class="c1"># string, accept multiple input</span>
+<span class="n">Usage:</span>
+<span class="w">  </span><span class="o">--</span><span class="n">library</span><span class="w"> </span><span class="n">lib1</span><span class="w"> </span><span class="o">--</span><span class="n">library</span><span class="w"> </span><span class="n">lib2</span>
+</code></pre></div>
+<p>Example of the option with hash values:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Define</span>
+<span class="w">  </span><span class="n">GetOptions</span><span class="p">(</span><span class="s">&quot;define=s&quot;</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">%def</span><span class="p">);</span><span class="w">        </span><span class="c1"># string, assign value of the form &quot;key=value&quot; to the hash</span>
+<span class="w">  </span><span class="n">GetOptions</span><span class="p">(</span><span class="s">&quot;define=s%&quot;</span><span class="w">  </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$defHashRef</span><span class="p">);</span><span class="w"> </span><span class="c1"># string, assign value of the form &quot;key=value&quot; to the hash</span>
+<span class="n">Usage:</span>
+<span class="w">  </span><span class="o">--</span><span class="n">define</span><span class="w"> </span><span class="n">os</span><span class="o">=</span><span class="n">linux</span><span class="w"> </span><span class="o">--</span><span class="n">define</span><span class="w"> </span><span class="n">vendor</span><span class="o">=</span><span class="n">redhat</span>
+</code></pre></div>
+<h4 id="long-options-calling-subroutines-to-handle-options">Long Options: Calling Subroutines to Handle Options<a class="headerlink" href="#long-options-calling-subroutines-to-handle-options" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">Getopt::Long</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$verbose</span><span class="p">;</span>
+<span class="n">GetOptions</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="s">&#39;verbose&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$verbose</span><span class="p">,</span>
+<span class="w">         </span><span class="s">&#39;quiet&#39;</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">sub</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">$verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span>
+<span class="w">             </span><span class="s">&#39;opt=i&#39;</span><span class="w">   </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\&amp;</span><span class="n">handler</span><span class="p">);</span>
+
+<span class="k">sub</span><span class="w"> </span><span class="nf">handler</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">my</span><span class="w"> </span><span class="p">(</span><span class="nv">$opt_name</span><span class="p">,</span><span class="w"> </span><span class="nv">$opt_value</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">@_</span><span class="p">;</span>
+<span class="w">  </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;Option name is $opt_name and value is $opt_value\n&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="frequently-used-functions">Frequently Used Functions<a class="headerlink" href="#frequently-used-functions" title="Permanent link">&para;</a></h2>
+<h3 id="open-fileclose-file">Open file/Close file<a class="headerlink" href="#open-fileclose-file" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$fh</span><span class="p">;</span>
+<span class="nb">open</span><span class="p">(</span><span class="w"> </span><span class="nv">$fh</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&gt;$fname&quot;</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">die</span><span class="w"> </span><span class="s">&quot;Couldn&#39;t open file $fname:$!\n&quot;</span><span class="p">;</span>
+<span class="c1"># &gt; refers a &quot;write&quot; file; &lt; refers a &quot;read&quot; file; &gt;&gt; referes &quot;append&quot;</span>
+<span class="c1"># Avoid declaring filehandle in the way like open( FID, &quot;&gt;$fname&quot;). Such filehandle</span>
+<span class="c1"># is global and may be unintentionally overwritten by another open() in the sub routines.</span>
+<span class="nb">close</span><span class="p">(</span><span class="w"> </span><span class="nv">$fh</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div>
+<h3 id="read-from-file-handle-fh">Read from file handle $fh<a class="headerlink" href="#read-from-file-handle-fh" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="nv">$line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">&lt;$fh&gt;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">}</span>
+
+<span class="k">my</span><span class="w"> </span><span class="nv">@lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">&lt;$fh&gt;</span><span class="p">;</span>
+
+<span class="c1">######## Pass a filehandle to function: ########</span>
+<span class="n">myfunc</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">FID</span><span class="w"> </span><span class="p">);</span>
+<span class="k">sub</span><span class="w"> </span><span class="nf">myfunc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="o">*</span><span class="n">FILEHANDLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">shift</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="sub-functions">Sub Functions<a class="headerlink" href="#sub-functions" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">sub</span><span class="w"> </span><span class="nf">usage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">my</span><span class="w"> </span><span class="nv">$nARG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">@_</span><span class="p">;</span><span class="w"> </span><span class="c1"># Number of arguments</span>
+<span class="w">    </span><span class="k">my</span><span class="w"> </span><span class="nv">$Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">shift</span><span class="p">;</span><span class="w"> </span><span class="c1"># Load single parameter of the function.</span>
+<span class="w">    </span><span class="k">my</span><span class="w"> </span><span class="p">(</span><span class="nv">$p</span><span class="p">,</span><span class="w"> </span><span class="nv">$N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">@_</span><span class="p">;</span><span class="w"> </span><span class="c1"># Load multiple parameters of the function.</span>
+<span class="w">    </span><span class="k">my</span><span class="w"> </span><span class="nv">@ABC</span><span class="p">;</span>
+<span class="w">    </span><span class="o">...</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nv">@ABC</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1"># Use defined( ) to check if an argument is initialized.</span>
+</code></pre></div>
+<h3 id="use-switch">Use <code>switch</code><a class="headerlink" href="#use-switch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">Switch</span><span class="p">;</span>
+<span class="n">switch</span><span class="w"> </span><span class="p">(</span><span class="nv">$val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;number 1&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;string a&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">,</span><span class="mi">42</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;number in list&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="nv">@array</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;number in list&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sr">/\w+/</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;pattern&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sx">qr/\w+/</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;pattern&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="nv">%hash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;entry in hash&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="o">\</span><span class="nv">%hash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;entry in hash&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="o">\&amp;</span><span class="n">sub</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;arg to subroutine&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">print</span><span class="w"> </span><span class="s">&quot;previous case not true&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code><span class="n">SWITCH:</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nv">$State</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="sr">/MyCase1/x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">&lt;</span><span class="n">process</span><span class="w"> </span><span class="n">case1</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="k">last</span><span class="w"> </span><span class="n">SWITCH</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="sr">/MyCase2/x</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">&lt;</span><span class="n">process</span><span class="w"> </span><span class="n">case2</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="k">last</span><span class="w"> </span><span class="n">SWITCH</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="nb">die</span><span class="w"> </span><span class="s">&quot;Unknown State: $State&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1"># Default:</span>
+<span class="p">}</span><span class="w"> </span><span class="c1"># End of SWITCH</span>
+<span class="c1"># Perl does not have built-in switch statement, and the module &quot;Switch&quot;</span>
+<span class="c1"># seems to have some problems matching the switch value $val and the</span>
+<span class="c1"># case value. This example is an alternative of switch statement. It</span>
+<span class="c1"># takes &#39;an element in $State&#39; (where only one element within), assign</span>
+<span class="c1"># the taken element to $_, then the regular expression is observed and</span>
+<span class="c1"># automatically compare the regexp with $_ since no further instruction</span>
+<span class="c1"># is given.</span>
+<span class="c1"># One may use constant in the regexp:</span>
+<span class="c1"># Use constant {S1 =&gt; 1, S2 =&gt;2 };</span>
+<span class="c1"># SWITCH: for ($State) {</span>
+<span class="c1"># /^${\S1}$/x &amp;&amp; do { &lt;process case1&gt;; last SWITCH; };</span>
+<span class="c1"># /^${\S2}$/x &amp;&amp; do { &lt;process case1&gt;; last SWITCH; };</span>
+<span class="c1"># };</span>
+<span class="c1"># Put &quot;^&quot; at the beginning and &quot;$&quot; at the end to make sure $State</span>
+<span class="c1"># precisely matches the case statement; ${\S1} is to convert the constant</span>
+<span class="c1"># into a scalar in the regular expression. See &quot;Constant in regular expression&quot;</span>
+</code></pre></div>
+<h3 id="push">Push<a class="headerlink" href="#push" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$TotalNum_element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">push</span><span class="p">(</span><span class="nv">@ARRAY</span><span class="p">,</span><span class="w"> </span><span class="n">VALUES</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="cut-the-rn-at-line-end">Cut the \r\n at line end<a class="headerlink" href="#cut-the-rn-at-line-end" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">chomp</span><span class="p">(</span><span class="nv">$tmp</span><span class="p">);</span><span class="w"> </span><span class="nv">$tmp</span><span class="w"> </span><span class="o">=~</span><span class="w"> </span><span class="sr">s/\r//</span><span class="p">;</span>
+<span class="c1"># chomp() blindly removes the last char of the input</span>
+</code></pre></div>
+<h3 id="weed-out-comments">Weed out comments<a class="headerlink" href="#weed-out-comments" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">@foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">grep</span><span class="p">(</span><span class="o">!</span><span class="sr">/^#/</span><span class="p">,</span><span class="w"> </span><span class="nv">@bar</span><span class="p">);</span>
+<span class="ow">or</span>
+<span class="nv">@foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">grep</span><span class="w"> </span><span class="p">{</span><span class="o">!</span><span class="sr">/^#/</span><span class="p">}</span><span class="w"> </span><span class="nv">@bar</span><span class="p">;</span>
+<span class="c1"># Basically this just returns all lines not initial with &#39;#&#39;</span>
+</code></pre></div>
+<h3 id="do-something-to-each-element-of-an-array">Do something to each element of an array<a class="headerlink" href="#do-something-to-each-element-of-an-array" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">map</span><span class="w"> </span><span class="n">BLOCK</span><span class="w"> </span><span class="n">LIST</span>
+<span class="nb">map</span><span class="w"> </span><span class="n">EXPR</span><span class="p">,</span><span class="n">LIST</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">map</span><span class="p">(</span><span class="w"> </span><span class="n">EXPR</span><span class="p">,</span><span class="n">LIST</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@char</span><span class="w"> </span><span class="nb">map</span>
+<span class="c1"># Use unary + before { on a hash reference, and unary + applied to the</span>
+<span class="c1"># first thing in a BLOCK (after {), for perl to guess right all the</span>
+<span class="c1"># time. (See map in the perlfunc manpage.)</span>
+
+<span class="nb">grep</span><span class="w"> </span><span class="n">BLOCK</span><span class="w"> </span><span class="n">LIST</span>
+<span class="nb">grep</span><span class="w"> </span><span class="n">EXPR</span><span class="p">,</span><span class="n">LIST</span>
+</code></pre></div>
+<h3 id="merge-two-arrays-into-one-array">Merge Two arrays into one array<a class="headerlink" href="#merge-two-arrays-into-one-array" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">map</span><span class="p">(</span><span class="w"> </span><span class="nb">push</span><span class="p">(</span><span class="nv">@array1</span><span class="p">,</span><span class="w"> </span><span class="nv">$_</span><span class="p">),</span><span class="w"> </span><span class="nv">@array2</span><span class="p">);</span><span class="w"> </span><span class="c1"># array1 followed by array2</span>
+<span class="nb">push</span><span class="p">(</span><span class="nv">@ARRAY1</span><span class="p">,</span><span class="w"> </span><span class="nv">@ARRAY2</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="remove-duplicate-elements-from-an-array">Remove duplicate elements from an array<a class="headerlink" href="#remove-duplicate-elements-from-an-array" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># create a hash entry whose key is the current visiting element of the array</span>
+<span class="c1"># and the value is 1.</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">%hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">$_</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="nv">@array</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">keys</span><span class="w"> </span><span class="nv">%hash</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="find-the-uniondifferenceintersection-of-two-arrays">Find the union/difference/intersection of two arrays<a class="headerlink" href="#find-the-uniondifferenceintersection-of-two-arrays" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Find the union</span>
+<span class="k">sub</span><span class="w"> </span><span class="nf">uniq</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">my</span><span class="w"> </span><span class="nv">%seen</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">grep</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">!</span><span class="nv">$seen</span><span class="p">{</span><span class="nv">$_</span><span class="p">}</span><span class="o">++</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="nv">@_</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">uniq</span><span class="p">(</span><span class="nv">@array1</span><span class="p">,</span><span class="w"> </span><span class="nv">@array2</span><span class="p">);</span>
+
+<span class="c1"># Find the difference (exist in @array1 but not in @array2)</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">%hash2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">map</span><span class="p">{</span><span class="nv">$_</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="nv">@array2</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@array1Only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">grep</span><span class="p">(</span><span class="o">!</span><span class="nb">defined</span><span class="w"> </span><span class="nv">$hash2</span><span class="p">{</span><span class="nv">$_</span><span class="p">},</span><span class="w"> </span><span class="nv">@array1</span><span class="p">);</span>
+
+<span class="c1"># Find the intersection</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">%hash2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">map</span><span class="p">{</span><span class="nv">$_</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="nv">@array2</span><span class="p">;</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@intersection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">grep</span><span class="p">(</span><span class="nv">$hash2</span><span class="p">{</span><span class="nv">$_</span><span class="p">},</span><span class="w"> </span><span class="nv">@array1</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="count-the-occurrence">Count the occurrence<a class="headerlink" href="#count-the-occurrence" title="Permanent link">&para;</a></h3>
+<p>Count the occurrence of each element in an array</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">%Seen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">();</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">grep</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="nv">$Seen</span><span class="p">{</span><span class="w"> </span><span class="nv">$_</span><span class="w"> </span><span class="p">}</span><span class="o">++</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nv">@array</span><span class="p">);</span>
+<span class="c1"># $_ here will be each element of @array</span>
+<span class="c1"># &quot;! $Seen{ $_ }&quot; is first evaluated before $Seen{$_} is increased by 1.</span>
+<span class="c1"># If $_ has never be seen before, then $Seen{$_} should be 0 at this moment.</span>
+</code></pre></div>
+<p>Count the occurrence of "the value of a key" in an "array of (references of) hashes</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">%Seen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">();</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">@unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">grep</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="nv">$Seen</span><span class="p">{</span><span class="w"> </span><span class="nv">$_</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$key</span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="o">++</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nv">@array</span><span class="p">);</span>
+<span class="c1"># Every hash in @array has a common key &#39;$key&#39; and I would like to count</span>
+<span class="c1"># the occurrence of its value. &quot;@unique&quot; will be the array of hashes whose</span>
+<span class="c1"># value of the key $key is unique; %Seen will be:</span>
+<span class="c1"># %Seen = ( value1 =&gt; occurrence of value1,</span>
+<span class="c1"># value2 =&gt; occurrence of value2,</span>
+<span class="c1"># ...</span>
+<span class="c1"># )</span>
+</code></pre></div>
+<h3 id="constant">Constant<a class="headerlink" href="#constant" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">constant</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">constant</span><span class="w"> </span><span class="n">DEBUG</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">constant</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">SEC</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="n">MIN</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="n">HOUR</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">        </span><span class="n">MDAY</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">        </span><span class="n">MON</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">        </span><span class="n">YEAR</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">        </span><span class="n">WDAY</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">        </span><span class="n">YDAY</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">        </span><span class="n">ISDST</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">my</span><span class="w"> </span><span class="nv">$debug_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">DEBUG</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="constant-in-regular-expression">Constant in regular expression<a class="headerlink" href="#constant-in-regular-expression" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="sr">/${\MYCONSTANT}/</span>
+<span class="c1"># \MYCONSTANT is the reference of MYCONSTANT</span>
+<span class="c1"># ${$href} will dereference $href</span>
+</code></pre></div>
+<h3 id="length-of-a-variable">Length of a variable<a class="headerlink" href="#length-of-a-variable" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="w"> </span><span class="n">EXPR</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="c1"># The length in character.</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">scalar</span><span class="w"> </span><span class="nv">@array</span><span class="w"> </span><span class="c1"># The length of an array</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">@array</span><span class="w"> </span><span class="c1"># The length of an array</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$lastindex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$#array</span><span class="w"> </span><span class="c1"># The last entry index of an array</span>
+<span class="k">my</span><span class="w"> </span><span class="nv">$len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">scalar</span><span class="w"> </span><span class="nb">keys</span><span class="w"> </span><span class="nv">%hash</span><span class="w"> </span><span class="c1"># The length of a hash</span>
+</code></pre></div>
+<h2 id="sort">Sort<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nv">@articles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="nv">@files</span><span class="p">;</span><span class="w"> </span><span class="c1"># sort lexically</span>
+<span class="nv">@articles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="p">{</span><span class="nv">$a</span><span class="w"> </span><span class="ow">cmp</span><span class="w"> </span><span class="nv">$b</span><span class="p">}</span><span class="w"> </span><span class="nv">@files</span><span class="p">;</span><span class="w"> </span><span class="c1"># same thing, but with explicit sort routine</span>
+<span class="nv">@articles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="p">{</span><span class="nb">uc</span><span class="p">(</span><span class="nv">$a</span><span class="p">)</span><span class="w"> </span><span class="ow">cmp</span><span class="w"> </span><span class="nb">uc</span><span class="p">(</span><span class="nv">$b</span><span class="p">)}</span><span class="w"> </span><span class="nv">@files</span><span class="p">;</span><span class="w"> </span><span class="c1"># now case-insensitively</span>
+<span class="nv">@articles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="p">{</span><span class="nv">$b</span><span class="w"> </span><span class="ow">cmp</span><span class="w"> </span><span class="nv">$a</span><span class="p">}</span><span class="w"> </span><span class="nv">@files</span><span class="p">;</span><span class="w"> </span><span class="c1"># same thing in reversed order</span>
+<span class="nv">@articles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="p">{</span><span class="nv">$a</span><span class="w"> </span><span class="sr">&lt;=&gt;</span><span class="w"> </span><span class="nv">$b</span><span class="p">}</span><span class="w"> </span><span class="nv">@files</span><span class="p">;</span><span class="w"> </span><span class="c1"># sort numerically ascending</span>
+<span class="nv">@articles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="p">{</span><span class="nv">$b</span><span class="w"> </span><span class="sr">&lt;=&gt;</span><span class="w"> </span><span class="nv">$a</span><span class="p">}</span><span class="w"> </span><span class="nv">@files</span><span class="p">;</span><span class="w"> </span><span class="c1"># sort numerically descending</span>
+
+<span class="c1"># this sorts the has &#39;%age&#39; by value instead of key</span>
+<span class="c1"># using an in-line function</span>
+<span class="nv">@eldest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">$age</span><span class="p">{</span><span class="nv">$b</span><span class="p">}</span><span class="w"> </span><span class="sr">&lt;=&gt;</span><span class="w"> </span><span class="nv">$age</span><span class="p">{</span><span class="nv">$a</span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="nb">keys</span><span class="w"> </span><span class="nv">%age</span><span class="p">;</span>
+
+<span class="c1"># sort using explicit subroutine name</span>
+<span class="k">sub</span><span class="w"> </span><span class="nf">byage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">$age</span><span class="p">{</span><span class="nv">$a</span><span class="p">}</span><span class="w"> </span><span class="sr">&lt;=&gt;</span><span class="w"> </span><span class="nv">$age</span><span class="p">{</span><span class="nv">$b</span><span class="p">};</span><span class="w"> </span><span class="c1"># presuming numeric</span>
+<span class="p">}</span>
+<span class="nv">@sortedclass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="n">byage</span><span class="w"> </span><span class="nv">@class</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="operators">Operators<a class="headerlink" href="#operators" title="Permanent link">&para;</a></h2>
+<p>NOT ! (DON'T USE '~')</p>
+<p>left terms and list operators (leftward)
+left -&gt;
+nonassoc ++ --
+right **
+right ! ~ \ and unary + and -
+left =~ !~
+left * / % x
+left + - .
+left &lt;&lt; &gt;&gt;
+nonassoc named unary operators
+nonassoc &lt; &gt; &lt;= &gt;= lt gt le ge
+nonassoc == != &lt;=&gt; eq ne cmp
+left &amp;
+left | ^
+left &amp;&amp;
+left ||
+nonassoc .. ...
+right ?:
+right = += -= *= etc.
+left , =&gt;
+nonassoc list operators (rightward)
+right not
+left and
+left or xor</p>
+<h2 id="block-comment">Block comment<a class="headerlink" href="#block-comment" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="o">=</span><span class="n">MY_COMMENT_TITLE</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="o">=</span><span class="n">cut</span>
+<span class="c1"># Use lower case, put it at the beginning of the line, or perl will not</span>
+<span class="c1"># recognize it.</span>
+</code></pre></div>
+<h2 id="encoding">Encoding<a class="headerlink" href="#encoding" title="Permanent link">&para;</a></h2>
+<p>Two domains:</p>
+<ul>
+<li>Octet: 8 bits of data; term for bytes passed to or from a non-Perl context, such as a disk file, standard I/O stream, database, command-line argument, environment variable, socket etc</li>
+<li>Character: A character in the range 0 .. 2**32-1 (or more); what Perl's strings are made of.</li>
+</ul>
+<p>Encoding and Decoding</p>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">Encode</span><span class="w"> </span><span class="sx">qw(decode encode)</span><span class="p">;</span>
+
+<span class="nv">$octets</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">encode</span><span class="p">(</span><span class="n">ENCODING</span><span class="p">,</span><span class="w"> </span><span class="n">STRING</span><span class="p">[,</span><span class="w"> </span><span class="k">CHECK</span><span class="p">])</span>
+<span class="nv">$octets</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;utf8&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">$string</span><span class="p">);</span>
+
+<span class="nv">$string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decode</span><span class="p">(</span><span class="n">ENCODING</span><span class="p">,</span><span class="w"> </span><span class="n">OCTETS</span><span class="p">[,</span><span class="w"> </span><span class="k">CHECK</span><span class="p">])</span>
+<span class="nv">$string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">decode</span><span class="p">(</span><span class="s">&quot;iso-8859-1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">$octets</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">&para;</a></h2>
+<p>Multiple Initialization:</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="p">(</span><span class="nv">$var1</span><span class="p">,</span><span class="w"> </span><span class="nv">$var2</span><span class="p">,</span><span class="w"> </span><span class="nv">$var3</span><span class="p">);</span>
+</code></pre></div>
+<p>Pass a subroutine into the other subroutine:</p>
+<div class="highlight"><pre><span></span><code><span class="n">func1</span><span class="p">(</span><span class="w"> </span><span class="o">\&amp;</span><span class="n">func2</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">)</span>
+</code></pre></div>
+<p>(To be re-evaluated) In Windows OS, call <code>myscript.pl</code> from another perl script:</p>
+<div class="highlight"><pre><span></span><code><span class="k">my</span><span class="w"> </span><span class="nv">$stdout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`start /B myscript.pl`</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>In Windows, directly call <code>myscript.pl</code> in another perl script sometimes results in an error message about Windows not recognizing <code>myscript.pl</code>. Reason unknown.</li>
+<li>use <code>start /B</code> to invoke <code>myscript.pl</code> in the same commandline window so that the STDOUT from <code>myscript.pl</code> can be captured.</li>
+</ul>
+<h2 id="templates">Templates<a class="headerlink" href="#templates" title="Permanent link">&para;</a></h2>
+<h3 id="usage-message">Usage Message<a class="headerlink" href="#usage-message" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="nn">Getopt::Long</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="nn">File::Basename</span><span class="p">;</span>
+
+<span class="k">my</span><span class="w"> </span><span class="nv">$PrintHelp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">GetOptions</span><span class="p">(</span>
+<span class="w">  </span><span class="s">&#39;help|h&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="o">\</span><span class="nv">$PrintHelp</span><span class="p">,</span>
+<span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="nb">die</span><span class="p">(</span><span class="s">&quot;Error in command line arguments\n&quot;</span><span class="p">);</span>
+
+<span class="c1"># input ------------------------------------------------------------------</span>
+
+<span class="c1"># Print the usage message if one of the followings is true:</span>
+<span class="c1">#   - user sets no argument and no options</span>
+<span class="c1">#   - user sets option --help or -h</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">@ARGV</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">$PrintHelp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">usage</span><span class="p">();</span>
+<span class="w">  </span><span class="nb">exit</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1"># sub-routnes ------------------------------------------------------------</span>
+
+<span class="k">sub</span><span class="w"> </span><span class="nf">usage</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">my</span><span class="w"> </span><span class="nv">$fname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">basename</span><span class="p">(</span><span class="nv">$0</span><span class="p">);</span>
+<span class="w">  </span><span class="k">my</span><span class="w"> </span><span class="nv">$usage_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;&lt;</span><span class="dl">USAGE_MESSAGE</span><span class="s">;</span>
+
+<span class="s">  $fname : descriptions.</span>
+
+<span class="s">SYNTAX</span>
+
+<span class="s">  $fname [OPTIONS] &lt;path&gt;</span>
+
+<span class="s">OPTIONS</span>
+
+<span class="s">  --help, -h          Print this help message and exit.</span>
+
+<span class="s">EXAMPLE</span>
+
+<span class="dl">USAGE_MESSAGE</span>
+
+<span class="w">  </span><span class="k">print</span><span class="w"> </span><span class="bp">STDOUT</span><span class="w"> </span><span class="nv">$usage_message</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="good-practice">Good Practice<a class="headerlink" href="#good-practice" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Do not make perl quietly delete a whole directory.</li>
+<li>Rationale: There are too many ways to get the path wrong, causing perl to accidentally delete important things.</li>
+<li>Alternatives:</li>
+<li>(still at risk) Ask user to confirm the path to be deleted.</li>
+<li>(very conservative) Never make perl to delete directories.</li>
+<li>Use perl built-in functions to manage the file system</li>
+<li>Rationale: Using the OS system commands like <code>rm</code> in the linux system or <code>del</code> in the Windows system results in various portability issues.</li>
+</ul>
+<h2 id="reference_1">Reference<a class="headerlink" href="#reference_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://www.activeperl.com/ASPN/docs/ActivePerl">Active Perl</a></li>
+<li><a href="http://learn.perl.org">Learn Perl</a></li>
+<li><a href="http://bfr.caseywest.com">Perl Beginners First Response</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
